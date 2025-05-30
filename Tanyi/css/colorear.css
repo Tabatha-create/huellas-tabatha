@@ -1,0 +1,52 @@
+/* Estilos específicos para la página de colorear */
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.selected {
+  border: 3px solid #333;
+}
+
+canvas {
+  border: 4px dashed var(--colorear-color);
+  border-radius: 12px;
+  cursor: crosshair;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.selected {
+  border: 3px solid #333;
+}
+select, button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #a86c3d;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e76f51;
+}
+
+@media (max-width: 768px) {
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}

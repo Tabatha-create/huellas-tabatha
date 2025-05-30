@@ -1,0 +1,487 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorear con Números - Diversión para Niños</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .color-palette {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border: 3px solid #e9ecef;
+        }
+
+        .palette-title {
+            font-size: 1.5rem;
+            color: #495057;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 12px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .color-item:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        .color-item.selected {
+            border-color: #28a745;
+            background: #d4edda;
+            transform: scale(1.1);
+        }
+
+        .color-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .color-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .drawing-area {
+            flex: 2;
+            min-width: 400px;
+            text-align: center;
+        }
+
+        .drawing-container {
+            background: white;
+            border: 3px solid #007bff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .drawing-title {
+            font-size: 1.3rem;
+            color: #495057;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #drawing-svg {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .drawing-section {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            stroke: #333;
+            stroke-width: 2;
+            fill: white;
+        }
+
+        .drawing-section:hover {
+            stroke-width: 3;
+            filter: brightness(1.1);
+        }
+
+        .section-number {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            fill: #333;
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            box-shadow: 0 4px 15px rgba(108,117,125,0.3);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(108,117,125,0.4);
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 10px;
+            color: #0c5460;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .color-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Colorear con Números 🎨</h1>
+            <p>Selecciona un número de color y haz clic en las secciones para colorear</p>
+        </div>
+
+        <div class="main-content">
+            <div class="color-palette">
+                <h3 class="palette-title">Paleta de Colores</h3>
+                <div class="color-grid">
+                    <div class="color-item" data-color="#ff6b6b" data-number="1">
+                        <div class="color-circle" style="background-color: #ff6b6b;"></div>
+                        <span class="color-number">1</span>
+                    </div>
+                    <div class="color-item" data-color="#4ecdc4" data-number="2">
+                        <div class="color-circle" style="background-color: #4ecdc4;"></div>
+                        <span class="color-number">2</span>
+                    </div>
+                    <div class="color-item" data-color="#45b7d1" data-number="3">
+                        <div class="color-circle" style="background-color: #45b7d1;"></div>
+                        <span class="color-number">3</span>
+                    </div>
+                    <div class="color-item" data-color="#f9ca24" data-number="4">
+                        <div class="color-circle" style="background-color: #f9ca24;"></div>
+                        <span class="color-number">4</span>
+                    </div>
+                    <div class="color-item" data-color="#6c5ce7" data-number="5">
+                        <div class="color-circle" style="background-color: #6c5ce7;"></div>
+                        <span class="color-number">5</span>
+                    </div>
+                    <div class="color-item" data-color="#a29bfe" data-number="6">
+                        <div class="color-circle" style="background-color: #a29bfe;"></div>
+                        <span class="color-number">6</span>
+                    </div>
+                    <div class="color-item" data-color="#fd79a8" data-number="7">
+                        <div class="color-circle" style="background-color: #fd79a8;"></div>
+                        <span class="color-number">7</span>
+                    </div>
+                    <div class="color-item" data-color="#00b894" data-number="8">
+                        <div class="color-circle" style="background-color: #00b894;"></div>
+                        <span class="color-number">8</span>
+                    </div>
+                </div>
+                <div class="status" id="status">
+                    👆 Selecciona un color para empezar
+                </div>
+            </div>
+
+            <div class="drawing-area">
+                <div class="drawing-container">
+                    <h3 class="drawing-title">🌸 Flor Hermosa 🌸</h3>
+                    <svg id="drawing-svg" width="400" height="400" viewBox="0 0 400 400">
+                        <!-- Petalo superior -->
+                        <path class="drawing-section" data-number="1" d="M200 50 Q150 100 200 150 Q250 100 200 50 Z" />
+                        <text class="section-number" x="200" y="100">1</text>
+                        
+                        <!-- Petalo derecho -->
+                        <path class="drawing-section" data-number="2" d="M350 200 Q300 150 250 200 Q300 250 350 200 Z" />
+                        <text class="section-number" x="300" y="200">2</text>
+                        
+                        <!-- Petalo inferior -->
+                        <path class="drawing-section" data-number="3" d="M200 350 Q250 300 200 250 Q150 300 200 350 Z" />
+                        <text class="section-number" x="200" y="300">3</text>
+                        
+                        <!-- Petalo izquierdo -->
+                        <path class="drawing-section" data-number="4" d="M50 200 Q100 250 150 200 Q100 150 50 200 Z" />
+                        <text class="section-number" x="100" y="200">4</text>
+                        
+                        <!-- Centro de la flor -->
+                        <circle class="drawing-section" data-number="5" cx="200" cy="200" r="40" />
+                        <text class="section-number" x="200" y="200">5</text>
+                        
+                        <!-- Tallo -->
+                        <rect class="drawing-section" data-number="6" x="190" y="250" width="20" height="100" />
+                        <text class="section-number" x="200" y="300">6</text>
+                        
+                        <!-- Hoja izquierda -->
+                        <path class="drawing-section" data-number="7" d="M190 280 Q150 290 160 320 Q180 310 190 280 Z" />
+                        <text class="section-number" x="170" y="300">7</text>
+                        
+                        <!-- Hoja derecha -->
+                        <path class="drawing-section" data-number="8" d="M210 300 Q220 310 240 320 Q250 290 210 300 Z" />
+                        <text class="section-number" x="230" y="310">8</text>
+                    </svg>
+                    
+                    <div class="controls">
+                        <button class="btn" onclick="resetDrawing()">🔄 Reiniciar</button>
+                        <button class="btn btn-secondary" onclick="showHint()">💡 Ayuda</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedColor = null;
+        let selectedNumber = null;
+        let coloredSections = {};
+
+        // Inicializar eventos
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeColorPalette();
+            initializeDrawingSections();
+        });
+
+        function initializeColorPalette() {
+            const colorItems = document.querySelectorAll('.color-item');
+            
+            colorItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remover selección anterior
+                    colorItems.forEach(ci => ci.classList.remove('selected'));
+                    
+                    // Seleccionar nuevo color
+                    this.classList.add('selected');
+                    selectedColor = this.dataset.color;
+                    selectedNumber = this.dataset.number;
+                    
+                    updateStatus(`Color ${selectedNumber} seleccionado. ¡Ahora haz clic en una sección con el número ${selectedNumber}!`);
+                });
+            });
+        }
+
+        function initializeDrawingSections() {
+            const sections = document.querySelectorAll('.drawing-section');
+            
+            sections.forEach(section => {
+                section.addEventListener('click', function() {
+                    const sectionNumber = this.dataset.number;
+                    
+                    if (!selectedColor) {
+                        updateStatus('⚠️ Primero selecciona un color de la paleta');
+                        return;
+                    }
+                    
+                    if (selectedNumber !== sectionNumber) {
+                        updateStatus(`❌ Este es el número ${sectionNumber}. Selecciona el color número ${sectionNumber}`);
+                        return;
+                    }
+                    
+                    // Colorear la sección
+                    this.style.fill = selectedColor;
+                    coloredSections[sectionNumber] = selectedColor;
+                    
+                    // Efecto de éxito
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    updateStatus(`✅ ¡Excelente! Sección ${sectionNumber} coloreada`);
+                    
+                    // Verificar si está completo
+                    checkCompletion();
+                });
+                
+                section.addEventListener('mouseenter', function() {
+                    const sectionNumber = this.dataset.number;
+                    if (selectedNumber && selectedNumber === sectionNumber) {
+                        this.style.stroke = selectedColor;
+                        this.style.strokeWidth = '4';
+                    }
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.stroke = '#333';
+                    this.style.strokeWidth = '2';
+                });
+            });
+        }
+
+        function updateStatus(message) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            
+            // Efecto de animación
+            status.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                status.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function checkCompletion() {
+            const totalSections = document.querySelectorAll('.drawing-section').length;
+            const coloredCount = Object.keys(coloredSections).length;
+            
+            if (coloredCount === totalSections) {
+                setTimeout(() => {
+                    updateStatus('🎉 ¡FELICITACIONES! ¡Has completado tu obra de arte! 🎨✨');
+                    celebrateCompletion();
+                }, 500);
+            }
+        }
+
+        function celebrateCompletion() {
+            const svg = document.getElementById('drawing-svg');
+            svg.style.animation = 'pulse 0.5s ease-in-out 3';
+            
+            // Agregar keyframes para la animación
+            if (!document.getElementById('celebration-styles')) {
+                const style = document.createElement('style');
+                style.id = 'celebration-styles';
+                style.textContent = `
+                    @keyframes pulse {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.05); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        function resetDrawing() {
+            const sections = document.querySelectorAll('.drawing-section');
+            sections.forEach(section => {
+                section.style.fill = 'white';
+                section.style.transform = 'scale(1)';
+            });
+            
+            const colorItems = document.querySelectorAll('.color-item');
+            colorItems.forEach(item => item.classList.remove('selected'));
+            
+            selectedColor = null;
+            selectedNumber = null;
+            coloredSections = {};
+            
+            updateStatus('🔄 ¡Listo para empezar de nuevo! Selecciona un color');
+        }
+
+        function showHint() {
+            const uncoloredSections = [];
+            const allSections = document.querySelectorAll('.drawing-section');
+            
+            allSections.forEach(section => {
+                if (!coloredSections[section.dataset.number]) {
+                    uncoloredSections.push(section.dataset.number);
+                }
+            });
+            
+            if (uncoloredSections.length === 0) {
+                updateStatus('🎉 ¡Ya has coloreado todo! ¡Excelente trabajo!');
+            } else {
+                const nextSection = uncoloredSections[0];
+                updateStatus(`💡 Intenta colorear la sección número ${nextSection} siguiente`);
+                
+                // Resaltar la sección
+                const section = document.querySelector(`[data-number="${nextSection}"]`);
+                section.style.stroke = '#ff6b6b';
+                section.style.strokeWidth = '4';
+                
+                setTimeout(() => {
+                    section.style.stroke = '#333';
+                    section.style.strokeWidth = '2';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
