@@ -61,63 +61,78 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Crear el modal
-    const modalHTML = `
-        <div id="imageModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="modalImg">
-            <div id="modalCaption" class="modal-caption"></div>
-        </div>
-    `;
-    
-    // Añadir el modal al body
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-    
-    // Obtener referencias
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalCaption = document.getElementById('modalCaption');
-    const closeBtn = document.getElementsByClassName('close')[0];
-    
-    // Asignar eventos a todas las tarjetas de memoria
-    const memoryCards = document.querySelectorAll('.memory-card');
-    
-    memoryCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Abrir el modal
-            modal.style.display = 'block';
+ document.addEventListener('DOMContentLoaded', function() {
+            // Obtener elementos del modal
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeBtn = document.getElementsByClassName('close')[0];
             
-            // Obtener la imagen y los textos
-            const img = this.querySelector('.memory-img');
-            const title = this.querySelector('.memory-text h4').textContent;
-            const description = this.querySelector('.memory-text p').textContent;
+            // Obtener todas las tarjetas de memoria
+            const memoryCards = document.querySelectorAll('.memory-card');
             
-            // Mostrar en el modal
-            modalImg.src = img.src;
-            modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+            // Agregar event listener a cada tarjeta
+            memoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Obtener datos de la imagen y texto
+                    const img = this.querySelector('.memory-img');
+                    const title = this.querySelector('.memory-text h4');
+                    const description = this.querySelector('.memory-text p');
+                    
+                    // Mostrar el modal
+                    modal.style.display = 'block';
+                    
+                    // Establecer la imagen
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    
+                    // Establecer el texto
+                    if (title) {
+                        modalTitle.textContent = title.textContent;
+                        modalTitle.style.display = 'block';
+                    } else {
+                        modalTitle.style.display = 'none';
+                    }
+                    
+                    if (description) {
+                        modalDescription.textContent = description.textContent;
+                        modalDescription.style.display = 'block';
+                    } else {
+                        modalDescription.style.display = 'none';
+                    }
+                    
+                    // Prevenir scroll del body
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Cerrar modal al hacer clic en X
+            closeBtn.addEventListener('click', function() {
+                closeModal();
+            });
+            
+            // Cerrar modal al hacer clic fuera de la imagen
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Cerrar modal con tecla Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+            
+            // Función para cerrar el modal
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
-    });
-    
-    // Cerrar el modal al hacer clic en la X
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-    
-    // Cerrar el modal al hacer clic fuera de la imagen
-    modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-    
-    // Cerrar el modal con la tecla Escape
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-        }
-    });
-});
+
     // botón para desplazar hacia arriba la página
 document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -139,6 +154,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 })
-
 
 
