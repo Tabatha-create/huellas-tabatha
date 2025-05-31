@@ -74,9 +74,8 @@ header {
     box-shadow: 0 6px 20px var(--color-sombra);
     border-radius: 25px;
     margin-bottom: 20px;
-    position: sticky;
-    top: 5px;
-    z-index: 100;
+    position: relative;
+    width: 100%;
 }
 
 .logo-container {
@@ -609,7 +608,7 @@ main {
    FORMULARIO DE CONTACTO CENTRADO CON BOTÓN DESPLEGABLE
 =================== */
 #contact-section {
-    position: fixed !important;
+    position: relative;
     bottom: 80px;
     left: 50% !important;
     transform: translateX(-50%) !important;
