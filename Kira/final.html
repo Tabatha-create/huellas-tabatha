@@ -1,0 +1,322 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final del Cuento - ¡Amistad para Siempre!</title>
+    <style>
+        :root {
+            --primary-color: #ffb6c1;       /* Rosa pastel suave */
+            --secondary-color: #98d8c8;     /* Verde menta pastel */
+            --tertiary-color: #fcbecb;      /* Rosa pálido */
+            --bg-color: #fff5f7;            /* Fondo rosado muy suave */
+            --container-bg: rgba(255, 245, 247, 0.85);
+            --text-color: #6d534b;          /* Marrón oscuro para mejor legibilidad */
+            --header-footer-bg: rgba(255, 182, 193, 0.9);
+            --footer-bg: rgba(152, 216, 200, 0.9);
+            --border-radius-lg: 20px;
+            --border-radius-sm: 15px;
+            --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --header-footer-padding: 20px;
+            --accent-color: #d0f0c0;        /* Verde pastel claro */
+            --highlight-color: #fffacd;     /* Amarillo pastel */
+            --bow-color: #ffacc7;           /* Rosa del moño */
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--bg-color), var(--primary-color), var(--secondary-color));
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cuento-texto {
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 30px;
+            border: 3px solid var(--primary-color);
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .cuento-texto h1 {
+            color: var(--text-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cuento-texto p {
+            color: var(--text-color);
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .fin-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--highlight-color));
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--text-color);
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .fin-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+        }
+
+        /* Animaciones de corazones */
+        .corazon {
+            position: absolute;
+            font-size: 2em;
+            animation: flotar 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .corazon.rosa { color: var(--primary-color); }
+        .corazon.brillante { 
+            color: var(--highlight-color);
+            filter: drop-shadow(0 0 10px var(--highlight-color));
+            animation: brillar 2s infinite alternate, flotar 6s infinite ease-in-out;
+        }
+        .corazon.multicolor {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--highlight-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Símbolos de amistad */
+        .simbolo-amistad {
+            position: absolute;
+            font-size: 2.5em;
+            animation: girar 8s infinite linear, flotar 7s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .simbolo-amistad.manos { color: var(--secondary-color); }
+        .simbolo-amistad.abrazo { color: var(--tertiary-color); }
+        .simbolo-amistad.estrella { 
+            color: var(--highlight-color);
+            filter: drop-shadow(0 0 8px var(--highlight-color));
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes brillar {
+            0% { filter: drop-shadow(0 0 10px var(--highlight-color)); }
+            100% { filter: drop-shadow(0 0 20px var(--highlight-color)) drop-shadow(0 0 30px var(--primary-color)); }
+        }
+
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes aparecer {
+            0% { 
+                opacity: 0; 
+                transform: scale(0) translateY(50px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0px);
+            }
+        }
+
+        .elemento-animado {
+            animation: aparecer 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Efectos de partículas */
+        .particula {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: particulas 4s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes particulas {
+            0% { 
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cuento-texto">
+        <h1>¡Y Colorín Colorado!</h1>
+        <p>Los amigos vivieron muchas aventuras juntos, siempre cuidándose y apoyándose mutuamente.</p>
+        <p>Porque la verdadera amistad es el tesoro más valioso que podemos encontrar.</p>
+        <p>Kira siguió cantando por muchos otros sitios, siempre acompañada de su fiel y eterno amigo Periquito</p>
+        <button class="fin-button" onclick="activarCelebracion()">¡Celebrar la Amistad!</button>
+    </div>
+
+    <script>
+        let celebracionActiva = false;
+        let intervalos = [];
+
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.className = 'corazon elemento-animado';
+            corazon.innerHTML = '💖';
+            
+            const tipos = ['rosa', 'brillante', 'multicolor'];
+            const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
+            corazon.classList.add(tipoAleatorio);
+            
+            corazon.style.left = Math.random() * 100 + '%';
+            corazon.style.top = Math.random() * 100 + '%';
+            corazon.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(corazon);
+            
+            setTimeout(() => {
+                if (corazon.parentNode) {
+                    corazon.remove();
+                }
+            }, 8000);
+        }
+
+        function crearSimboloAmistad() {
+            const simbolo = document.createElement('div');
+            simbolo.className = 'simbolo-amistad elemento-animado';
+            
+            const simbolos = [
+                { emoji: '🤝', clase: 'manos' },
+                { emoji: '🫂', clase: 'abrazo' },
+                { emoji: '⭐', clase: 'estrella' },
+                { emoji: '🌟', clase: 'estrella' },
+                { emoji: '💫', clase: 'estrella' }
+            ];
+            
+            const simboloAleatorio = simbolos[Math.floor(Math.random() * simbolos.length)];
+            simbolo.innerHTML = simboloAleatorio.emoji;
+            simbolo.classList.add(simboloAleatorio.clase);
+            
+            simbolo.style.left = Math.random() * 100 + '%';
+            simbolo.style.top = Math.random() * 100 + '%';
+            simbolo.style.animationDelay = Math.random() * 3 + 's';
+            
+            document.body.appendChild(simbolo);
+            
+            setTimeout(() => {
+                if (simbolo.parentNode) {
+                    simbolo.remove();
+                }
+            }, 10000);
+        }
+
+        function crearParticula() {
+            const particula = document.createElement('div');
+            particula.className = 'particula';
+            particula.style.left = Math.random() * 100 + '%';
+            particula.style.animationDelay = Math.random() * 2 + 's';
+            
+            const colores = [
+                'var(--primary-color)', 
+                'var(--secondary-color)', 
+                'var(--accent-color)', 
+                'var(--highlight-color)'
+            ];
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            
+            // Convertir CSS variables a valores RGB
+            const colorMap = {
+                'var(--primary-color)': '#ffb6c1',
+                'var(--secondary-color)': '#98d8c8',
+                'var(--accent-color)': '#d0f0c0',
+                'var(--highlight-color)': '#fffacd'
+            };
+            
+            particula.style.background = colorMap[colorAleatorio];
+            
+            document.body.appendChild(particula);
+            
+            setTimeout(() => {
+                if (particula.parentNode) {
+                    particula.remove();
+                }
+            }, 4000);
+        }
+
+        function activarCelebracion() {
+            if (celebracionActiva) return;
+            celebracionActiva = true;
+            
+            // Crear elementos inmediatamente
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => crearCorazon(), i * 200);
+                setTimeout(() => crearSimboloAmistad(), i * 300);
+            }
+            
+            // Continuar creando elementos
+            intervalos.push(setInterval(crearCorazon, 800));
+            intervalos.push(setInterval(crearSimboloAmistad, 1200));
+            intervalos.push(setInterval(crearParticula, 300));
+            
+            // Cambiar el botón
+            const boton = document.querySelector('.fin-button');
+            boton.innerHTML = '¡Amistad para Siempre! 💕';
+            boton.style.background = 'linear-gradient(45deg, var(--secondary-color), var(--accent-color))';
+            boton.style.color = 'var(--text-color)';
+        }
+
+        // Crear algunos elementos iniciales
+        setTimeout(() => {
+            crearCorazon();
+            crearSimboloAmistad();
+        }, 1000);
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                crearCorazon();
+            }
+        }, 3000);
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                crearSimboloAmistad();
+            }
+        }, 4000);
+    </script>
+</body>
+</html>
