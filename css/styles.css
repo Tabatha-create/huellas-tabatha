@@ -367,6 +367,12 @@ main {
             padding: 20px;
         }
 
+        #sobre-nosotros {
+            background-color: var(--color-malva);
+            padding: 20px;
+            border-radius: 25px;
+        }
+
         .section-title {
             font-family: var(--fuente-titulos);
             font-size: 2.5rem;
@@ -652,16 +658,6 @@ main {
     transform: scale(1.15);
     box-shadow: 0 8px 20px var(--sombra-lavanda);
 }
-
-/* Alternativa más responsive usando calc() */
-/*
-.sidebar {
-    position: fixed;
-    right: 20px;
-    top: calc(var(--header-height, 80px) + 20px);
-    z-index: 50;
-}
-*/
 
 /* Si quieres que sea más responsive en móviles */
 @media (max-width: 768px) {
