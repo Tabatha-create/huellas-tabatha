@@ -379,30 +379,6 @@ h1 {
   box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.1);
 }
 
-.navigation {
-  margin: 3rem auto;
-  text-align: center;
-}
-
-.navigation a {
-  display: inline-block;
-  background: var(--gradient-primary);
-  color: white;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  margin: 0.5rem;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  font-family: 'Comic Sans MS', cursive;
-  box-shadow: var(--box-shadow);
-}
-
-.navigation a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(231, 111, 81, 0.3);
-}
-
 /* Modal para consejos de animales */
 .modal {
   display: none;
