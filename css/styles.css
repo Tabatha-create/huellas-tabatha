@@ -247,6 +247,45 @@ header {
     }
 }
 
+#lluvia-elementos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* no interfiere con clics */
+  z-index: 9999;
+}
+
+.rain-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.raindrop {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem;
+  animation-name: caer;
+  animation-timing-function: linear;
+  opacity: 0.9;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 /* ===================
    CONTENIDO PRINCIPAL
 =================== */

@@ -27,6 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+const container = document.querySelector('.rain-container');
+  const emojis = ['🐾',  '📘', '🦴','📙', '🐶', '📕', ]; // Puedes añadir más
+
+  function crearEmoji() {
+    const el = document.createElement('div');
+    el.classList.add('raindrop');
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    el.style.left = `${Math.random() * 100}%`;
+    el.style.animationDuration = `${Math.random() * 4 + 3}s`;
+    el.style.fontSize = `${Math.random() * 1.5 + 1.2}rem`;
+
+    container.appendChild(el);
+
+    setTimeout(() => el.remove(), 8000); // elimina después de caer
+  }
+
+  setInterval(crearEmoji, 300); // uno nuevo cada 200ms
+
 document.addEventListener('DOMContentLoaded', function() {
     // Funcionalidad para desplegar/contraer el formulario
     const toggle = document.querySelector('.contact-toggle');

@@ -24,11 +24,13 @@
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                 <!-- Implementación del menú desplegable para cuentos -->
-                    <li class="dropdown"> <a href="#cuentos" class="nav-link">Cuentos</a>
+                    <li class="dropdown"> 
+                        <a href="#cuentos" class="nav-link">Cuentos</a>
                         <div class="dropdown-content">
                             <a href="Tanyi/menu.html">La historia de Tanyi</a>
                             <a href="Kira/menu.html">Kira, la ratita presumida</a>
                             <a href="Lulo/menu.html">El elefante LuLo</a>
+                            <a href="Mac/menu.html">Mac el dinosaurio</a>
                         </div>
                     </li>
                     <li><a href="#actividades">Actividades</a></li>
@@ -38,6 +40,10 @@
             </nav>
         </div>
     </header>
+
+    <section id="lluvia-elementos">
+      <div class="rain-container"></div>
+    </section>
 
     <!-- Contenido principal -->
     <main>
@@ -54,6 +60,7 @@
 
         <!-- Sección de características destacadas -->
         <section id="caracteristicas">
+            
             <div class="container">
                 <h2 class="section-title">¿Qué encontrarás aquí?</h2>
                 <div class="feature-cards">
@@ -61,8 +68,9 @@
                         <div class="card-img"> <img src="img/libros.png" alt="libros"></div>
                         <div class="card-content">
                             <h3 class="card-title">📚Cuentos Infantiles</h3>
-                            <p>Historias protagonizadas por animales que enseñan valores importantes mientras entretienen a los más pequeños.</p>
-                            <a href="#cuentos" class="btn">Ver cuentos</a>
+                            Historias que enseñan valores importantes mientras entretienen a los más pequeños. <br>
+                            Escribe el tuyo y te lo publicamos aquí</p>
+                            <a href="javascript:void(0);" class="btn" onclick="toggleCuentos()">Ver cuentos</a>
                         </div>
                     </div>
                     <div class="card">
@@ -83,7 +91,6 @@
                     </div>
                 </div>
             </div>
-        
 
 <div class="sidebar">
     <ul class="social-icons">
