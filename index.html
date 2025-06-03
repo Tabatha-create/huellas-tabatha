@@ -22,7 +22,7 @@
             <!-- Navegación principal -->
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
                 <!-- Implementación del menú desplegable para cuentos -->
                     <li class="dropdown"> 
                         <a href="#cuentos" class="nav-link">Cuentos</a>
@@ -34,7 +34,7 @@
                         </div>
                     </li>
                     <li><a href="#actividades">Actividades</a></li>
-                    <li><a href="#sobre-nosotros">Quienes somos</a></li>
+                    <li><a href="#sobre-nosotros">Personitas y patitas</a></li>
                     <li><a href="#contact-section">Contacto</a></li>
                 </ul>
             </nav>
@@ -52,45 +52,193 @@
             <div class="container">
                 <h2 class="section-title">Bienvenidos a nuestro mundo de historias</h2>
                 <div class="section-content">
-                    <p>En "Huellas de Tabatha" creamos cuentos infantiles protagonizados por animales que enseñan valores importantes mientras despiertan la imaginación de los niños. <br> Nuestro proyecto nació inspirado en Tabatha, una perrita muy especial que dejó sus huellas en los corazones de quienes la conocieron.</p>
+                    <p>En "Huellas de Tabatha" creamos cuentos infantiles protagonizados por animales y niños que enseñan valores importantes mientras despiertan la imaginación. <br> Este proyecto nació inspirado en Tabatha, una perrita muy especial que dejó sus huellas en los corazones de quienes la conocieron.</p>
                     <h3>¡Acompáñanos en este viaje lleno de aventuras, aprendizaje y diversión!.</h3>
                 </div>
+                <h4>“Este sitio nace del juego, la ternura y la escucha. Cada historia, cada ficha, cada detalle, está pensado con amor.”</h4>
             </div>
         </section>
 
         <!-- Sección de características destacadas -->
-        <section id="caracteristicas">
-            
-            <div class="container">
-                <h2 class="section-title">¿Qué encontrarás aquí?</h2>
-                <div class="feature-cards">
-                    <div class="card">
-                        <div class="card-img"> <img src="img/libros.png" alt="libros"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">📚Cuentos Infantiles</h3>
-                            Historias que enseñan valores importantes mientras entretienen a los más pequeños. <br>
-                            Escribe el tuyo y te lo publicamos aquí</p>
-                            <a href="javascript:void(0);" class="btn" onclick="toggleCuentos()">Ver cuentos</a>
+<section id="caracteristicas">
+    <div class="container">
+        <h2 class="section-title">¿Qué encontrarás aquí?</h2>
+        <div class="feature-cards">
+            <!-- TARJETA 1: CUENTOS -->
+            <div class="card">
+                <div class="card-img"> 
+                    <img src="img/libros.png" alt="libros">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">📚Cuentos Infantiles</h3>
+                    <p>Historias que enseñan valores importantes mientras entretienen a los más pequeños. <br>
+                    Escribe el tuyo y te lo publicamos aquí</p>
+                    
+                    <!-- CONTENIDO EXPANDIBLE PARA CUENTOS -->
+                    <div class="expandable-content" id="cuentos-content">
+                        <div class="story-links">
+                            <a href="Tanyi/menu.html" class="story-link">
+                                <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="Tanyi/img/logo1.png" alt="El Mundo de Tanyi">
+                                </div>
+                                <div class="story-info">
+                                    <h4>El mundo de Tanyi</h4>
+                                    <p>Tanyi, una mestiza especial.</p>
+                                </div>
+                                </div>
+                            </a>
+                            
+                            <a href="Kira/menu.html" class="story-link">
+                                <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="" alt="Kira, la ratita"></div>
+                                <div class="story-info">
+                                    <h4>Kira, la ratita</h4>
+                                    <p>Una ratita soñadora y su amigo Periquito.</p>
+                                </div>
+                                </div>
+                            </a>
+                            
+                            <a href="Lulo/menu.html" class="story-link">
+                                <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="" alt="El elefante LuLo">
+                                </div>
+                                <div class="story-info">
+                                    <h4>El elefante LuLo</h4>
+                                    <p>El elefante más querido.</p>
+                                </div>
+                                </div>
+                            </a>
+                            
+                            <a href="Mac/menu.html" class="story-link">
+                                <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="" alt="Mac el dinosaurio"></div>
+                                <div class="story-info">
+                                    <h4>Mac el dinosaurio</h4>
+                                    <p>Un dinosaurio amigable que viene de lejos.</p>
+                                </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-img"> <img src="img/juegos.png" alt="libros"> </div>
-                        <div class="card-content">
-                            <h3 class="card-title">🎮Juegos y Actividades</h3>
-                            <p>Actividades divertidas relacionadas con nuestros cuentos para reforzar el aprendizaje mientras juegan.</p>
-                            <a href="#actividades" class="btn">Explorar actividades</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">🏆</div>
-                        <div class="card-content">
-                            <h3 class="card-title">Recursos</h3>
-                            <p>Materiales que complementan las historias y fomentan el amor por la lectura.</p>
-                            <a href="#recursos" class="btn">Ver recursos</a>
-                        </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn" onclick="toggleContent('cuentos-content', this)">
+                            Ver cuentos
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+            
+            <!-- TARJETA 2: ACTIVIDADES -->
+             <section id="actividades"> 
+            <div class="card">
+                <div class="card-img"> 
+                    <img src="img/recursos.png" alt="juegos"> 
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">🎮Juegos y Actividades</h3>
+                    <p>Actividades divertidas relacionadas con nuestros cuentos para reforzar el aprendizaje mientras juegan.</p>
+                    
+                    <!-- CONTENIDO EXPANDIBLE PARA ACTIVIDADES -->
+                    <div class="expandable-content" id="actividades-content">
+                        <div class="activity-grid">
+                            <div class="activity-item">
+                                <div class="activity-icon">🧩</div>
+                                <h4>Puzzles</h4>
+                                <p>Rompecabezas de nuestros personajes</p>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎨</div>
+                                <h4>Colorear</h4>
+                                <p>Dibujos para colorear y crear</p>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎵</div>
+                                <h4>Canciones</h4>
+                                <p>Melodías de nuestras historias</p>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎭</div>
+                                <h4>Teatro</h4>
+                                <p>Representa los cuentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn" onclick="toggleContent('actividades-content', this)">
+                            Explorar actividades
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!-- TARJETA 3: RECURSOS -->
+            <div class="card">
+                <div class="card-img"> 
+                    <img src="img/padres.png" alt="padres"> 
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">📚 Recursos</h3>
+                    <p>Materiales que complementan las historias y fomentan el amor por la lectura.</p>
+                    
+                    <!-- CONTENIDO EXPANDIBLE PARA RECURSOS -->
+                    <div class="expandable-content" id="recursos-content">
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <i class="fas fa-file-pdf resource-icon"></i>
+                                <div>
+                                    <h4>Guías de lectura</h4>
+                                    <p>Para padres y educadores</p>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <i class="fas fa-palette resource-icon"></i>
+                                <div>
+                                    <h4>Material didáctico</h4>
+                                    <p>Fichas y actividades imprimibles</p>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <i class="fas fa-video resource-icon"></i>
+                                <div>
+                                    <h4>Videos educativos</h4>
+                                    <p>Contenido audiovisual complementario</p>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <i class="fas fa-book-open resource-icon"></i>
+                                <div>
+                                    <h4>Biblioteca digital</h4>
+                                    <p>Acceso a todos nuestros cuentos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn" onclick="toggleContent('recursos-content', this)">
+                            Ver recursos
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="sidebar">
     <ul class="social-icons">
@@ -103,14 +251,53 @@
 </section>
 <!-- Sección Sobre Nosotros  -->
 <section id="sobre-nosotros" class="about-section">
+<section class="equipo">
+            <h2>Personitas y patitas</h2>
+            <article class="miembro equipo-tabatha">
+                <h3>🐾 Tabatha, la inspiración de cuatro patas</h3>
+                <figure>
+                    <img src="img/Tabatha.jpg" alt="Foto de Tabatha" />
+                    <figcaption>Tabatha, nuestra musa peluda</figcaption>
+                </figure>
+                <p>Un día, Tabatha con su ternura y alegría nació la idea de crear un espacio donde niñas, niños y familias pudieran jugar, aprender y disfrutar juntos.</p>
+            </article>
+
+            <article class="miembro equipo-leire">
+                <h3>🌟 Leire, nuestra pequeña exploradora</h3>
+                <figure>
+                    <img src="img/sofia-avatar.jpg" alt="Foto de Leire" />
+                    <figcaption>Leire, probadora oficial de cuentos y juegos</figcaption>
+                </figure>
+                <p> Leire prueba cada cuento, juego y actividad. Nos dice qué le gusta, qué cambiaría, y nos recuerda que el mundo infantil es tan sabio como divertido.</p>
+                <blockquote> “Me gusta cuando los cuentos tienen dibujos grandes y puedo tocar cosas”</blockquote>
+            </article>
+
+            <article class="miembro equipo-autor">
+                <h3>👩‍💻 Eva Aixa, la creadora detrás del proyecto</h3>
+                <figure>
+                    <img src="img/tu-foto.jpg" alt="Foto de [Tu Nombre]" />
+                    <figcaption>[Tu Nombre], diseñadora, narradora y creadora de cuentos</figcaption>
+                </figure>
+                <p>Soy Eva Aixa, la persona que da vida a este sitio con mucho amor y dedicación. Escribo cuentos desde que era niña y me encanta interactuar con las niñas y niños para crear e inventar juntos combinando mi pasión por el diseño, la educación infantil y las historias que inspiran.</p>
+            </article>
+            
+            <article class="colaboradores">
+                <h3>💬 Otras voces que nos inspiran</h3>
+                <p> (Espacio para otros colaboradores, padres, docentes, diseñadores, etc.)<br />
+                    Aquí puedes agradecer a quienes dieron ideas, probaron el sitio, o colaboraron con mensajes y sugerencias.</p>
+            </article>
+        </section>   
+        </div>
+        <br>
+        <hr />
         <div class="container">
-            <h2 class="section-title">Memorias de Tabatha</h2>
+            <h2 class="section-title">"Memorias de Tabatha"</h2>
             <div class="about-content">
                 <img src="img/Tabatha.jpg" alt="Tabatha" class="about-img">
                 <div>
-                    <p>Este proyecto nació como un homenaje a Tabatha, una perrita mezcla de poodle y shih tzu que dejó una huella imborrable. Fiel compañera durante muchos momentos y, aunque ya no está físicamente, su espíritu alegre y cariñoso sigue vivo en cada historia que creamos.</p>
+                    <p>Tabatha, una perrita mezcla de poodle y shih tzu dejó una huella imborrable. Fiel compañera durante muchos momentos y, aunque ya no está físicamente, su espíritu alegre y cariñoso sigue vivo en cada momento e historia que creamos.</p>
                     <p>El objetivo es fomentar en los niños el amor y respeto por los animales, además de enseñarles valores importantes como la amistad, la empatía y la perseverancia a través de historias divertidas y entretenidas.</p>
-                    <p>Cada cuento está cuidadosamente diseñado para despertar la imaginación de los pequeños lectores y acompañarlos en su desarrollo.</p>
+                    <p>Cada cuento está cuidadosamente diseñado para despertar la imaginación de los pequeños lectores y acompañarlos en su desarrollo y creatividad.</p>
                 </div>
             </div>
             
@@ -161,8 +348,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
     <!-- Modal para ampliar imágenes con texto -->
     <div id="imageModal" class="modal">
@@ -175,7 +360,9 @@
             </div>
         </div>
     </div>
-<br><br><br><br><br>
+</div>
+    </section>
+<br><br><br><br>
 <section id="contact-section">
   <!-- Botón desplegable -->
   <button class="contact-toggle">Contáctanos</button>

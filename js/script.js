@@ -28,23 +28,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const container = document.querySelector('.rain-container');
-  const emojis = ['🐾',  '📘', '🦴','📙', '🐶', '📕', ]; // Puedes añadir más
+  const emojis = ['🐾',  '📘', '🦴','📙', '🐶', ]; // Puedes añadir más
 
   function crearEmoji() {
-    const el = document.createElement('div');
-    el.classList.add('raindrop');
-    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  if (container.childElementCount > 20) return; // máximo 20 elementos activos
+  const el = document.createElement('div');
+  el.classList.add('raindrop');
+  el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-    el.style.left = `${Math.random() * 100}%`;
-    el.style.animationDuration = `${Math.random() * 4 + 3}s`;
-    el.style.fontSize = `${Math.random() * 1.5 + 1.2}rem`;
+  el.style.left = `${Math.random() * 100}%`;
+  el.style.animationDuration = `${Math.random() * 4 + 3}s`;
+  el.style.fontSize = `${Math.random() * 1.5 + 1.2}rem`;
 
-    container.appendChild(el);
+  container.appendChild(el);
 
-    setTimeout(() => el.remove(), 8000); // elimina después de caer
-  }
+  setTimeout(() => el.remove(), 8000);
+}
 
-  setInterval(crearEmoji, 300); // uno nuevo cada 200ms
+  setInterval(crearEmoji, 500); // uno nuevo cada 500ms
 
 document.addEventListener('DOMContentLoaded', function() {
     // Funcionalidad para desplegar/contraer el formulario
@@ -174,4 +175,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })
 
+// ===== FUNCIONES PARA TARJETAS EXPANDIBLES =====
 
+function toggleContent(contentId, button) {
+    const content = document.getElementById(contentId);
+    const icon = button.querySelector('.toggle-icon');
+    const isExpanded = content.classList.contains('expanded');
+    
+    if (isExpanded) {
+        // Colapsar
+        content.classList.remove('expanded');
+        icon.classList.remove('rotated');
+        
+        // Restaurar texto original del botón
+        if (contentId === 'cuentos-content') {
+            button.innerHTML = 'Ver cuentos <i class="fas fa-chevron-down toggle-icon"></i>';
+        } else if (contentId === 'actividades-content') {
+            button.innerHTML = 'Explorar actividades <i class="fas fa-chevron-down toggle-icon"></i>';
+        } else if (contentId === 'recursos-content') {
+            button.innerHTML = 'Ver recursos <i class="fas fa-chevron-down toggle-icon"></i>';
+        }
+    } else {
+        // Expandir
+        content.classList.add('expanded');
+        icon.classList.add('rotated');
+        
+        // Cambiar texto del botón según el contenido
+        if (contentId === 'cuentos-content') {
+            button.innerHTML = 'Ocultar cuentos <i class="fas fa-chevron-down toggle-icon rotated"></i>';
+        } else if (contentId === 'actividades-content') {
+            button.innerHTML = 'Cerrar actividades <i class="fas fa-chevron-down toggle-icon rotated"></i>';
+        } else if (contentId === 'recursos-content') {
+            button.innerHTML = 'Ver menos recursos <i class="fas fa-chevron-down toggle-icon rotated"></i>';
+        }
+    }
+}
+
+// Cerrar contenido expandible al hacer clic fuera
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+        const cards = document.querySelectorAll('.card');
+        
+        cards.forEach(card => {
+            if (!card.contains(event.target)) {
+                const expandableContent = card.querySelector('.expandable-content');
+                const button = card.querySelector('.btn[onclick*="toggleContent"]');
+                
+                if (expandableContent && expandableContent.classList.contains('expanded') && button) {
+                    const icon = button.querySelector('.toggle-icon');
+                    expandableContent.classList.remove('expanded');
+                    if (icon) icon.classList.remove('rotated');
+                    
+                    // Restaurar texto original del botón
+                    if (expandableContent.id === 'cuentos-content') {
+                        button.innerHTML = 'Ver cuentos <i class="fas fa-chevron-down toggle-icon"></i>';
+                    } else if (expandableContent.id === 'actividades-content') {
+                        button.innerHTML = 'Explorar actividades <i class="fas fa-chevron-down toggle-icon"></i>';
+                    } else if (expandableContent.id === 'recursos-content') {
+                        button.innerHTML = 'Ver recursos <i class="fas fa-chevron-down toggle-icon"></i>';
+                    }
+                }
+            }
+        });
+    });
+
+    // Prevenir que el clic dentro de la tarjeta cierre el contenido
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+});
