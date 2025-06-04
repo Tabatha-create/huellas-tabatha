@@ -18,6 +18,7 @@
     --color-durazno: #FDBA74;      /* Durazno cálido */
     --color-lila: #C084FC;         /* Lila juguetón */
     --color-aguamarina: #67E8F9;   /* Aguamarina brillante */
+    --color-lila-claro: #DDA0DD; 
     
     /* Fondos especiales para containers */
     --fondo-coral: #FFF5F5;        /* Base coral suave */
@@ -287,7 +288,7 @@ header {
    CONTENIDO PRINCIPAL
 =================== */
 main {
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .section-title {
@@ -397,21 +398,21 @@ main {
    SECCIÓN SOBRE NOSOTROS CON GALERÍA DE RECUERDOS
 =================== */
  /* Estilos base */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        #quienes-somos {
-            background-color: var(--color-malva);
-            padding: 20px;
-            border-radius: 25px;
-        }
+.quienes-somos {
+    background-color: var(--color-malva);
+    padding: 20px;
+    border-radius: 25px;
+}
 
-    .equipo-section {
-  padding: 2em 1em;
-  background-color: #fffaf5;
+.equipo-section {
+    padding: 2em 1em;
+    background-color: var(--);
 }
 
 .titulo-seccion {
