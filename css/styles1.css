@@ -6,22 +6,22 @@
 :root {
     /* Colores principales que resaltan el logo */
     --color-principal: #182B63;    /* Azul marino oscuro (del logo) */
-    --color-secundario: #4EAAA7;   /* Turquesa (del logo) */
+    --color-secundario: #14B8A6;   /* Turquesa brillante */
     --color-terciario: #F5A9A9;    /* Rosa salmón (del logo) */
     --color-fondo: #facfe2;        /* Rosa muy claro */
     --color-fondo-alt: #BFDFDE;    /* Turquesa claro */
     --color-acento: #FFD166;       /* Amarillo dorado */
     
-    /* Colores complementarios lavanda/lila */
-    --color-lavanda: #E6E6FA;      
+    /* Colores complementarios lavanda/lila */    
     --color-lila-claro: #DDA0DD;   
     --color-lila-medio: #BA55D3;   
     --color-lavanda-oscuro: #9370DB;
     --color-violeta-suave: #DCD0FF;
-    --color-malva: #D8BFD8;        
+    --color-lavanda: #A78BFA;      /* Lavanda expresiva */       
     
     /* Colores de texto */
-    --color-texto: #182B63;
+    --color-texto: #1E3A8A;
+    --color-texto-secundario: #475569;
     --color-texto-claro: #ffffff;
     
     /* Sombras */
@@ -32,8 +32,8 @@
     --gradiente-header: linear-gradient(135deg, var(--color-secundario), var(--color-violeta-suave));
     --gradiente-footer: linear-gradient(135deg, var(--color-principal), var(--color-lila-medio));
     --gradiente-magico: linear-gradient(135deg, var(--color-lila-claro), var(--color-secundario));
-    --gradiente-suave: linear-gradient(45deg, var(--color-lavanda), var(--color-fondo));
-    
+    --gradiente-suave: linear-gradient(155deg, var(--color-violeta-suave), var(--color-fondo));
+
     /* Tipografías infantiles */
     --fuente-principal: 'Fredoka', 'Comic Sans MS', sans-serif;
     --fuente-titulos: 'Nunito', 'Quicksand', sans-serif;
@@ -41,11 +41,6 @@
 }
 
 /* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: var(--fuente-principal);
@@ -160,8 +155,8 @@ header {
     font-size: 1.1rem;
     padding: 12px 20px;
     border-radius: 25px;
-    background: var(--color-lavanda);
-    border: 2px solid var(--color-malva);
+    background: var(--color-malva);
+    border: 2px solid var(--color-lavanda);
     transition: all 0.3s ease;
     display: block;
 }
@@ -256,10 +251,11 @@ main {
     font-family: var(--fuente-titulos);
     font-weight: 600;
     font-size: 2.5rem;
-    color: var(--color-lila-medio);
+    color: var(--color-principal);
+    text-shadow: 2px 2px 4px var(--color-sombra);
     text-align: center;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px var(--sombra-lavanda);
+
 }
 
 .welcome-section {

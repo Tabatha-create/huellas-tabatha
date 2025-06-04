@@ -1,38 +1,61 @@
-
 /* Importación de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
-/* Variables globales optimizadas */
+/* Variables globales optimizadas - Paleta con Personalidad */
 :root {
-    /* Colores principales que resaltan el logo */
-    --color-principal: #182B63;    /* Azul marino oscuro (del logo) */
-    --color-secundario: #4EAAA7;   /* Turquesa (del logo) */
-    --color-terciario: #F5A9A9;    /* Rosa salmón (del logo) */
-    --color-fondo: #facfe2;        /* Rosa muy claro */
-    --color-fondo-alt: #BFDFDE;    /* Turquesa claro */
-    --color-acento: #FFD166;       /* Amarillo dorado */
+    /* Colores principales del logo - vibrantes pero equilibrados */
+    --color-principal: #1E3A8A;    /* Azul marino vibrante */
+    --color-secundario: #14B8A6;   /* Turquesa brillante */
+    --color-terciario: #F472B6;    /* Rosa vibrante */
+    --color-fondo: #FEF3E2;        /* Melocotón suave */
+    --color-fondo-alt: #E0F7FA;    /* Agua marina */
+    --color-acento: #FBBF24;       /* Amarillo dorado */
     
-    /* Colores complementarios lavanda/lila */
-    --color-lavanda: #E6E6FA;      
-    --color-lila-claro: #DDA0DD;   
-    --color-lila-medio: #BA55D3;   
-    --color-lavanda-oscuro: #9370DB;
-    --color-violeta-suave: #DCD0FF;
-    --color-malva: #D8BFD8;        
+    /* Colores para containers con personalidad */
+    --color-coral: #FF7F7F;        /* Coral vibrante */
+    --color-lavanda: #A78BFA;      /* Lavanda expresiva */
+    --color-menta: #6EE7B7;        /* Menta fresca */
+    --color-durazno: #FDBA74;      /* Durazno cálido */
+    --color-lila: #C084FC;         /* Lila juguetón */
+    --color-aguamarina: #67E8F9;   /* Aguamarina brillante */
+    
+    /* Fondos especiales para containers */
+    --fondo-coral: #FFF5F5;        /* Base coral suave */
+    --fondo-lavanda: #F3F4F6;      /* Base lavanda */
+    --fondo-menta: #F0FDF4;        /* Base menta */
+    --fondo-durazno: #FFF7ED;      /* Base durazno */
+    --fondo-lila: #FAF5FF;         /* Base lila */
+    --fondo-aguamarina: #F0F9FF;   /* Base aguamarina */
     
     /* Colores de texto */
-    --color-texto: #182B63;
+    --color-texto: #1E3A8A;
+    --color-texto-secundario: #475569;
     --color-texto-claro: #ffffff;
     
-    /* Sombras */
-    --color-sombra: rgba(24, 43, 99, 0.15);
-    --sombra-lavanda: rgba(186, 85, 211, 0.15);
+    /* Sombras coloridas */
+    --sombra-coral: rgba(255, 127, 127, 0.25);
+    --sombra-lavanda: rgba(167, 139, 250, 0.25);
+    --sombra-menta: rgba(110, 231, 183, 0.25);
+    --sombra-principal: rgba(30, 58, 138, 0.15);
     
-    /* Gradientes especiales */
-    --gradiente-header: linear-gradient(135deg, var(--color-secundario), var(--color-violeta-suave));
-    --gradiente-footer: linear-gradient(135deg, var(--color-principal), var(--color-lila-medio));
-    --gradiente-magico: linear-gradient(135deg, var(--color-lila-claro), var(--color-secundario));
-    --gradiente-suave: linear-gradient(45deg, var(--color-lavanda), var(--color-fondo));
+    /* Gradientes expresivos para containers */
+    --gradiente-header: linear-gradient(135deg, var(--color-secundario), var(--color-aguamarina));
+    --gradiente-footer: linear-gradient(135deg, var(--color-principal), var(--color-lavanda));
+     --gradiente-magico: linear-gradient(135deg, var(--color-lila-claro), var(--color-secundario));
+
+    /* Gradientes para containers */
+    --gradiente-coral: linear-gradient(135deg, var(--fondo-coral), var(--color-coral));
+    --gradiente-lavanda: linear-gradient(135deg, var(--fondo-lavanda), var(--color-lavanda));
+    --gradiente-menta: linear-gradient(135deg, var(--fondo-menta), var(--color-menta));
+    --gradiente-durazno: linear-gradient(135deg, var(--fondo-durazno), var(--color-durazno));
+    --gradiente-lila: linear-gradient(135deg, var(--fondo-lila), var(--color-lila));
+    --gradiente-aguamarina: linear-gradient(135deg, var(--fondo-aguamarina), var(--color-aguamarina));
+    
+    /* Estados hover vibrantes */
+    --hover-coral: #FF6B6B;
+    --hover-lavanda: #9F7AFA;
+    --hover-menta: #59E3B7;
+    --hover-durazno: #FB923C;
     
     /* Tipografías infantiles */
     --fuente-principal: 'Fredoka', 'Comic Sans MS', sans-serif;
@@ -40,6 +63,21 @@
     --fuente-decorativa: 'Quicksand', sans-serif;
 }
 
+.container {
+    background: var(--gradiente-coral);
+    box-shadow: 0 6px 20px var(--sombra-coral);
+    border-radius: 20px;
+}
+
+.btn {
+    background: linear-gradient(45deg, var(--color-menta), var(--color-secundario));
+    color: white;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, var(--hover-coral), var(--color-terciario));
+    transform: translateY(-3px);
+}
 /* Reset básico */
 * {
     margin: 0;
