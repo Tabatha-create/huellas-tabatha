@@ -253,7 +253,7 @@ header {
     margin: 3px 10px;
     border-radius: 10px;
     font-size: 1rem;
-    background: transparent;
+    background: var(--color-fondo-alt);
     border: 1px solid var(--color-malva);
 }
 
@@ -394,6 +394,13 @@ main {
     border-color: var(--color-texto-claro);
 }
 
+.expandable-content {
+    background-color: var(--color-fondo-alt);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+}
+
 /* ===================
    SECCIÓN SOBRE NOSOTROS CON GALERÍA DE RECUERDOS
 =================== */
@@ -405,14 +412,14 @@ main {
 }
 
 .quienes-somos {
-    background-color: var(--color-malva);
     padding: 20px;
     border-radius: 25px;
 }
 
 .equipo-section {
-    padding: 2em 1em;
-    background-color: var(--);
+    padding: 20px;
+    background-color: var(--color-fondo-alt);
+    border-radius: 25px;
 }
 
 .titulo-seccion {
@@ -428,7 +435,6 @@ main {
   align-items: center;
   margin-bottom: 2em;
   padding: 1em;
-  background-color: #ffffff;
   border-radius: 1em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
@@ -443,7 +449,7 @@ main {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 0.5em;
-  border: 2px solid #f7c59f;
+  border: 2px solid #14B8A6;
 }
 
 .miembro-texto {
@@ -690,7 +696,7 @@ blockquote {
             }
         }
 
-        .equipo {
+.equipo {
   margin-top: 40px;
 }
 
@@ -719,7 +725,7 @@ blockquote {
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #ffb347; /* un color cálido, puedes cambiar */
+  border: 3px solid #14B8A6; /* un color cálido, puedes cambiar */
 }
 
 .miembro figcaption {
@@ -728,22 +734,6 @@ blockquote {
   margin-top: 6px;
   color: #666;
   font-style: italic;
-}
-
-.miembro p {
-  flex: 1;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
-  min-width: 280px;
-}
-
-.miembro blockquote {
-  margin-top: 10px;
-  font-style: italic;
-  color: #555;
-  border-left: 4px solid #ffb347;
-  padding-left: 12px;
 }
 
 /* Responsive: en pantallas pequeñas apilar verticalmente */
@@ -792,11 +782,6 @@ blockquote {
                 right: 15px;
             }
         }
-
-
-
-
-
         
 /* ===================
    SIDEBAR REDES SOCIALES
