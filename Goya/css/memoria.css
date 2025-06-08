@@ -1,0 +1,147 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #fff6f0;
+  background-image: url("../img/fondo2.png");
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  color: #a86c3d;
+  margin: 40px 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.container1 {
+  background-color: var(--container-bg);
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    max-width: 750px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    animation: floatIn 1s ease-out;
+    height: auto;
+    display: flex;
+    flex-direction: row;        /* <-- AGREGAR ESTA LÍNEA */
+    align-items: center;        /* <-- Y ESTAS TAMBIÉN */
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.container1 ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  }
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0 auto 40px;
+  max-width: 1000px;
+  z-index: 1;
+}
+
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.memory-card {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, z-index 0s;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+  z-index: 10; /* Asegura que la carta esté por encima */
+}
+
+.memory-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  padding: 5px;
+}
+
+.front-face, .back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+/* Contenedor general */
+.main-container {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 90%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+button {
+  background-color: var(--tertiary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  background-color: #e76f51;
+
+}
+
+button:active {
+  transform: scale(0.95);
+}

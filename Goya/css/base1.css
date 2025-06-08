@@ -1,0 +1,534 @@
+ /* Variables globales */
+:root {
+    /* Colores principales del pollito - MÁS ALEGRES */
+    --primary-color: #FF9500;           /* Naranja pollito vibrante */
+    --secondary-color: #FFB347;         /* Naranja melocotón alegre */
+    --tertiary-color: #FFD700;          /* Dorado brillante */
+    --accent-color: #FF6B35;            /* Coral naranja divertido */
+    
+    /* Colores de fondo cálidos y alegres */
+    --bg-color: #FFFBF0;                /* Crema luminosa */
+    --container-bg: rgba(255, 248, 220, 0.95);  /* Container más brillante */
+    --warm-bg: #FFF4E6;                 /* Durazno muy suave */
+    --playful-bg: #FFEECC;              /* Fondo juguetón */
+    
+    /* Colores del desierto - VERSIÓN AMIGABLE */
+    --desert-sand: #DEB887;             /* Arena dorada suave */
+    --desert-earth: #CD853F;            /* Tierra cálida */
+    --barn-wood: #A0522D;               /* Madera granero amigable */
+    --canyon-rock: #BC8F8F;             /* Rocas rosadas suaves */
+    
+    /* Colores de naturaleza - MÁS VIVOS */
+    --oasis-green: #32CD32;             /* Verde lima alegre */
+    --grass-green: #7CB342;             /* Verde hierba fresco */
+    --sky-blue: #87CEEB;                /* Azul cielo brillante */
+    --deep-blue: #5DADE2;               /* Azul amigable */
+    --palm-green: #66BB6A;              /* Verde palmera */
+    
+    /* Colores adicionales infantiles */
+    --sunshine-yellow: #FFEB3B;         /* Amarillo sol */
+    --happy-pink: #FFB6C1;              /* Rosa suave */
+    --lavender: #E1BEE7;                /* Lavanda tierna */
+    --mint-green: #98FB98;              /* Verde menta */
+    
+    /* Colores de texto - MÁS SUAVES */
+    --text-color: #8B4513;              /* Marrón chocolate */
+    --text-light: #CD853F;              /* Texto claro dorado */
+    --text-dark: #5D4037;               /* Marrón suave */
+    --text-playful: #FF6F00;            /* Texto naranja juguetón */
+    
+    /* Colores para header y footer - MÁS VIBRANTES */
+    --header-footer-bg: rgba(255, 149, 0, 0.92);   /* Header naranja brillante */
+    --footer-bg: rgba(255, 179, 71, 0.9);          /* Footer melocotón */
+    
+    /* Colores neutros alegres */
+    --white: #FFFFFF;                   /* Blanco puro */
+    --cream: #FFF8E1;                   /* Crema luminosa */
+    --light-peach: #FFCC80;             /* Durazno claro */
+    --soft-coral: #FFAB91;              /* Coral suave */
+    
+    /* Propiedades de diseño infantil */
+    --border-radius-lg: 25px;           /* Bordes más redondeados */
+    --border-radius-sm: 18px;
+    --border-radius-fun: 30px;          /* Extra redondeado para elementos divertidos */
+    --box-shadow: 0 8px 20px rgba(255, 149, 0, 0.15);  /* Sombra cálida suave */
+    --box-shadow-playful: 0 6px 15px rgba(255, 183, 71, 0.25);  /* Sombra juguetona */
+    --header-footer-padding: 25px;
+    
+    /* Gradientes alegres y vibrantes */
+    --gradient-pollito: linear-gradient(135deg, #FF9500, #FFD700, #FFB347);
+    --gradient-sky: linear-gradient(135deg, #87CEEB, #5DADE2, #B3E5FC);
+    --gradient-desert: linear-gradient(135deg, #DEB887, #F4A460, #FFCC80);
+    --gradient-oasis: linear-gradient(135deg, #32CD32, #7CB342, #98FB98);
+    --gradient-sunrise: linear-gradient(135deg, #FFEB3B, #FF9500, #FF6B35);
+    --gradient-happy: linear-gradient(135deg, #FFB6C1, #FFCC80, #E1BEE7);
+    
+    /* Colores especiales para elementos interactivos */
+    --button-primary: #FF9500;          /* Botón principal */
+    --button-secondary: #7CB342;        /* Botón secundario */
+    --button-fun: #FFEB3B;              /* Botón divertido */
+    --hover-orange: #FFB347;            /* Hover naranja */
+    --hover-green: #66BB6A;             /* Hover verde */
+}
+  
+  /* Reset y estilos base */
+  body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: var(--bg-color);
+    background-image: url("../img/fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+  
+  /* Animaciones globales */
+  @keyframes loadingAnimation {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  
+  @keyframes floatIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+  
+  @keyframes floatFancy {
+    0%   { transform: translateY(0) rotate(0deg); }
+    25%  { transform: translateY(-10px) rotate(3deg); }
+    50%  { transform: translateY(-20px) rotate(-3deg); }
+    75%  { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  
+  /* Estructura de la página */
+  .content {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+  
+  /* Estilos de tipografía generales */
+  h1 {
+    color: var(--tertiary-color);
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    margin: 0.5rem auto;
+    border-radius: 2px;
+  }
+  
+  /* Header */
+  .header {
+    background-color: var(--header-footer-bg);
+    padding: var(--header-footer-padding);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 75%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius-lg);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 12px;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .back-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logoHuellas {
+  height: 50px; /* ajusta a la altura deseada */
+  margin-right: 8px; /* espacio entre el logo y la flecha */
+  border-radius: 10px;
+}
+
+.back-arrow {
+  margin-right: 5px; /* espacio entre la flecha y el texto */
+}
+
+  /* Barra de carga */
+  .loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    width: 0%;
+    z-index: 1000;
+    animation: loadingAnimation 2s ease forwards;
+  }
+  
+  /* Contenedor estándar - combinado de ambos archivos */
+  .container {
+    background-color: var(--container-bg);
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    max-width: 950px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    animation: floatIn 1s ease-out;
+    height: auto;
+    display: flex;
+    flex-direction: row;        /* <-- AGREGAR ESTA LÍNEA */
+    align-items: center;        /* <-- Y ESTAS TAMBIÉN */
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  /* Borde superior decorativo para contenedores */
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  }
+  
+  /* Navegación reutilizable */
+  nav {
+    margin-top: 20px;
+  }
+  
+  nav a {
+    background-color: var(--tertiary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--border-radius-sm);
+    font-size: 1.1rem;
+    margin: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: var(--header-footer-padding);
+    text-align: center;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 12px;
+  }
+  
+  .copyright {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  /* Iconos sociales */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .social-icons li {
+    list-style: none;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* Color de fondo */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .social-icons a:hover {
+    background-color: var(--secondary-color); /* Color al pasar el cursor */
+  }
+
+  .social-icons svg {
+    width: 20px;
+    height: 20px;
+    fill: white; /* Color del icono */
+  }
+  
+  /* Estilos del contenedor de texto e imagen integrados de base.css */
+  .text-box {
+    flex: 1;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #4b2e19;
+    background-color: rgba(255, 248, 242, 0.9);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    border: 3px solid #32CD32;
+  }
+  
+  .text-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    border-radius: var(--border-radius-lg);
+    z-index: -1;
+  }
+  
+  .image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Media queries */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 30px;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .header {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      margin: 0 auto;
+    }
+    
+    .sidebar .social-icons {
+      margin-top: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+      margin: 30px auto;
+    }
+    
+    .text-box {
+      padding: 15px;
+      font-size: 1.3rem;
+    }
+  }
+
+  .audio-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--container-bg, rgba(255, 245, 247, 0.85));
+  padding: 15px 20px;
+  border-radius: var(--border-radius-lg, 20px);
+  box-shadow: var(--box-shadow, 0 8px 16px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.audio-control:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Estilo para el selector de voces */
+.voice-selector {
+  margin-bottom: 15px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voice-selector label {
+  font-size: 14px;
+  color: var(--text-color, #6d534b);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.voice-selector select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm, 15px);
+  border: 1px solid var(--tertiary-color, #fcbecb);
+  background-color: var(--bg-color, #fff5f7);
+  font-size: 14px;
+  color: var(--text-color, #6d534b);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.voice-selector select:hover {
+  border-color: var(--primary-color, #ffb6c1);
+  background-color: white;
+}
+
+.voice-selector select:focus {
+  border-color: var(--primary-color, #ffb6c1);
+  box-shadow: 0 0 0 2px rgba(255, 182, 193, 0.3);
+}
+
+/* Estilo para el botón de reproducción */
+.play-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color, #ffb6c1) 0%, var(--tertiary-color, #fcbecb) 100%);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(252, 190, 203, 0.5);
+  margin-top: 10px;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.6);
+}
+
+.play-button:active {
+  transform: scale(0.95);
+}
+
+/* Texto junto al botón */
+.play-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #6d534b);
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+.audio-control:hover .play-text {
+  color: var(--bow-color, #ffacc7);
+}
+
+/* Cuando el audio está reproduciéndose */
+.play-button.playing {
+  background: linear-gradient(135deg, var(--secondary-color, #98d8c8) 0%, var(--accent-color, #d0f0c0) 100%);
+}
