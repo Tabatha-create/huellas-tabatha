@@ -34,9 +34,13 @@
 }
 .subtitle {
   font-size: 1.4rem;
-  color: #444;
+  color: #FF9500;
   margin-bottom: 30px;
   animation: fadeIn 4s ease-in;
+}
+.edad, .valores{
+  font-size: 1rem;
+  color: #32CD32;
 }
 .start-button, .menu-button {
   background-color: #FF9500;
