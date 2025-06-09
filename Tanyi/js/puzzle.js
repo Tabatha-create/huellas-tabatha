@@ -9,8 +9,8 @@ let dragged;
 // Añadir esta constante para los nombres de puzzles
 const puzzleNames = {
   'img/Lazo_lunares.png': 'La historia de Tanyi',
-  'img/Caja2.png': 'Meli encuentra una caja',
-  'img/gotero1.png': 'Meli alimenta a la cachorrita'
+  'img/durmiendo.png': 'Los primeros cuidados',
+  'img/morder.png': 'Una perrita traviesa'
 };
 
 // Modificar la función selectImage para actualizar también el nombre

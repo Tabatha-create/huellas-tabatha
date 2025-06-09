@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Puzzle de Tanyi</title>
-  <link rel="stylesheet" href="css/base.css" />
+  <title>Puzzles de Tanyi</title>
   <link rel="stylesheet" href="css/base1.css">
   <link rel="stylesheet" href="css/puzzle.css">
 </head>
@@ -24,12 +23,12 @@
   <!-- Barra de carga animada -->
   <div class="loading-bar"></div>
 
-  <h1>Puzzle Tanyi</h1>
+  <h1>🧩 Puzzles de Tanyi</h1>
 
   <div class="image-selector">
     <img src="img/Lazo_lunares.png" alt="Puzzle 1" class="preview" onclick="selectImage('img/Lazo_lunares.png')" />
-    <img src="img/Caja2.png" alt="Puzzle 2" class="preview" onclick="selectImage('img/Caja2.png')" />
-    <img src="img/gotero1.png" alt="Puzzle 3" class="preview" onclick="selectImage('img/gotero1.png')" />
+    <img src="img/durmiendo.png" alt="Puzzle 2" class="preview" onclick="selectImage('img/durmiendo.png')" />
+    <img src="img/morder.png" alt="Puzzle 3" class="preview" onclick="selectImage('img/morder.png')" />
     
   </div>
 
@@ -45,10 +44,11 @@
   <div class="puzzle-container" id="puzzle"></div>
 </div>
 
-<div class="buttons">
+<nav class="navigation">
   <button onclick="initPuzzle()">Reiniciar Puzzle</button>
+  <button onclick="location.href='portada.html'">📖 Cuento</button>
   <button onclick="location.href='menu.html'">🏠 Menú Principal</button>
-</div>
+</nav>
 
   <footer class="footer">
     <div class="footer-content">

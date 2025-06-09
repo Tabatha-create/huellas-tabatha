@@ -1,4 +1,4 @@
-body {
+ body {
   font-family: 'Comic Sans MS', cursive;
   background-color: #fff6f0;
   background-image: url("../img/fondo2.png");
@@ -119,13 +119,7 @@ h1 {
   max-width: 90%;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
-.buttons {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 20px;
-}
+
 button {
   background-color: #a86c3d;
   color: white;
@@ -144,4 +138,30 @@ button:hover {
 
 button:active {
   transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .memory-game {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .memory-card {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .memory-card {
+    width: 140px;
+    height: 140px;
+  }
+  .container1 {
+    padding: 20px;
+    margin: 20px auto;
+  }
 }
