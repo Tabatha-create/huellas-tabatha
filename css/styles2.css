@@ -1275,7 +1275,8 @@ footer {
 }
 
 .expandable-content.expanded {
-    max-height: 600px;
+    max-height: none;
+    height: auto;
     opacity: 1;
 }
 
