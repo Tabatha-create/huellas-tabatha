@@ -11,12 +11,19 @@
     --border-radius-lg: 20px;
     --border-radius-sm: 15px;
     --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    --accent-color: #d0f0c0;        /* Verde pastel claro */
+    --highlight-color: #fffacd;     /* Amarillo pastel */
+    --bow-color: #ffacc7;           /* Rosa del moño */
 }
 
 body {
     font-family: 'Fredoka', 'Comic Sans MS', cursive;
     background: linear-gradient(135deg, #fff5f7 0%, #f0e6ff 50%, #e6f3ff 100%);
     background-attachment: fixed;
+    background-image: url(../img/bordeext6.jpg);
+      background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -40,28 +47,6 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    animation: gentle-bounce 3s ease-in-out infinite;
-}
-
-.logo img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.logo-text {
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
 .back-link {
     display: flex;
     align-items: center;
@@ -74,16 +59,6 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.back-link:hover {
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-}
-
-.logoHuellas {
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 8px;
-}
 
 /* Contenedor principal mejorado */
 .main-content {
@@ -319,69 +294,6 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Footer mejorado */
-.footer {
-    background: linear-gradient(135deg, var(--footer-bg), var(--secondary-color));
-    color: white;
-    padding: 30px;
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-}
-
-.footer-logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.social-icons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background: white;
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.copyright {
-    margin-top: 20px;
-    opacity: 0.8;
-    font-size: 0.9rem;
-}
-
 /* Animaciones */
 @keyframes float-in {
     from {
@@ -446,4 +358,41 @@ body {
     .footer-content {
         flex-direction: column;
     }
+}
+
+.inline-periquito {
+  display: inline-block; /* Permite que la imagen esté en línea con el texto */
+  vertical-align: middle; /* Alinea la imagen con el centro de la línea de texto */
+  margin-right: 8px; /* Espacio a la derecha de la imagen */
+  /* Puedes ajustar este margen para que no esté pegada al texto */
+}
+
+.periquito-inline-image {
+  width: 100px; /* Ajusta el tamaño de la imagen de Periquito para que sea pequeña */
+  height: auto;
+  border-radius: 50%; /* Opcional: para que sea redonda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Opcional: para darle un toque de profundidad */
+}
+
+.song-player {
+  margin: 15px 0; /* Espacio arriba y abajo del reproductor */
+  padding: 10px;
+  background-color: #fce4ec; /* Un rosa claro para que destaque */
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ffb6c1; /* Borde suave */
+}
+
+.song-player p {
+  font-weight: bold;
+  color: #e91e63; /* Color de texto que combine con el rosa */
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.song-player audio {
+  width: 80%; /* Ancho del reproductor de audio */
+  max-width: 300px; /* Ancho máximo para pantallas grandes */
+  display: block; /* Para que ocupe su propia línea */
+  margin: 0 auto; /* Para centrarlo */
 }
