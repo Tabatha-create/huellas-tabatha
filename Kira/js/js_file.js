@@ -1,29 +1,55 @@
 // Variables globales
 let isPlaying = false;
+let currentAudio = null;
 
 // Función para controlar el audio
 function toggleAudio() {
     const button = document.querySelector('.play-button');
     const text = document.querySelector('.play-text');
     
-    if (!isPlaying) {
-        button.innerHTML = '⏸️';
-        text.textContent = 'Pausar cuento';
-        button.style.background = 'var(--secondary-color)';
-        button.style.color = 'white';
-        isPlaying = true;
+    if (!currentAudio) {
+        // Reemplaza 'ruta-a-tu-audio.mp3' con la ruta real de tu archivo de audio
+        currentAudio = new Audio('audio/cuento.mp3'); // Ajusta la ruta según tu estructura
         
-        // Aquí irían las instrucciones de audio real
-        console.log('Reproduciendo audio...');
-    } else {
-        button.innerHTML = '▶';
-        text.textContent = 'Escuchar cuento';
-        button.style.background = 'white';
-        button.style.color = 'var(--primary-color)';
-        isPlaying = false;
+        currentAudio.addEventListener('ended', function() {
+            // Resetear botón cuando el audio termine
+            resetAudioButton();
+        });
         
-        console.log('Audio pausado...');
+        currentAudio.addEventListener('error', function() {
+            console.error('Error al cargar el audio');
+            alert('No se pudo cargar el archivo de audio');
+            resetAudioButton();
+        });
     }
+    
+    if (!isPlaying) {
+        currentAudio.play().then(() => {
+            button.innerHTML = '⏸️';
+            text.textContent = 'Pausar cuento';
+            button.style.background = 'var(--secondary-color)';
+            button.style.color = 'white';
+            isPlaying = true;
+        }).catch(error => {
+            console.error('Error al reproducir audio:', error);
+            alert('No se pudo reproducir el audio');
+        });
+    } else {
+        currentAudio.pause();
+        resetAudioButton();
+    }
+}
+
+// Función para resetear el botón de audio
+function resetAudioButton() {
+    const button = document.querySelector('.play-button');
+    const text = document.querySelector('.play-text');
+    
+    button.innerHTML = '▶';
+    text.textContent = 'Escuchar cuento';
+    button.style.background = 'white';
+    button.style.color = 'var(--primary-color)';
+    isPlaying = false;
 }
 
 // Función para revelar el secreto (específica de página 1)
@@ -51,8 +77,6 @@ function revealSecret() {
     }
 }
 
-// Funciones de utilidad que pueden ser reutilizadas en otras páginas
-
 // Función para animar elementos al hacer scroll
 function animateOnScroll() {
     const observerOptions = {
@@ -79,7 +103,7 @@ function animateOnScroll() {
     });
 }
 
-// Función para añadir efectos hover dinámicos
+// Función para añadir efectos hover a los botones
 function addHoverEffects() {
     const buttons = document.querySelectorAll('.nav-button, .play-button');
     
@@ -91,26 +115,6 @@ function addHoverEffects() {
         button.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
-    });
-}
-
-// Función para manejar el responsive del header
-function handleResponsiveHeader() {
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
     });
 }
 
@@ -138,118 +142,7 @@ function preloadImages() {
     });
 }
 
-// Función para añadir efectos de partículas (opcional)
-function addParticleEffects() {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particle-container';
-    particleContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-    `;
-    
-    document.body.appendChild(particleContainer);
-    
-    // Crear partículas ocasionales
-    setInterval(() => {
-        if (Math.random() > 0.7) {
-            createParticle(particleContainer);
-        }
-    }, 3000);
-}
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.innerHTML = ['✨', '🌟', '💫', '⭐'][Math.floor(Math.random() * 4)];
-    particle.style.cssText = `
-        position: absolute;
-        font-size: ${Math.random() * 20 + 10}px;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        opacity: 0.7;
-        animation: particle-float 4s ease-out forwards;
-    `;
-    
-    container.appendChild(particle);
-    
-    setTimeout(() => {
-        if (particle.parentNode) {
-            particle.parentNode.removeChild(particle);
-        }
-    }, 4000);
-}
-
-// Añadir animación CSS para partículas
-function addParticleCSS() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes particle-float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Inicialización cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
-    // Funciones que se ejecutan en todas las páginas
-    preloadImages();
-    animateOnScroll();
-    addHoverEffects();
-    handleResponsiveHeader();
-    addParticleCSS();
-    
-    // Efectos opcionales (puedes comentar si no los quieres)
-    // addParticleEffects();
-    
-    // Animar las notas musicales (específico para páginas con música)
-    const notes = document.querySelectorAll('.floating-note');
-    notes.forEach((note, index) => {
-        setTimeout(() => {
-            note.style.animation = `float-music 3s ease-in-out infinite ${index * 0.5}s`;
-        }, index * 500);
-    });
-    
-    console.log('Página cargada y efectos inicializados');
-});
-
-// Función para cambiar tema (día/noche) - funcionalidad extra
-function toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-    
-    if (currentTheme === 'light') {
-        body.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.classList.remove('dark-theme');
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Cargar tema guardado
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-    }
-}
-
-// Funciones de navegación suave
+// Navegación suave
 function smoothScrollTo(elementId) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -260,52 +153,28 @@ function smoothScrollTo(elementId) {
     }
 }
 
-// Función para mostrar/ocultar elementos con fade
-function fadeToggle(element, duration = 300) {
-    if (element.style.opacity === '0' || !element.style.opacity) {
-        fadeIn(element, duration);
-    } else {
-        fadeOut(element, duration);
-    }
-}
+// Inicialización cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar funciones principales
+    preloadImages();
+    animateOnScroll();
+    addHoverEffects();
+    
+    // Animar las notas musicales si existen
+    const notes = document.querySelectorAll('.floating-note');
+    notes.forEach((note, index) => {
+        setTimeout(() => {
+            note.style.animation = `float-music 3s ease-in-out infinite ${index * 0.5}s`;
+        }, index * 500);
+    });
+    
+    console.log('Página de cuentos cargada correctamente');
+});
 
-function fadeIn(element, duration = 300) {
-    element.style.opacity = '0';
-    element.style.display = 'block';
-    
-    let start = null;
-    function animate(timestamp) {
-        if (!start) start = timestamp;
-        const progress = timestamp - start;
-        const opacity = Math.min(progress / duration, 1);
-        
-        element.style.opacity = opacity;
-        
-        if (progress < duration) {
-            requestAnimationFrame(animate);
-        }
+// Limpiar audio al cambiar de página
+window.addEventListener('beforeunload', function() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
     }
-    
-    requestAnimationFrame(animate);
-}
-
-function fadeOut(element, duration = 300) {
-    let start = null;
-    const initialOpacity = parseFloat(element.style.opacity) || 1;
-    
-    function animate(timestamp) {
-        if (!start) start = timestamp;
-        const progress = timestamp - start;
-        const opacity = Math.max(initialOpacity - (progress / duration), 0);
-        
-        element.style.opacity = opacity;
-        
-        if (progress < duration) {
-            requestAnimationFrame(animate);
-        } else {
-            element.style.display = 'none';
-        }
-    }
-    
-    requestAnimationFrame(animate);
-}
+});

@@ -1,27 +1,11 @@
 /* Variables globales */
-:root {
-    --primary-color: #ffb6c1;
-    --secondary-color: #98d8c8;
-    --tertiary-color: #fcbecb;
-    --bg-color: #fff5f7;
-    --container-bg: rgba(255, 245, 247, 0.95);
-    --text-color: #6d534b;
-    --header-footer-bg: rgba(255, 182, 193, 0.9);
-    --footer-bg: rgba(152, 216, 200, 0.9);
-    --border-radius-lg: 20px;
-    --border-radius-sm: 15px;
-    --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    --accent-color: #d0f0c0;        /* Verde pastel claro */
-    --highlight-color: #fffacd;     /* Amarillo pastel */
-    --bow-color: #ffacc7;           /* Rosa del moño */
-}
 
 body {
     font-family: 'Fredoka', 'Comic Sans MS', cursive;
     background: linear-gradient(135deg, #fff5f7 0%, #f0e6ff 50%, #e6f3ff 100%);
     background-attachment: fixed;
     background-image: url(../img/bordeext6.jpg);
-      background-position: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;

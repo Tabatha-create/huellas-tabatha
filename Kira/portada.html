@@ -38,6 +38,15 @@
   <button class="start-button" onclick="startStory()">📖 Comenzar el cuento</button>
   <button class="menu-button" onclick="openMenu()">🏠 Menú</button>
 
+  <div class="song-player">
+    <p>🎶 **¡Kira, la ratita!** 🎶</p>
+      <audio controls>
+        <source src="music/“Kira”.mp3" type="audio/mpeg">
+        <source src="audio/cancion_de_kira.ogg" type="audio/ogg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+  </div>
+
   <div class="chapter-links">
   <h2>📚 Capítulos del cuento</h2>
   <div class="chapter-grid">
@@ -55,10 +64,6 @@
   <!-- <button class="music-button" onclick="toggleMusic()">🎵 Activar música</button> -->
 </div>
 
-<audio id="bg-music" loop>
-  <source src="music/charging-kids.mp3" type="audio/mpeg">
-  Tu navegador no soporta el elemento de audio.
-</audio>
   
   <footer class="footer">
   <div class="footer-content">
@@ -105,7 +110,7 @@
   </footer>
   <script>
     function startStory() {
-      window.location.href = 'pagina1.html';
+      window.location.href = 'pag1.html';
     }
     function openMenu() {
       window.location.href = 'menu.html';
