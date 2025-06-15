@@ -79,8 +79,8 @@ button:hover {
 #puzzleName {
   width: 100%;
   text-align: center;
-  font-size: 3rem;
-  color: var(--text-color);
+  font-size: 1.5rem;
+  color: #ffb6c1;
   margin-bottom: 20px;
   font-weight: bold;
 }

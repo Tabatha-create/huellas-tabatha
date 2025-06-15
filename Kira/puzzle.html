@@ -18,16 +18,21 @@
     <span class="back-arrow">←</span> Volver a "Huellas de Tabatha"
   </a>
 </header>
-<br>
-  <h1>Puzzle Kira</h1>
+
+<div class="content">
+  <div class="loading-bar"></div>
+
+<div class="main-content"> </div>
+  <h1>Puzzles de Kira</h1>
 
   <div class="image-selector">
     <img src="img/portadaKira.png" alt="Puzzle 1" class="preview" onclick="selectImage('img/portadaKira.png')" />
-    <img src="img/celebracion2.jpg" alt="Puzzle 2" class="preview" onclick="selectImage('img/celebracion2.jpg')" />
-    <img src="img/viajando.png" alt="Puzzle 3" class="preview" onclick="selectImage('img/viajando.png')" />
-    
+    <img src="img/lazo.png" alt="Puzzle 2" class="preview" onclick="selectImage('img/lazo.png')" />
+    <img src="img/viajando.png" alt="Puzzle 3" class="preview" onclick="selectImage('img/viajando.png')" />  
   </div>
     
+  <div id="puzzleName">Lazo con lunares</div>
+
   <div class="container">
 <!-- Imagen actual -->
   <div class="preview-area">
@@ -38,10 +43,11 @@
   <div class="puzzle-container" id="puzzle"></div>
 </div>
 
-<div class="buttons">
+<nav class="navigation">
   <button onclick="initPuzzle()">Reiniciar Puzzle</button>
   <button onclick="location.href='menu.html'">🏠 Menú Principal</button>
-</div>
+</nav>
+  </div>
 
 <footer class="footer">
   <div class="footer-content">
@@ -73,7 +79,6 @@
       </li>
     </ul>
 </div>
-</footer>
 </footer>
 
 

@@ -446,7 +446,7 @@ function showNotification(message) {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: linear-gradient(135deg, #e76f51, #f4a261);
+        background: linear-gradient(135deg, rgba(255, 182, 193, 0.9),rgba(152, 216, 200, 0.9));
         color: white;
         padding: 1rem 2rem;
         border-radius: 15px;
@@ -457,7 +457,7 @@ function showNotification(message) {
         font-family: 'Comic Sans MS', cursive;
     `;
     notification.textContent = message;
-    
+
     document.body.appendChild(notification);
     
     setTimeout(() => {

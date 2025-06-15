@@ -1,21 +1,21 @@
  const juegos = {
   kira: [
-    "img/memoria/tanyi1.png", "img/memoria/tanyi1.png",
-    "img/memoria/tanyi2.png", "img/memoria/tanyi2.png",
-    "img/memoria/tanyi3.png", "img/memoria/tanyi3.png",
-    "img/memoria/tanyi4.png", "img/memoria/tanyi4.png",
-    "img/memoria/tanyi5.png", "img/memoria/tanyi5.png",
-    "img/memoria/tanyi6.png", "img/memoria/tanyi6.png"
+    "img/lazo.png", "img/lazo.png",
+    "img/calle.png", "img/calle.png",
+    "img/celebracion2.jpg", "img/celebracion2.jpg",
+    "img/maquillaje.png", "img/maquillaje.png",
+    "img/rescate.png", "img/rescate.png",
+    "img/planeando.png", "img/planeando.png"
   ],
   ratitas: [
-    "img/memoria/mem1.jpg", "img/memoria/mem1.jpg",
-    "img/memoria/mem2.jpg", "img/memoria/mem2.jpg",
-    "img/memoria/mem3.jpg", "img/memoria/mem3.jpg",
-    "img/memoria/mem4.jpg", "img/memoria/mem4.jpg",
-    "img/memoria/mem5.jpg", "img/memoria/mem5.jpg",
-    "img/memoria/mem6.jpg", "img/memoria/mem6.jpg",
+    "img/memoria/1.jpg", "img/memoria/1.jpg",
+    "img/memoria/3.jpg", "img/memoria/3.jpg",
+    "img/memoria/4.jpg", "img/memoria/4.jpg",
+    "img/memoria/8.jpg", "img/memoria/8.jpg",
+    "img/memoria/debut.png", "img/memoria/debut.png",
+    "img/memoria/2.jpg", "img/memoria/2.jpg",
   ],
-  loritos: [
+  periquitos: [
     "img/memoria/peri1.jpg", "img/memoria/peri1.jpg",
     "img/memoria/peri2.jpg", "img/memoria/peri2.jpg",
     "img/memoria/peri3.jpg", "img/memoria/peri3.jpg",

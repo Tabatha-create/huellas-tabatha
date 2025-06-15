@@ -1,4 +1,4 @@
- // Variables globales para el canvas de dibujo
+// Variables globales para el canvas de dibujo
 let canvas, ctx;
 let isDrawing = false;
 let currentColor = '#000000';
@@ -8,7 +8,7 @@ let lastX = 0;
 let lastY = 0;
 
 // Datos de consejos para diferentes animales
-const additionalAnimalTips = {
+const animalTips = {
   chick: {
     title: "🐥 Consejos para dibujar un pollito",
     tips: [
@@ -247,7 +247,7 @@ function shareDrawing() {
       
       try {
         await navigator.share({
-          title: 'Mi mascota dibujada en El Mundo de Tanyi',
+          title: 'Mi mascota dibujada en Goya, una maravilla',
           text: '¡Mira el dibujo de mi mascota ideal!',
           files: [file]
         });
@@ -272,7 +272,7 @@ function fallbackShare() {
         <body style="margin:0; padding:20px; text-align:center; font-family: Comic Sans MS, cursive;">
           <h2>¡Mi Mascota Ideal!</h2>
           <img src="${dataURL}" style="max-width:100%; border:3px solid #e76f51; border-radius:15px;">
-          <p>Dibujado en El Mundo de Tanyi</p>
+          <p>Dibujado en Goya, una maravilla</p>
           <button onclick="window.print()" style="padding:10px 20px; background:#e76f51; color:white; border:none; border-radius:10px; cursor:pointer;">Imprimir</button>
         </body>
       </html>

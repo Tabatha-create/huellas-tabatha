@@ -9,8 +9,8 @@ let dragged;
 // Añadir esta constante para los nombres de puzzles
 const puzzleNames = {
   'img/portadaKira.png': 'Kira, la ratita',
-  'img/Caja2.png': 'Meli encuentra una caja',
-  'img/gotero1.png': 'Meli alimenta a la cachorrita'
+  'img/lazo.png': 'Una hermosa voz',
+  'img/viajando.png': 'Recorriendo el mundo'
 };
 
 // Modificar la función selectImage para actualizar también el nombre
