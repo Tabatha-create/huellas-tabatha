@@ -21,7 +21,7 @@
 body {
     font-family: 'Fredoka', 'Comic Sans MS', cursive;
     background-color: var(--bg-color); /* Fondo base suave */
-    background-image: url(../img/bordeext6.jpg);
+    background-image: url(../img/bordeext.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -208,8 +208,6 @@ body {
   nav a:hover {
     background-color: var(--secondary-color);
   }
-  
-
   
   /* Footer */
   .footer {

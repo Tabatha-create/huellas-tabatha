@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -32,103 +32,303 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
         }
 
-        .cuento-texto {
-            background: var(--container-bg);
-            padding: 30px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            max-width: 600px;
-            margin-bottom: 30px;
-            border: 3px solid var(--primary-color);
-            position: relative;
-            z-index: 10;
-            backdrop-filter: blur(10px);
+.cuento-texto {
+    background: var(--container-bg);
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    margin: 20px auto;
+    border: 4px solid #ffb6c1; /* Rosa pastel */
+    outline: 4px solid #98d8c8; /* Verde menta */
+    outline-offset: 4px;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+        .cuento-texto:hover {
+            transform: translateY(-5px);
         }
 
         .cuento-texto h1 {
-            color: var(--text-color);
-            font-size: 2.5em;
+            color: rgba(152, 216, 200, 0.9);
+            font-size: 3em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 6px rgba(255, 107, 107, 0.4);
         }
 
         .cuento-texto p {
             color: var(--text-color);
-            font-size: 1.3em;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            font-size: 1.4em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .fin-button {
-            background: linear-gradient(45deg, var(--primary-color), var(--highlight-color));
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--text-color);
-            cursor: pointer;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
+        /* Contenedor de imagen centrada */
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(244, 162, 97, 0.1), rgba(231, 111, 81, 0.1));
+            border-radius: 50%;
+            border: 3px dashed var(--secondary-color);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .imagen-container img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 45%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(244, 162, 97, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .imagen-container img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .imagen-placeholder {
+            font-size: 4em; 
+            color: var(--primary-color); 
+            width: 350px; 
+            height: 350px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 50%; 
+            border: 5px solid var(--primary-color); 
+            background: rgba(255,255,255,0.8);
+        }
+
+        /* Contenedor de botones */
+        .botones-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
             margin-top: 20px;
         }
 
+        .boton-base {
+            border: none;
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .fin-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+        }
+
         .fin-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(244, 162, 97, 0.6);
+            background: linear-gradient(45deg, var(--secondary-color), var(--tertiary-color));
+        }
+
+        .menu-button {
+            background: var(--bow-color);
+            box-shadow: 0 8px 25px rgba(150, 206, 180, 0.4);
+            font-size: 1.2em;
+            padding: 15px 35px;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(150, 206, 180, 0.6);
+            background: var(--secondary-color);
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .cuento-texto {
+                padding: 20px;
+                margin: 10px auto;
+            }
+            
+            .cuento-texto h1 {
+                font-size: 2.2em;
+            }
+            
+            .cuento-texto p {
+                font-size: 1.2em;
+            }
+            
+            .imagen-container img,
+            .imagen-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .botones-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .boton-base {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
         }
 
         /* Animaciones de corazones */
         .corazon {
             position: absolute;
-            font-size: 2em;
-            animation: flotar 6s infinite ease-in-out;
+            font-size: 4em;
+            animation: flotar 4s infinite ease-in-out;
             pointer-events: none;
+            z-index: 5;
         }
 
-        .corazon.rosa { color: var(--primary-color); }
+        .corazon.rosa { 
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 15px rgba(244, 162, 97, 0.6));
+        }
         .corazon.brillante { 
-            color: var(--highlight-color);
-            filter: drop-shadow(0 0 10px var(--highlight-color));
-            animation: brillar 2s infinite alternate, flotar 6s infinite ease-in-out;
+            color: var(--secondary-color);
+            filter: drop-shadow(0 0 20px var(--secondary-color)) drop-shadow(0 0 30px var(--primary-color));
+            animation: brillar 1.5s infinite alternate, flotar 4s infinite ease-in-out;
         }
         .corazon.multicolor {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--highlight-color));
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(244, 162, 97, 0.5));
         }
 
         /* Símbolos de amistad */
         .simbolo-amistad {
             position: absolute;
-            font-size: 2.5em;
-            animation: girar 8s infinite linear, flotar 7s infinite ease-in-out;
+            font-size: 3.5em;
+            animation: girar 6s infinite linear, flotar 5s infinite ease-in-out;
             pointer-events: none;
+            z-index: 5;
         }
 
-        .simbolo-amistad.manos { color: var(--secondary-color); }
-        .simbolo-amistad.abrazo { color: var(--tertiary-color); }
+        .simbolo-amistad.manos { 
+            color: var(--secondary-color);
+            filter: drop-shadow(0 0 12px rgba(231, 111, 81, 0.6));
+        }
+        .simbolo-amistad.abrazo { 
+            color: var(--tertiary-color);
+            filter: drop-shadow(0 0 12px rgba(168, 108, 61, 0.6));
+        }
         .simbolo-amistad.estrella { 
-            color: var(--highlight-color);
-            filter: drop-shadow(0 0 8px var(--highlight-color));
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 15px var(--primary-color)) drop-shadow(0 0 25px var(--secondary-color));
+        }
+
+        /* Notas musicales */
+        .nota-musical {
+            position: absolute;
+            font-size: 3em;
+            animation: bailarNota 4s infinite ease-in-out, flotarNota 3s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .nota-musical.azul {
+            color: #4ecdc4;
+            filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.8));
+        }
+        .nota-musical.dorada {
+            color: #ffd700;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+        }
+        .nota-musical.rosa {
+            color: #ff69b4;
+            filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.8));
+        }
+        .nota-musical.violeta {
+            color: #9370db;
+            filter: drop-shadow(0 0 15px rgba(147, 112, 219, 0.8));
+        }
+
+        /* Confeti */
+        .confeti {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            animation: caerConfeti 3s infinite linear;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .confeti.rectangulo {
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .confeti.circulo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .confeti.triangulo {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid var(--tertiary-color);
         }
 
         @keyframes flotar {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-30px) rotate(5deg) scale(1.1); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(-3deg) scale(1.05); 
+            }
+            75% { 
+                transform: translateY(-25px) rotate(8deg) scale(1.08); 
+            }
         }
 
         @keyframes brillar {
-            0% { filter: drop-shadow(0 0 10px var(--highlight-color)); }
-            100% { filter: drop-shadow(0 0 20px var(--highlight-color)) drop-shadow(0 0 30px var(--primary-color)); }
+            0% { 
+                filter: drop-shadow(0 0 20px var(--secondary-color)) drop-shadow(0 0 30px var(--primary-color));
+                transform: scale(1);
+            }
+            100% { 
+                filter: drop-shadow(0 0 30px var(--secondary-color)) drop-shadow(0 0 40px var(--primary-color)) drop-shadow(0 0 50px var(--tertiary-color));
+                transform: scale(1.1);
+            }
         }
 
         @keyframes girar {
@@ -136,36 +336,73 @@
             100% { transform: rotate(360deg); }
         }
 
+        @keyframes bailarNota {
+            0%, 100% { 
+                transform: translateX(0px) scale(1) rotate(0deg); 
+            }
+            25% { 
+                transform: translateX(20px) scale(1.1) rotate(15deg); 
+            }
+            50% { 
+                transform: translateX(-10px) scale(0.9) rotate(-10deg); 
+            }
+            75% { 
+                transform: translateX(15px) scale(1.05) rotate(20deg); 
+            }
+        }
+
+        @keyframes flotarNota {
+            0%, 100% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-40px); 
+            }
+        }
+
+        @keyframes caerConfeti {
+            0% { 
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(calc(100vh + 50px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
         @keyframes aparecer {
             0% { 
                 opacity: 0; 
-                transform: scale(0) translateY(50px);
+                transform: scale(0) translateY(50px) rotate(-180deg);
+            }
+            50% {
+                transform: scale(1.2) translateY(-10px) rotate(0deg);
             }
             100% { 
                 opacity: 1; 
-                transform: scale(1) translateY(0px);
+                transform: scale(1) translateY(0px) rotate(0deg);
             }
         }
 
         .elemento-animado {
-            animation: aparecer 1s ease-out forwards;
+            animation: aparecer 1.5s ease-out forwards;
             opacity: 0;
         }
 
-        /* Efectos de partículas */
-        .particula {
+        /* Burbujas flotantes */
+        .burbuja {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--primary-color);
             border-radius: 50%;
-            animation: particulas 4s infinite ease-in-out;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(244, 162, 97, 0.3));
+            animation: burbujas 6s infinite ease-in-out;
             pointer-events: none;
+            z-index: 2;
         }
 
-        @keyframes particulas {
+        @keyframes burbujas {
             0% { 
-                transform: translateY(100vh) scale(0);
+                transform: translateY(calc(100vh + 20px)) scale(0);
                 opacity: 0;
             }
             10% {
@@ -175,24 +412,49 @@
                 opacity: 1;
             }
             100% { 
-                transform: translateY(-100px) scale(1);
+                transform: translateY(-50px) scale(1);
                 opacity: 0;
             }
+        }
+
+        /* Efectos de explosión para el botón */
+        .explosion {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: explotar 1s ease-out forwards;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        @keyframes explotar {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .celebrando {
+            animation: brillar 1s infinite alternate !important;
         }
     </style>
 </head>
 <body>
     <div class="cuento-texto">
         <h1>¡Y Colorín Colorado!</h1>
-        <p>Los amigos vivieron muchas aventuras juntos, siempre cuidándose y apoyándose mutuamente.</p>
-        <p>La verdadera amistad es el tesoro más valioso que podemos encontrar.</p>
+        <p><span style="color: #ffb6c1; font-weight: bold;"> Kira</span> siguió cantando por muchos otros sitios, siempre acompañada de su fiel y eterno amigo <span style="color: #98d8c8; font-weight: bold;">Periquito</span></p>
+        <p>"La verdadera amistad es el tesoro más valioso que podemos encontrar".</p>
         <div class="imagen-container">
-            <img src="img/goya.png" alt="Tanyi corazón" onerror="this.outerHTML='<div style=\'font-size: 4em; color: var(--primary-color); width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 5px solid var(--primary-color); background: rgba(255,255,255,0.8);\'>💖</div>'">
+            <img src="img/viajando.png" alt="Amigos" onerror="this.outerHTML='<div class=\'imagen-placeholder\'>💖</div>'">
         </div>
-        <p>Kira siguió cantando por muchos otros sitios, siempre acompañada de su fiel y eterno amigo Periquito</p>
         <p>¿Te gustó esta historia? <br>
             ¡Tú también puedes inventar la tuya!</p>
-        <p>Recuerda: ser diferente te hace especial y único.</p>
+        <p>Recuerda: siempre se puede seguir soñando.</p>
         
         <div class="botones-container">
             <button class="boton-base fin-button" onclick="activarCelebracion()">¡Celebrar la Amistad!</button>
@@ -200,133 +462,225 @@
         </div>
     </div>
 
-    <script>
-        let celebracionActiva = false;
-        let intervalos = [];
+<script>
+    let celebracionActiva = false;
+    let intervalos = [];
 
-        function crearCorazon() {
-            const corazon = document.createElement('div');
-            corazon.className = 'corazon elemento-animado';
-            corazon.innerHTML = '💖';
-            
-            const tipos = ['rosa', 'brillante', 'multicolor'];
-            const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
-            corazon.classList.add(tipoAleatorio);
-            
-            corazon.style.left = Math.random() * 100 + '%';
-            corazon.style.top = Math.random() * 100 + '%';
-            corazon.style.animationDelay = Math.random() * 2 + 's';
-            
-            document.body.appendChild(corazon);
-            
-            setTimeout(() => {
-                if (corazon.parentNode) {
-                    corazon.remove();
-                }
-            }, 8000);
-        }
-
-        function crearSimboloAmistad() {
-            const simbolo = document.createElement('div');
-            simbolo.className = 'simbolo-amistad elemento-animado';
-            
-            const simbolos = [
-                { emoji: '🤝', clase: 'manos' },
-                { emoji: '🫂', clase: 'abrazo' },
-                { emoji: '⭐', clase: 'estrella' },
-                { emoji: '🌟', clase: 'estrella' },
-                { emoji: '💫', clase: 'estrella' }
-            ];
-            
-            const simboloAleatorio = simbolos[Math.floor(Math.random() * simbolos.length)];
-            simbolo.innerHTML = simboloAleatorio.emoji;
-            simbolo.classList.add(simboloAleatorio.clase);
-            
-            simbolo.style.left = Math.random() * 100 + '%';
-            simbolo.style.top = Math.random() * 100 + '%';
-            simbolo.style.animationDelay = Math.random() * 3 + 's';
-            
-            document.body.appendChild(simbolo);
-            
-            setTimeout(() => {
-                if (simbolo.parentNode) {
-                    simbolo.remove();
-                }
-            }, 10000);
-        }
-
-        function crearParticula() {
-            const particula = document.createElement('div');
-            particula.className = 'particula';
-            particula.style.left = Math.random() * 100 + '%';
-            particula.style.animationDelay = Math.random() * 2 + 's';
-            
-            const colores = [
-                'var(--primary-color)', 
-                'var(--secondary-color)', 
-                'var(--accent-color)', 
-                'var(--highlight-color)'
-            ];
-            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
-            
-            // Convertir CSS variables a valores RGB
-            const colorMap = {
-                'var(--primary-color)': '#ffb6c1',
-                'var(--secondary-color)': '#98d8c8',
-                'var(--accent-color)': '#d0f0c0',
-                'var(--highlight-color)': '#fffacd'
-            };
-            
-            particula.style.background = colorMap[colorAleatorio];
-            
-            document.body.appendChild(particula);
-            
-            setTimeout(() => {
-                if (particula.parentNode) {
-                    particula.remove();
-                }
-            }, 4000);
-        }
-
-        function activarCelebracion() {
-            if (celebracionActiva) return;
-            celebracionActiva = true;
-            
-            // Crear elementos inmediatamente
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => crearCorazon(), i * 200);
-                setTimeout(() => crearSimboloAmistad(), i * 300);
+    function crearCorazon() {
+        const corazon = document.createElement('div');
+        corazon.className = 'corazon elemento-animado';
+        
+        const corazones = ['💖', '💝', '💕', '💗', '💓', '💘', '🥰', '😍'];
+        const corazonAleatorio = corazones[Math.floor(Math.random() * corazones.length)];
+        corazon.innerHTML = corazonAleatorio;
+        
+        const tipos = ['rosa', 'brillante', 'multicolor'];
+        const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
+        corazon.classList.add(tipoAleatorio);
+        
+        corazon.style.left = Math.random() * 90 + 5 + '%';
+        corazon.style.top = Math.random() * 90 + 5 + '%';
+        corazon.style.animationDelay = Math.random() * 2 + 's';
+        
+        document.body.appendChild(corazon);
+        
+        setTimeout(() => {
+            if (corazon.parentNode) {
+                corazon.remove();
             }
-            
-            // Continuar creando elementos
-            intervalos.push(setInterval(crearCorazon, 800));
-            intervalos.push(setInterval(crearSimboloAmistad, 1200));
-            intervalos.push(setInterval(crearParticula, 300));
-            
-            // Cambiar el botón
-            const boton = document.querySelector('.fin-button');
-            boton.innerHTML = '¡Amistad para Siempre! 💕';
-            boton.style.background = 'linear-gradient(45deg, var(--secondary-color), var(--accent-color))';
-            boton.style.color = 'var(--text-color)';
-        }
+        }, 6000);
+    }
 
-        // Crear algunos elementos iniciales
+        function crearNotaMusical() {
+        const nota = document.createElement('div');
+        nota.className = 'nota-musical elemento-animado';
+        
+        const notas = ['🎵', '🎶', '🎼', '🎤', '🎧', '🎺', '🎸', '🥁'];
+        const notaAleatoria = notas[Math.floor(Math.random() * notas.length)];
+        nota.innerHTML = notaAleatoria;
+        
+        const colores = ['azul', 'dorada', 'rosa', 'violeta'];
+        const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+        nota.classList.add(colorAleatorio);
+        
+        nota.style.left = Math.random() * 85 + 7.5 + '%';
+        nota.style.top = Math.random() * 85 + 7.5 + '%';
+        nota.style.animationDelay = Math.random() * 2 + 's';
+        
+        document.body.appendChild(nota);
+        
+        setTimeout(() => {
+            if (nota.parentNode) {
+                nota.remove();
+            }
+        }, 7000);
+    }
+
+    function crearSimboloAmistad() {
+        const simbolo = document.createElement('div');
+        simbolo.className = 'simbolo-amistad elemento-animado';
+        
+        const simbolos = [
+            { emoji: '🤝', clase: 'manos' },
+            { emoji: '🫂', clase: 'abrazo' },
+            { emoji: '⭐', clase: 'estrella' },
+            { emoji: '🌟', clase: 'estrella' },
+            { emoji: '💫', clase: 'estrella' },
+            { emoji: '🎉', clase: 'manos' },
+            { emoji: '🎊', clase: 'abrazo' },
+            { emoji: '🌈', clase: 'estrella' }
+        ];
+        
+        const simboloAleatorio = simbolos[Math.floor(Math.random() * simbolos.length)];
+        simbolo.innerHTML = simboloAleatorio.emoji;
+        simbolo.classList.add(simboloAleatorio.clase);
+        
+        simbolo.style.left = Math.random() * 85 + 7.5 + '%';
+        simbolo.style.top = Math.random() * 85 + 7.5 + '%';
+        simbolo.style.animationDelay = Math.random() * 3 + 's';
+        
+        document.body.appendChild(simbolo);
+        
+        setTimeout(() => {
+            if (simbolo.parentNode) {
+                simbolo.remove();
+            }
+        }, 8000);
+    }
+
+    function crearConfeti() {
+        const confeti = document.createElement('div');
+        const tipos = ['rectangulo', 'circulo', 'triangulo'];
+        const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
+        
+        confeti.className = `confeti ${tipoAleatorio}`;
+        confeti.style.left = Math.random() * 100 + '%';
+        confeti.style.animationDelay = Math.random() * 2 + 's';
+        confeti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        
+        const colores = ['#f4a261', '#e76f51', '#a86c3d', '#96ceb4', '#feca57'];
+        const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+        
+        if (tipoAleatorio === 'rectangulo') {
+            confeti.style.background = colorAleatorio;
+        } else if (tipoAleatorio === 'circulo') {
+            confeti.style.background = colorAleatorio;
+        } else if (tipoAleatorio === 'triangulo') {
+            confeti.style.borderBottomColor = colorAleatorio;
+        }
+        
+        document.body.appendChild(confeti);
+        
+        setTimeout(() => {
+            if (confeti.parentNode) {
+                confeti.remove();
+            }
+        }, 4000);
+    }
+
+    function crearBurbuja() {
+        const burbuja = document.createElement('div');
+        burbuja.className = 'burbuja';
+        
+        const tamaño = Math.random() * 30 + 20;
+        burbuja.style.width = tamaño + 'px';
+        burbuja.style.height = tamaño + 'px';
+        burbuja.style.left = Math.random() * 100 + '%';
+        burbuja.style.animationDelay = Math.random() * 2 + 's';
+        burbuja.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        
+        document.body.appendChild(burbuja);
+        
+        setTimeout(() => {
+            if (burbuja.parentNode) {
+                burbuja.remove();
+            }
+        }, 8000);
+    }
+
+    function crearExplosion(x, y) {
+        for (let i = 0; i < 12; i++) {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            
+            const colores = ['#f4a261', '#e76f51', '#a86c3d', '#feca57'];
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            explosion.style.background = colorAleatorio;
+            
+            explosion.style.left = x + (Math.random() - 0.5) * 100 + 'px';
+            explosion.style.top = y + (Math.random() - 0.5) * 100 + 'px';
+            explosion.style.animationDelay = (Math.random() * 0.5) + 's';
+            
+            document.body.appendChild(explosion);
+            
+            setTimeout(() => {
+                if (explosion.parentNode) {
+                    explosion.remove();
+                }
+            }, 1500);
+        }
+    }
+
+    function activarCelebracion() {
+        if (celebracionActiva) return;
+        celebracionActiva = true;
+        
+        // Crear explosión en el botón
+        const boton = document.querySelector('.fin-button');
+        const rect = boton.getBoundingClientRect();
+        crearExplosion(rect.left + rect.width/2, rect.top + rect.height/2);
+        
+        // Crear elementos inmediatamente en mayor cantidad
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => crearCorazon(), i * 150);
+            setTimeout(() => crearSimboloAmistad(), i * 200);
+            setTimeout(() => crearNotaMusical(), i *100);
+            setTimeout(() => crearConfeti(), i * 100);
+        }
+        
+        // Continuar creando elementos con mayor frecuencia
+        intervalos.push(setInterval(crearCorazon, 600));
+        intervalos.push(setInterval(crearSimboloAmistad, 800));
+        intervalos.push(setInterval(crearConfeti, 200));
+        intervalos.push(setInterval(crearBurbuja, 400));
+        
+        // Cambiar el botón con animación
+        boton.innerHTML = '¡Amistad para Siempre! 💕✨🌟';
+        boton.style.background = 'linear-gradient(45deg, var(--secondary-color), var(--tertiary-color), var(--primary-color))';
+        boton.classList.add('celebrando');
+        
+        // Hacer que el contenedor principal también celebre
+        const contenedor = document.querySelector('.cuento-texto');
+        contenedor.style.animation = 'flotar 2s infinite ease-in-out';
+    }
+
+    // Crear algunos elementos iniciales para ambiente
+    window.addEventListener('load', function() {
         setTimeout(() => {
             crearCorazon();
             crearSimboloAmistad();
-        }, 1000);
+            crearBurbuja();
+        }, 500);
 
+        // Mantener un ambiente festivo suave antes de la celebración
         setInterval(() => {
             if (!celebracionActiva) {
-                crearCorazon();
-            }
-        }, 3000);
-
-        setInterval(() => {
-            if (!celebracionActiva) {
-                crearSimboloAmistad();
+                if (Math.random() < 0.7) crearCorazon();
             }
         }, 4000);
-    </script>
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                if (Math.random() < 0.5) crearSimboloAmistad();
+            }
+        }, 5000);
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                crearBurbuja();
+            }
+        }, 3000);
+    });
+</script>
 </body>
 </html>

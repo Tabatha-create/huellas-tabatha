@@ -84,3 +84,56 @@ button:hover {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-radius: 24px;
+  margin: 30px auto;
+}
+
+.image-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.text-box {
+  flex: 1;
+  font-size: 0.5rem;
+  line-height: 1.3;
+  background-color: rgba(255, 248, 242, 0.9); /* Fondo base ligeramente transparente */
+  padding: 15px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative; /* Importante para el pseudo-elemento */
+  z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+}
+
+.text-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/Kira2.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1; /* Controla la transparencia de la imagen de fondo */
+  border-radius: 24px; /* Mantiene los bordes redondeados */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+}
