@@ -29,6 +29,28 @@
           <p>Usa el lienzo digital para dibujar y darle vida a tu mascota ideal. ¡Deja volar tu imaginación!</p>
         </div>
         
+                <div class="inspiration-section">
+          <h3>💭 Ideas para tu mascota:</h3>
+          <div class="inspiration-grid">
+            <div class="inspiration-card" onclick="showAnimalTips('parrot')">
+              <div class="animal-icon">🦜</div>
+              <div class="animal-name">Lorito</div>
+            </div>
+            <div class="inspiration-card" onclick="showAnimalTips('mouse')">
+              <div class="animal-icon">🐭</div>
+              <div class="animal-name">Ratita</div>
+            </div>
+            <div class="inspiration-card" onclick="showAnimalTips('frog')">
+              <div class="animal-icon">🐸</div>
+              <div class="animal-name">Ranita</div>
+            </div>
+            <div class="inspiration-card" onclick="showAnimalTips('owl')">
+              <div class="animal-icon">🦉</div>
+              <div class="animal-name">Búho</div>
+            </div>
+          </div>
+        </div>
+
         <div class="drawing-area">
           <canvas id="drawingCanvas" class="drawing-canvas" width="500" height="400"></canvas>
           
@@ -69,28 +91,6 @@
               <button class="action-btn clear" onclick="clearCanvas()">🗑️ Limpiar</button>
               <button class="action-btn save" onclick="saveDrawing()">💾 Guardar</button>
               <button class="action-btn share" onclick="shareDrawing()">📤 Compartir</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="inspiration-section">
-          <h3>💭 Ideas para tu mascota:</h3>
-          <div class="inspiration-grid">
-            <div class="inspiration-card" onclick="showAnimalTips('dog')">
-              <div class="animal-icon">🐶</div>
-              <div class="animal-name">Perrito</div>
-            </div>
-            <div class="inspiration-card" onclick="showAnimalTips('cat')">
-              <div class="animal-icon">🐱</div>
-              <div class="animal-name">Gatito</div>
-            </div>
-            <div class="inspiration-card" onclick="showAnimalTips('bird')">
-              <div class="animal-icon">🐦</div>
-              <div class="animal-name">Pajarito</div>
-            </div>
-            <div class="inspiration-card" onclick="showAnimalTips('rabbit')">
-              <div class="animal-icon">🐰</div>
-              <div class="animal-name">Conejito</div>
             </div>
           </div>
         </div>
@@ -176,6 +176,6 @@
 </div>
 </footer>
   
-  <script src="js/dibujo.js"></script>
+  <script src="js/dibujar.js"></script>
 </body>
 </html>

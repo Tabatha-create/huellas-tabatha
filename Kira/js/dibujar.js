@@ -9,46 +9,46 @@ let lastY = 0;
 
 // Datos de consejos para diferentes animales
 const animalTips = {
-  dog: {
-    title: "🐶 Consejos para dibujar un perrito",
+  parrot: {
+    title: "🦜 Consejos para dibujar un lorito",
     tips: [
-      "• Empieza con formas básicas: círculo para la cabeza, óvalo para el cuerpo",
-      "• Las orejas pueden ser triangulares o caídas dependiendo de la raza",
-      "• No olvides la colita moviéndose - ¡los perritos siempre están felices!",
-      "• Los ojos grandes y brillantes hacen que se vea más tierno",
-      "• Puedes agregar una lengüita rosada colgando"
+      "• La cabeza es redonda con un pico curvado hacia abajo",
+      "• Las plumas de la cabeza pueden ser como una pequeña cresta",
+      "• Las alas son grandes con plumas de diferentes colores",
+      "• Las patitas tienen garras para agarrarse de las ramas",
+      "• ¡Usa muchos colores! Verde, rojo, azul, amarillo - ¡los loros son muy coloridos!"
     ]
   },
-  cat: {
-    title: "🐱 Consejos para dibujar un gatito",
+  mouse: {
+    title: "🐭 Consejos para dibujar una ratita",
     tips: [
-      "• Los gatos tienen cabezas más triangulares que los perros",
-      "• Las orejas puntiagudas son características importantes",
-      "• Los bigotes largos y curvos no pueden faltar",
-      "• La cola larga y elegante es muy importante",
-      "• Los ojos pueden ser grandes y expresivos, a veces de diferentes colores"
+      "• El cuerpo es pequeño y ovalado, como una gota de agua",
+      "• Las orejas son grandes y redondas comparadas con su cabecita",
+      "• La cola es larga, delgada y sin pelo",
+      "• El hocico es puntiagudo con bigotitos largos",
+      "• Puedes dibujarla comiendo un pedacito de queso"
     ]
   },
-  bird: {
-    title: "🐦 Consejos para dibujar un pajarito",
+  frog: {
+    title: "🐸 Consejos para dibujar una ranita",
     tips: [
-      "• Empieza con dos círculos: uno pequeño para la cabeza, uno más grande para el cuerpo",
-      "• Las alas pueden ser simples formas de gota",
-      "• El pico puede ser triangular o curvado según el tipo de ave",
-      "• No olvides las patitas delgadas con pequeñas garras",
-      "• Puedes agregar plumas coloridas en la cola y las alas"
+      "• El cuerpo es redondo y un poco aplastado",
+      "• Los ojos son grandes y saltones, como pelotas encima de la cabeza",
+      "• Las patas traseras son largas y fuertes para saltar",
+      "• Las patas delanteras son más pequeñas y delgadas",
+      "• Puedes agregarle una hoja de nenúfar donde esté sentada"
     ]
   },
-  rabbit: {
-    title: "🐰 Consejos para dibujar un conejito",
+  owl: {
+    title: "🦉 Consejos para dibujar un búho",
     tips: [
-      "• Las orejas largas son lo más característico - pueden estar paradas o caídas",
-      "• El cuerpo es redondeado y peludo",
-      "• La nariz es como un pequeño triángulo rosa",
-      "• La colita es pequeña y esponjosa como una bolita de algodón",
-      "• Los dientes frontales grandes lo hacen muy tierno"
+      "• El cuerpo es ovalado, como un huevo grande",
+      "• Los ojos son enormes y redondos - ¡lo más importante!",
+      "• El pico es pequeño y curvado hacia abajo",
+      "• Las alas tienen plumas con patrones bonitos",
+      "• Puedes dibujarle 'cejas' con plumas para que se vea sabio"
     ]
-  }
+  },
 };
 
 // Inicialización cuando se carga la página

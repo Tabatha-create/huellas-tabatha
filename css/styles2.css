@@ -12,8 +12,8 @@
     --color-acento: #FBBF24;       /* Amarillo dorado */
     
     /* Colores para containers con personalidad */
-    --color-coral: #FF7F7F;        /* Coral vibrante */
-    --color-lavanda: #A78BFA;      /* Lavanda expresiva */
+    --color-coral: #ffaaaa;        /* Coral vibrante */
+    --color-lavanda: #cec7e3;      /* Lavanda expresiva */
     --color-menta: #6EE7B7;        /* Menta fresca */
     --color-durazno: #FDBA74;      /* Durazno cálido */
     --color-lila: #C084FC;         /* Lila juguetón */
@@ -437,6 +437,7 @@ main {
   padding: 1em;
   border-radius: 1em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: #bfb2e6;
 }
 
 .miembro figure {
