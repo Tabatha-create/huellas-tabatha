@@ -27,26 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-const container = document.querySelector('.rain-container');
-  const emojis = ['🐾',  '📘', '🦴','📙', '🐶', ]; // Puedes añadir más
-
-  function crearEmoji() {
-  if (container.childElementCount > 20) return; // máximo 20 elementos activos
-  const el = document.createElement('div');
-  el.classList.add('raindrop');
-  el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-  el.style.left = `${Math.random() * 100}%`;
-  el.style.animationDuration = `${Math.random() * 4 + 3}s`;
-  el.style.fontSize = `${Math.random() * 1.5 + 1.2}rem`;
-
-  container.appendChild(el);
-
-  setTimeout(() => el.remove(), 8000);
-}
-
-  setInterval(crearEmoji, 500); // uno nuevo cada 500ms
-
 document.addEventListener('DOMContentLoaded', function() {
     // Funcionalidad para desplegar/contraer el formulario
     const toggle = document.querySelector('.contact-toggle');
@@ -81,76 +61,139 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
- document.addEventListener('DOMContentLoaded', function() {
-            // Obtener elementos del modal
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const closeBtn = document.getElementsByClassName('close')[0];
-            
-            // Obtener todas las tarjetas de memoria
-            const memoryCards = document.querySelectorAll('.memory-card');
-            
-            // Agregar event listener a cada tarjeta
-            memoryCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Obtener datos de la imagen y texto
-                    const img = this.querySelector('.memory-img');
-                    const title = this.querySelector('.memory-text h4');
-                    const description = this.querySelector('.memory-text p');
-                    
-                    // Mostrar el modal
-                    modal.style.display = 'block';
-                    
-                    // Establecer la imagen
-                    modalImg.src = img.src;
-                    modalImg.alt = img.alt;
-                    
-                    // Establecer el texto
-                    if (title) {
-                        modalTitle.textContent = title.textContent;
-                        modalTitle.style.display = 'block';
-                    } else {
-                        modalTitle.style.display = 'none';
-                    }
-                    
-                    if (description) {
-                        modalDescription.textContent = description.textContent;
-                        modalDescription.style.display = 'block';
-                    } else {
-                        modalDescription.style.display = 'none';
-                    }
-                    
-                    // Prevenir scroll del body
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Cerrar modal al hacer clic en X
-            closeBtn.addEventListener('click', function() {
-                closeModal();
-            });
-            
-            // Cerrar modal al hacer clic fuera de la imagen
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-            
-            // Cerrar modal con tecla Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.style.display === 'block') {
-                    closeModal();
-                }
-            });
-            
-            // Función para cerrar el modal
-            function closeModal() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+  const carouselTrack = document.getElementById('carouselTrack');
+        const indicators = document.getElementById('indicators');
+        const modal = document.getElementById('photoModal');
+        
+        let currentIndex = 0;
+        const cardsPerView = window.innerWidth > 768 ? 4 : 1;
+        const totalCards = document.querySelectorAll('.memory-card').length;
+        const maxIndex = Math.max(0, totalCards - cardsPerView);
+
+        // Datos de las fotos para el modal (usa las mismas rutas que tus imágenes)
+        const photoData = [
+            {
+                title: "Sus primeras fotos",
+                description: "Esta es una de las primeras fotos cuando nació que aún estaba junto a todos sus hermanitos.",
+                img: "img/Tabatha/bebe.jpg"
+            },
+            {
+                title: "Primera mirada",
+                description: "Tenía carita de asustada, era el primer día que se separaba de sus hermanitos y todo era diferente, venía de un largo viaje y estaba lejos de los suyos.",
+                img: "img/Tabatha/1erdia.jpg"
+            },
+            {
+                title: "Llegando a casa",
+                description: "El primer día en casa, todavía seguía un poco asustada porque no conocía nada y era la primera noche separada de sus hermanitos.",
+                img: "img/Tabatha/encasa.jpg"
+            },
+            {
+                title: "Como una muñeca",
+                description: "En mi primer viaje, me tomaron como un juguete y me paseaban en el coche de las muñecas.",
+                img: "img/Tabatha/FB_IMG_1607551178153.jpg"
+            },
+            {
+                title: "Todo lo muerde",
+                description: "Siempre encontraba algo que morder. No importaba lo que fuera, ella todo lo que había en el piso lo agarraba para practicar con sus dientes nuevos.",
+                img: "img/Tabatha/cepillo.jpg"
+            },
+            {
+                title: "Ladrando a la comida",
+                description: "Cuando la comida estaba caliente, le ladraba para no quemarse. Hasta la comida era una razón para jugar.",
+                img: "img/Tabatha/comida1.jpg"
+            },
+            {
+                title: "Peleando con el limón",
+                description: "Como todo era juguete agarró un limón y como no le gustaba, se puso a ladrarle.",
+                img: "img/Tabatha/limon1.jpg"
+            },
+            {
+                title: "Otro juguete",
+                description: "Tenía muchos juguetes, pero le encantaba morder todo lo que había en el suelo y agarró las zapatillas como su juguete.",
+                img: "img/Tabatha/zanahoria.jpg"
+            },
+             {
+                title: "Comiendo zanahoria",
+                description: "De pequeñita le gustaba mucho la zanahoria, y la apoyaba en la zapatilla para que no se le escapara.",
+                img: "img/Tabatha/zanahoria.jpg"
             }
+        ];
+
+        // Crear indicadores
+        function createIndicators() {
+            indicators.innerHTML = '';
+            for (let i = 0; i <= maxIndex; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                indicator.onclick = () => goToSlide(i);
+                indicators.appendChild(indicator);
+            }
+        }
+
+        // Mover carrusel
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            
+            if (currentIndex < 0) {
+                currentIndex = maxIndex;
+            } else if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            }
+            
+            updateCarousel();
+        }
+
+        // Ir a slide específico
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Actualizar carrusel
+        function updateCarousel() {
+            const cardWidth = 320; // 300px + 20px margin
+            const offset = currentIndex * cardWidth;
+            carouselTrack.style.transform = `translateX(-${offset}px)`;
+            
+            // Actualizar indicadores
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Abrir modal
+        function openModal(index) {
+            const data = photoData[index];
+            document.getElementById('modalImg').src = data.img;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalDescription').textContent = data.description;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'block') {
+                if (e.key === 'Escape') closeModal();
+                return;
+            }
+            
+            if (e.key === 'ArrowLeft') moveCarousel(-1);
+            if (e.key === 'ArrowRight') moveCarousel(1);
+        });
+
+        // Inicializar
+        createIndicators();
+
+        // Responsive
+        window.addEventListener('resize', () => {
+            location.reload();
         });
 
     // botón para desplazar hacia arriba la página

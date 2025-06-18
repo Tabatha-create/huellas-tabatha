@@ -12,7 +12,7 @@
     --color-acento: #FBBF24;       /* Amarillo dorado */
     
     /* Colores para containers con personalidad */
-    --color-coral: #ffaaaa;        /* Coral vibrante */
+    --color-coral: #fdc2c2;        /* Coral vibrante */
     --color-lavanda: #cec7e3;      /* Lavanda expresiva */
     --color-menta: #6EE7B7;        /* Menta fresca */
     --color-durazno: #FDBA74;      /* Durazno cálido */
@@ -499,52 +499,69 @@ blockquote {
     padding: 40px 0;
 }
 
-        .about-content {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            align-items: center;
-        }
+.about-content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    align-items: center;
+}
 
-        .about-img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
+.about-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
 
-        /* Galería de recuerdos con modal */
-        .memories-title {
-            text-align: center;
-            margin: 40px 0 30px;
-        }
+/* Galería de recuerdos con modal */
+.memories-title {
+    text-align: center;
+    margin: 40px 0 30px;
+}
 
-        .memories-title h3 {
-            font-family: var(--fuente-titulos);
-            font-size: 2rem;
-            color: var(--color-lila-medio);
-            margin-bottom: 10px;
-        }
+.memories-title h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    color: var(--color-lila-medio);
+    margin-bottom: 10px;
+}
 
-        .memories-title p {
-            font-size: 1.1rem;
-            color: var(--color-principal);
-        }
+.memories-title p {
+    font-size: 1.1rem;
+    color: var(--color-principal);
+}
 
+/* CARRUSEL - Contenedor principal */
         .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
         }
 
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* TARJETAS - Tu estilo original adaptado para carrusel */
         .memory-card {
             position: relative;
+            min-width: 300px;
             height: 200px;
+            margin: 0 10px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 6px 15px var(--sombra-lavanda);
             cursor: pointer;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .memory-card:hover {
@@ -602,7 +619,61 @@ blockquote {
             line-height: 1.4;
         }
 
-        /* Modal para ampliar imágenes con texto */
+        /* BOTONES DE NAVEGACIÓN */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn.prev {
+            left: -25px;
+        }
+
+        .carousel-btn.next {
+            right: -25px;
+        }
+
+        /* INDICADORES */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* MODAL - Tu estilo original */
         .modal {
             display: none;
             position: fixed;
@@ -659,8 +730,8 @@ blockquote {
             margin: 0;
         }
 
-/* Botón de cerrar */    
-.close {
+        /* Botón de cerrar */    
+        .close {
             position: absolute;
             top: 15px;
             right: 20px;
@@ -680,11 +751,11 @@ blockquote {
             transition: background 0.3s ease;
         }
 
-.close:hover,
-.close:focus {
-    background: rgba(0, 0, 0, 0.8);
-    text-decoration: none;
-}
+        .close:hover,
+        .close:focus {
+            background: rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+        }
 
         /* Animación del modal */
         @keyframes zoomIn {
@@ -695,6 +766,33 @@ blockquote {
             to {
                 opacity: 1;
                 transform: translateY(-50%) scale(1);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .memory-card {
+                min-width: 250px;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .carousel-btn.prev {
+                left: -20px;
+            }
+            
+            .carousel-btn.next {
+                right: -20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .memory-card {
+                min-width: 280px;
             }
         }
 

@@ -104,7 +104,10 @@
                                 <div class="story-icon">
                                     <img src="Goya/img/logoGoya.png" alt="Goya, una maravilla"></div>
                                 <div class="story-info">
-                                    <h4>Goya, una maravilla</h4>
+                                    <h4>Goya, una maravilla
+                                        <p>LEIRE O.D.</p>
+                                    </h4>
+                                    
                                     <p>Un pollito muy listo y especial.</p>
                                 </div>
                                 </div>
@@ -332,76 +335,123 @@
 <!-- Galería de Recuerdos -->
     <div class="memories-title">
         <h3>Pequeños momentos, grandes recuerdos</h3>
-        <p>Conoce a Tabatha a través de algunas anécdotas y momentos especiales</p>
+        <p>Conoce a Tabatha a través de algunas anécdotas y momentos especiales en esta Galería de recuerdos</p>
     </div>
             
-    <div class="photo-gallery">
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/bebe.jpg" alt="Tabatha de cachorra" class="memory-img">
-            </div>
-            <div class="memory-text">
-                <h4>Sus primeras fotos</h4>
-                <p>Esta es una de las primeras fotos cuando nació que aún estaba junto a todos sus hermanitos.</p>
-            </div>
-        </div>
-                
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/1erdia.jpg" alt="Tabatha jugando" class="memory-img">
-            </div>
-            <div class="memory-text">
-                <h4>Primera mirada</h4>
-                <p>Tenía carita de asustada, era el primer día que se separaba de sus hermanitos y todo era diferente, venía de un largo viaje y estaba lejos de los suyos.</p>
-            </div>
-        </div>
-                
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/encasa.jpg" alt="Llegando a casa" class="memory-img">
-            </div>
-            <div class="memory-text">
-                <h4>Llegando a casa</h4>
-                <p>El primer día en casa, todavía seguía un poco asustada porque no conocía nada y era la primera noche separada de sus hermanitos.</p>
-            </div>
-        </div>
-                
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/FB_IMG_1607551178153.jpg" alt="Coche muneca" class="memory-img">
-            </div>
-            <div class="memory-text">
-                <h4>Como una muñeca</h4>
-                <p>En mi primer viaje, me tomaron como un juguete y me paseaban en el coche de las muñecas.</p>
-            </div>
-        </div>
+<div class="photo-gallery">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Tarjeta 1 -->
+                <div class="memory-card" onclick="openModal(0)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/bebe.jpg" alt="Tabatha de cachorra" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Sus primeras fotos</h4>
+                        <p>Esta es una de las primeras fotos cuando nació que aún estaba junto a todos sus hermanitos.</p>
+                    </div>
+                </div>
 
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/cepillo.jpg" alt="Tabatha durmiendo" class="memory-img">
-            </div>
-            <div class="memory-text">
-                <h4>Todo lo muerde</h4>
-                <p>Siempre encontraba algo que morder. No importaba lo que fuera, ella todo lo que había en el piso lo agarraba para practicar con sus dientes nuevos.</p>
-            </div>
-        </div>
+                <!-- Tarjeta 2 -->
+                <div class="memory-card" onclick="openModal(1)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/1erdia.jpg" alt="Tabatha jugando" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Primera mirada</h4>
+                        <p>Tenía carita de asustada, era el primer día que se separaba de sus hermanitos y todo era diferente, venía de un largo viaje y estaba lejos de los suyos.</p>
+                    </div>
+                </div>
 
-        <div class="memory-card">
-            <div class="memory-img-container">
-                <img src="img/Tabatha/comida1.jpg" alt="Comida caliente" class="memory-img">
+                <!-- Tarjeta 3 -->
+                <div class="memory-card" onclick="openModal(2)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/encasa.jpg" alt="Llegando a casa" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Llegando a casa</h4>
+                        <p>El primer día en casa, todavía seguía un poco asustada porque no conocía nada y era la primera noche separada de sus hermanitos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="memory-card" onclick="openModal(3)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/FB_IMG_1607551178153.jpg" alt="Coche muneca" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Como una muñeca</h4>
+                        <p>En mi primer viaje, me tomaron como un juguete y me paseaban en el coche de las muñecas.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="memory-card" onclick="openModal(4)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/cepillo.jpg" alt="Tabatha durmiendo" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Todo lo muerde</h4>
+                        <p>Siempre encontraba algo que morder. No importaba lo que fuera, ella todo lo que había en el piso lo agarraba para practicar con sus dientes nuevos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="memory-card" onclick="openModal(5)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/comida1.jpg" alt="Comida caliente" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Ladrando a la comida</h4>
+                        <p>Cuando la comida estaba caliente, le ladraba para no quemarse. Hasta la comida era una razón para jugar.</p>
+                    </div>
+                </div>
+
+                 <div class="memory-card" onclick="openModal(6)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/limon1.jpg" alt="Comiendo zanahoria" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Peleando con el limón</h4>
+                        <p>Como todo era juguete agarró un limón y como no le gustaba, se puso a ladrarle.</p>
+                    </div>
+                </div>
+
+                                <div class="memory-card" onclick="openModal(7)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/zapatilla.jpg" alt="Zapatilla" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Otro juguete</h4>
+                        <p>Tenía muchos juguetes, pero le encantaba morder todo lo que había en el suelo y agarró las zapatillas como su juguete.</p>
+                    </div>
+                </div>
+
+                <div class="memory-card" onclick="openModal(8)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/zanahoria.jpg" alt="Comiendo zanahoria" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Comiendo zanahoria</h4>
+                        <p>De pequeñita le gustaba mucho la zanahoria, y la apoyaba en la zapatilla para que no se le escapara.</p>
+                    </div>
+                </div>
             </div>
-            <div class="memory-text">
-                <h4>Ladrando a la comida</h4>
-                <p>Cuando la comida estaba caliente, le ladraba para no quemarse. Hasta la comida era una razón para jugar.</p>
-            </div>
+            
+            <!-- Botones de navegación -->
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
         </div>
+        
+        <!-- Indicadores -->
+        <div class="carousel-indicators" id="indicators"></div>
     </div>
 
-    <!-- Modal para ampliar imágenes con texto -->
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" class="modal-image" src="" alt="">
+    <!-- Modal -->
+    <div id="photoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h4 id="modalTitle"></h4>
                 <p id="modalDescription"></p>
@@ -410,7 +460,7 @@
     </div>
 </div>
 </section>
-<br><br><br><br>
+<br><br><br><br><br>
 <section id="contact-section">
   <!-- Botón desplegable -->
   <button class="contact-toggle">Contáctanos</button>
@@ -443,10 +493,9 @@
     </div>
   </div>
 </section>
-
 </main>
 
-    <!-- Pie de página -->
+<!-- Pie de página -->
     <footer>
         <div class="container">
             <div class="footer-content">
