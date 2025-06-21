@@ -15,21 +15,13 @@
     "img/memoria/Dalmata_1.png", "img/memoria/Dalmata_1.png",
     "img/memoria/Husky_1.png", "img/memoria/Husky_1.png",
   ],
-  frutas: [
-    "img/frutas/manzana.png", "img/frutas/manzana.png",
-    "img/frutas/platano.png", "img/frutas/platano.png",
-    "img/frutas/fresa.png", "img/frutas/fresa.png",
-    "img/frutas/zanahoria.png", "img/frutas/zanahoria.png",
-    "img/frutas/uva.png", "img/frutas/uva.png",
-    "img/frutas/sandia.png", "img/frutas/sandia.png"
-  ],
   emociones: [
-    "img/emociones/alegria.png", "img/emociones/alegria.png",
-    "img/emociones/tristeza.png", "img/emociones/tristeza.png",
-    "img/emociones/enojo.png", "img/emociones/enojo.png",
-    "img/emociones/sorpresa.png", "img/emociones/sorpresa.png",
-    "img/emociones/miedo.png", "img/emociones/miedo.png",
-    "img/emociones/calma.png", "img/emociones/calma.png"
+    "img/memoria/alegria.png", "img/memoria/alegria.png",
+    "img/memoria/tristeza.png", "img/memoria/tristeza.png",
+    "img/memoria/enojo.png", "img/memoria/enojo.png",
+    "img/memoria/sorpresa.png", "img/memoria/sorpresa.png",
+    "img/memoria/miedo.png", "img/memoria/miedo.png",
+    "img/memoria/calma.png", "img/memoria/calma.png"
   ]
 };
 
