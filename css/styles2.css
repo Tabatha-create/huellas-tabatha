@@ -254,7 +254,7 @@ header {
     border-radius: 10px;
     font-size: 1rem;
     background: var(--color-fondo-alt);
-    border: 1px solid var(--color-malva);
+    border: 1px solid #ff6b9d;
 }
 
 .dropdown-content a:hover {
@@ -532,18 +532,18 @@ blockquote {
 }
 
 /* CARRUSEL - Contenedor principal */
-        .photo-gallery {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
+.photo-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
 
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 20px 0;
+}
 
         .carousel-track {
             display: flex;
@@ -952,7 +952,7 @@ blockquote {
 
 .contact-toggle {
     background: var(--gradiente-magico);
-    color: var(--color-texto-claro);
+    color: #1E3A8A;
     border: none;
     border-radius: 30px;
     padding: 15px 25px;
