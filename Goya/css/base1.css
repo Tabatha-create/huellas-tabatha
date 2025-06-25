@@ -73,7 +73,7 @@
   
   /* Reset y estilos base */
   body {
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', 'Arial Rounded MT Bold', sans-serif;
     background-color: var(--bg-color);
     background-image: url("../img/fondo1.jpg");
     background-repeat: no-repeat;

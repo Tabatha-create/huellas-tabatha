@@ -19,7 +19,7 @@
   
   /* Reset y estilos base */
 body {
-    font-family: 'Fredoka', 'Comic Sans MS', cursive;
+    font-family: 'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', 'Arial Rounded MT Bold', sans-serif;
     background-color: var(--bg-color); /* Fondo base suave */
     background-image: url(../img/bordeext.png);
     background-size: cover;
