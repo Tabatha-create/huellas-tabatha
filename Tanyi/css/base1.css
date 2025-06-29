@@ -291,7 +291,7 @@
   /* Estilos del contenedor de texto e imagen integrados de base.css */
   .text-box {
     flex: 1;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.8;
     color: #4b2e19;
     background-color: rgba(255, 248, 242, 0.9);
@@ -320,7 +320,7 @@
   .image-box {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     flex: 1;
     max-width: 500px;
   }
