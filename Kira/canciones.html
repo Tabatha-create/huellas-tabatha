@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kira, la ratita</title>
-  <link rel="stylesheet" href="css/base1.css">
-  <link rel="stylesheet" href="css/menu.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canciones de Kira</title>
+  <link rel="stylesheet" href="css/base1.css" />
+  <link rel="stylesheet" href="css/canciones.css" />
 </head>
 <body>
-<!-- Header común para todas las páginas -->
+  <!-- Header -->
 <header class="header">
   <div class="logo">
     <img src="img/Kira.png" alt="Logo Kira">
@@ -20,61 +21,35 @@
   </a>
 </header>
 
-<div class="content"> 
-  <!-- Barra de carga animada -->
-  <div class="loading-bar"></div>
-  
-  <div class="menu-container">
-    <h1>🌟 Kira, la ratita presumida</h1>
-    
-    <!-- Texto descriptivo -->
-    <div class="menu-description">
-      <p>¡Juega, canta y diviértete con nosotros! <br>
-      ¡Estás a punto de entrar a un lugar donde todo es posible!</p>
-    </div>
-    <div class="menu-grid">
-      <a href="portada.html" class="menu-item">
-        <img src="img/portadaKira.png" alt="Cuento" />
-        <span>Cuento</span>
-      </a>
-      <a href="actividades.html" class="menu-item">
-        <img src="img/preguntas.png" alt="Actividades" />
-        <span>Actividades</span>
-      </a>
-      <a href="vocabulario.html" class="menu-item">
-        <img src="img/diccionario.png" alt="Vocabulario" />
-        <span>Vocabulario</span>
-      </a>
-            <a href="dibujar.html" class="menu-item">
-        <img src="img/dibujar.png" alt="Dibuja tu mascota" />
-        <span>Dibuja tu mascota</span>
-      </a>
-      <a href="#" class="menu-item">
-        <img src="img/pintando.png" alt="Colorear" />
-        <span></span>
-        <div class="overlay">En construcción "Colorear"</div>
-      </a>
-      <a href="puzzle.html" class="menu-item">
-        <img src="img/puzzle.png" alt="Puzzle" />
-        <span>Puzzle</span>
-      </a>
-      <a href="memoria.html" class="menu-item">
-        <img src="img/memor.png" alt="Memoria" />
-        <span>Memoria</span>
-      </a>
-      <a href="sopaletras.html" class="menu-item">
-        <img src="img/sopaletras.png" alt="Sopa de Letras" />
-        <span>Sopa de Letras</span>
-      </a>
-        <a href="#" class="menu-item">
-        <img src="img/debut.png" alt="" />
-        <span>Canciones</span>
-        <div class="overlay">En construcción "Canciones"</div>
-      </a>
+  <div class="content">
+    <h1 style="text-align:center; color: var(--text-color);">🎵 Canciones de Kira</h1>
+    <p style="text-align:center; font-style:italic;">Melodías para cantar, imaginar y soñar</p>
+
+    <div class="song-card">
+      <h2>🎶 La canción del debut</h2>
+      <audio controls>
+        <source src="music/“Kira”.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+      </audio>
+      <div class="lyrics-box">
+        <p>
+          Soy Kira, la ratita<br>
+          Me encanta cantar<br>
+          Con mi moño rosa<br>
+          ¡Hoy voy a brillar!<br><br>
+          En la gran alcantarilla<br>
+          suena ya mi voz<br>
+          todos los animalitos<br>
+          bailan sin control 🎤
+        </p>
+      </div>
+      <div class="song-actions">
+        <a href="pdf/debut-letra.pdf" download>📄 Descargar letra</a>
+        <a href="audio/karaoke-debut.mp3">🎤 Versión karaoke</a>
+      </div>
     </div>
   </div>
 
-  <!-- Footer común para todas las páginas -->
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-logo">
@@ -106,7 +81,5 @@
     </ul>
 </div>
 </footer>
-  
 </body>
 </html>
-

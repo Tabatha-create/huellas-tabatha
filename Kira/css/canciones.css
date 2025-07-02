@@ -1,0 +1,39 @@
+ .song-card {
+  background-color: var(--container-bg);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: var(--box-shadow);
+  border-left: 10px solid var(--bow-color);
+}
+
+.lyrics-box {
+  background-color: var(--highlight-color);
+  padding: 15px;
+  border-radius: var(--border-radius-sm);
+  margin-top: 1rem;
+  white-space: pre-line;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.song-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.song-actions a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius-sm);
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.song-actions a:hover {
+  background-color: var(--secondary-color);
+}
