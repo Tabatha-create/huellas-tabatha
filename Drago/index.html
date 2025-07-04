@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>El Parque de las Flores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    .scene {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 2rem;
+      text-shadow: 1px 1px 5px #000;
+    }
+
+    .scene.active {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 2rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin: 0 1rem;
+      border: none;
+      background-color: #6a5acd;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #836fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Escenas -->
+  <div class="scene active" id="scene0" style="background-image: url('img/escena1.jpg');">
+    <h1>En el Parque de las Flores...</h1>
+    <p>De un lugar lejano y mágico cayó una cápsula con forma de huevo de dragón.</p>
+  </div>
+
+  <div class="scene" id="scene1" style="background-image: url('img/escena2.jpg');">
+    <p>La gente que paseaba por el parque exclamaba: <br><strong>¡Oh qué será lo que hay allí?</strong></p>
+  </div>
+
+  <div class="scene" id="scene2" style="background-image: url('img/escena3.jpg');">
+    <p><strong>¡Sorpresa! Es un lindo dragón.</strong><br>Llora como un cachorro y no para de gemir.</p>
+  </div>
+
+  <div class="scene" id="scene3" style="background-image: url('img/escena4.jpg');">
+    <p>Los niños exclaman: <br><strong>¡Qué lindo! Cambia de colores cuando nos mira.</strong></p>
+  </div>
+
+  <div class="scene" id="scene4" style="background-image: url('img/escena5.jpg');">
+    <p>Niños corren a avisar a los guardaparques de lo que encontraron en el parque.</p>
+  </div>
+
+  <div class="scene" id="scene5" style="background-image: url('img/escena6.jpg');">
+    <p>Los guardaparques pegan avisos por todo el parque y la ciudad en busca de su familia.</p>
+  </div>
+
+  <div class="scene" id="scene6" style="background-image: url('img/escena7.jpg');">
+    <p>En el país de los colores, Tina y Tom, los papás dragones, leen el aviso y deciden volar al parque.</p>
+  </div>
+
+  <!-- Controles de navegación -->
+  <div class="controls">
+    <button onclick="prevScene()">⟵ Atrás</button>
+    <button onclick="nextScene()">Siguiente ⟶</button>
+  </div>
+
+  <script>
+    let currentScene = 0;
+    const totalScenes = 7;
+
+    function showScene(index) {
+      document.querySelectorAll('.scene').forEach((scene, i) => {
+        scene.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextScene() {
+      if (currentScene < totalScenes - 1) {
+        currentScene++;
+        showScene(currentScene);
+      }
+    }
+
+    function prevScene() {
+      if (currentScene > 0) {
+        currentScene--;
+        showScene(currentScene);
+      }
+    }
+  </script>
+</body>
+</html>
