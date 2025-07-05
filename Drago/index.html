@@ -1,123 +1,93 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>El Parque de las Flores</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #f5f5f5;
-      overflow: hidden;
-    }
-
-    .scene {
-      display: none;
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 2rem;
-      text-shadow: 1px 1px 5px #000;
-    }
-
-    .scene.active {
-      display: block;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .controls {
-      position: absolute;
-      bottom: 2rem;
-      width: 100%;
-      text-align: center;
-    }
-
-    button {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      margin: 0 1rem;
-      border: none;
-      background-color: #6a5acd;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #836fff;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>El Dragón del Parque de las Flores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="css/base1.css">
 </head>
 <body>
 
-  <!-- Escenas -->
-  <div class="scene active" id="scene0" style="background-image: url('img/escena1.jpg');">
-    <h1>En el Parque de las Flores...</h1>
-    <p>De un lugar lejano y mágico cayó una cápsula con forma de huevo de dragón.</p>
+  <header class="header">
+  <div class="logo">
+    <img src="img/logoLumin.png" alt="Logo Lumin">
+    <div class="logo-text">Lumín</div>
+  </div>
+  <a href="../index.html" class="back-link">
+    <img src="../img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="logoHuellas">
+    <span class="back-arrow">←</span> Volver a "Huellas de Tabatha"
+  </a>
+</header>
+
+  <div class="content"> 
+  <!-- Barra de carga animada -->
+  <div class="loading-bar"></div>
+      <h1>Un huevo cae del cielo</h1>
+  
+      <main>
+    <div class="pagina activa bg-escena1">
+      <img src="img/huevo1.jpg" alt="Escena 1" />
+      <p>En el parque de las flores, de un lugar lejano y mágico cayó una cápsula con forma de huevo de dragón...</p>
+    </div>
+
+    <div class="pagina bg-escena2">
+      <img src="escena2.jpg" alt="Escena 2" />
+      <p>¿Oh qué será lo que hay allí? ¡Sorpresa, sorpresa... es un lindo dragón!</p>
+    </div>
+
+    <!-- Repite hasta escena7 con sus respectivas clases -->
+  </main>
+
+  <div class="botones">
+    <button onclick="cambiarPagina(-1)">⬅️ Atrás</button>
+    <button onclick="cambiarPagina(1)">Siguiente ➡️</button>
+  </div>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="img/logoLumin.png" alt="Logo Lumin">
+      <div>Lumín</div>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 Lumín - Un mundo mágico
+  </div>
+    <div class="sidebar">
+      <ul class="social-icons">
+        <li>
+          <a href="https://www.facebook.com/tupagina" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16">
+                  <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+              </svg>
+          </a>
+      </li>
+      <li>
+          <a href="https://www.twitter.com/tupagina" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+                  <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+              </svg>
+          </a>
+      </li>
+      <li>
+          <a href="https://www.instagram.com/tupagina" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+                  <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+              </svg>
+          </a>
+      </li>
+      <li>
+          <a href="https://www.linkedin.com/company/tupagina" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+                  <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+              </svg>
+          </a>
+      </li>
+      </ul>
   </div>
 
-  <div class="scene" id="scene1" style="background-image: url('img/escena2.jpg');">
-    <p>La gente que paseaba por el parque exclamaba: <br><strong>¡Oh qué será lo que hay allí?</strong></p>
-  </div>
 
-  <div class="scene" id="scene2" style="background-image: url('img/escena3.jpg');">
-    <p><strong>¡Sorpresa! Es un lindo dragón.</strong><br>Llora como un cachorro y no para de gemir.</p>
-  </div>
-
-  <div class="scene" id="scene3" style="background-image: url('img/escena4.jpg');">
-    <p>Los niños exclaman: <br><strong>¡Qué lindo! Cambia de colores cuando nos mira.</strong></p>
-  </div>
-
-  <div class="scene" id="scene4" style="background-image: url('img/escena5.jpg');">
-    <p>Niños corren a avisar a los guardaparques de lo que encontraron en el parque.</p>
-  </div>
-
-  <div class="scene" id="scene5" style="background-image: url('img/escena6.jpg');">
-    <p>Los guardaparques pegan avisos por todo el parque y la ciudad en busca de su familia.</p>
-  </div>
-
-  <div class="scene" id="scene6" style="background-image: url('img/escena7.jpg');">
-    <p>En el país de los colores, Tina y Tom, los papás dragones, leen el aviso y deciden volar al parque.</p>
-  </div>
-
-  <!-- Controles de navegación -->
-  <div class="controls">
-    <button onclick="prevScene()">⟵ Atrás</button>
-    <button onclick="nextScene()">Siguiente ⟶</button>
-  </div>
-
-  <script>
-    let currentScene = 0;
-    const totalScenes = 7;
-
-    function showScene(index) {
-      document.querySelectorAll('.scene').forEach((scene, i) => {
-        scene.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextScene() {
-      if (currentScene < totalScenes - 1) {
-        currentScene++;
-        showScene(currentScene);
-      }
-    }
-
-    function prevScene() {
-      if (currentScene > 0) {
-        currentScene--;
-        showScene(currentScene);
-      }
-    }
-  </script>
+  <audio id="risaAudio" src="risas.mp3" preload="auto"></audio>
+  <script src="js/script.js"></script>
 </body>
 </html>
