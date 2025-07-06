@@ -1,0 +1,12 @@
+
+PineTools
+Sube tu imagen y te muestra los colores principales en formato HEX o RGB. Puedes elegir cuántos colores quieres.
+PineTools - Obtener colores de imagen
+
+ImageOnline.co
+Extrae automáticamente una paleta de colores y te permite descargarla como imagen. Muy visual.
+Color Palette Generator
+
+Convertico
+Tiene una lupa para seleccionar colores exactos y genera paletas dominantes automáticamente. Ideal si quieres precisión.
+ Convertico - Selector de color de imagen

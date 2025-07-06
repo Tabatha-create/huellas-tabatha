@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Colorea tu cuento</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f9f9f9; padding: 20px; }
+    canvas { border: 2px solid #444; margin-top: 20px; cursor: crosshair; }
+    #colores button {
+      width: 40px; height: 40px; margin: 5px;
+      border: none; border-radius: 4px; cursor: pointer;
+    }
+    .miniatura { display: inline-block; margin: 10px; }
+    .miniatura img {
+      width: 120px; border: 2px solid #ccc; border-radius: 6px; cursor: pointer;
+    }
+    .miniatura p { margin: 5px 0 0; font-weight: bold; color: #333; }
+    #referencia { margin-top: 20px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1>🎨 Elige un cuento para colorear</h1>
+
+  <!-- Miniaturas con títulos -->
+  <div id="galeria">
+    <div class="miniatura">
+      <img src="img/tanyi_colorear.png" onclick="cargarImagen('cuento1.png')" alt="Cuento 1" />
+      <p>La flor mágica</p>
+    </div>
+    <div class="miniatura">
+      <img src="img/tanyi_jugando.png" onclick="cargarImagen('cuento2.png')" alt="Cuento 2" />
+      <p>El bosque encantado</p>
+    </div>
+    <div class="miniatura">
+      <img src="img/tanyi_parque.png" onclick="cargarImagen('cuento3.png')" alt="Cuento 3" />
+      <p>La princesa y el dragón</p>
+    </div>
+  </div>
+
+  <!-- Paleta de colores -->
+  <div id="colores">
+    <button style="background:#FF0000" onclick="seleccionarColor('#FF0000')"></button>
+    <button style="background:#00FF00" onclick="seleccionarColor('#00FF00')"></button>
+    <button style="background:#0000FF" onclick="seleccionarColor('#0000FF')"></button>
+    <button style="background:#FFFF00" onclick="seleccionarColor('#FFFF00')"></button>
+    <button style="background:#FF00FF" onclick="seleccionarColor('#FF00FF')"></button>
+    <button style="background:#00FFFF" onclick="seleccionarColor('#00FFFF')"></button>
+  </div>
+
+  <!-- Lienzo -->
+  <canvas id="lienzo" width="800" height="600"></canvas>
+  <br><br>
+
+  <!-- Botones mágicos -->
+  <button onclick="colorearAutomatico()">✨ Colorear como el original</button>
+  <button onclick="guardar()">💾 Guardar dibujo</button>
+
+  <!-- Referencia -->
+  <div>
+    <p><strong>Inspiración:</strong></p>
+    <img id="referencia" src="cuento1-color.png" width="250" />
+  </div>
+
+  <script>
+    const canvas = document.getElementById('lienzo');
+    const ctx = canvas.getContext('2d');
+    let img = new Image();
+    let color = '#FF0000';
+
+    function seleccionarColor(c) {
+      color = c;
+    }
+
+    function cargarImagen(nombreArchivo) {
+      img.src = nombreArchivo;
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      const ref = document.getElementById('referencia');
+      const nombreColor = nombreArchivo.replace('.png', '-color.png');
+      ref.src = nombreColor;
+    }
+
+    canvas.addEventListener('click', function(e) {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const targetColor = getPixel(imageData, x, y);
+      const fillColor = hexToRgb(color);
+      floodFill(imageData, x, y, targetColor, fillColor);
+      ctx.putImageData(imageData, 0, 0);
+    });
+
+    function getPixel(imgData, x, y) {
+      const i = (y * imgData.width + x) * 4;
+      return imgData.data.slice(i, i + 4);
+    }
+
+    function colorsMatch(a, b) {
+      return a.every((v, i) => v === b[i]);
+    }
+
+    function floodFill(imgData, x, y, target, fill) {
+      const stack = [[x, y]];
+      while (stack.length > 0) {
+        const [cx, cy] = stack.pop();
+        const i = (cy * imgData.width + cx) * 4;
+        const current = imgData.data.slice(i, i + 4);
+        if (!colorsMatch(current, target)) continue;
+
+        imgData.data.set([...fill, 255], i);
+
+        if (cx > 0) stack.push([cx - 1, cy]);
+        if (cx < imgData.width - 1) stack.push([cx + 1, cy]);
+        if (cy > 0) stack.push([cx, cy - 1]);
+        if (cy < imgData.height - 1) stack.push([cx, cy + 1]);
+      }
+    }
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.slice(1), 16);
+      return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+
+    function colorearAutomatico() {
+      const imgColor = new Image();
+      const archivoColor = img.src.replace('.png', '-color.png');
+      imgColor.src = archivoColor;
+      imgColor.onload = () => ctx.drawImage(imgColor, 0, 0, canvas.width, canvas.height);
+    }
+
+    function guardar() {
+      const link = document.createElement('a');
+      link.download = 'cuento-coloreado.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    // Carga inicial
+    cargarImagen('cuento1.png');
+  </script>
+</body>
+</html>
