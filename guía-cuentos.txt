@@ -10,3 +10,11 @@ Color Palette Generator
 Convertico
 Tiene una lupa para seleccionar colores exactos y genera paletas dominantes automáticamente. Ideal si quieres precisión.
  Convertico - Selector de color de imagen
+
+Cesta:  #2a1d0a  #89752f  #ba681b  #fbc86b  #f8daa9  #723a13  #d4801f  #beae4b  #b28f43  #e09d44 
+
+Duerme: #502b0d  #f3cc89  #d3720f  #b2550e  #ebc374  #a7875e  #f9e0b1  #74654c  #847451  #b49c68 
+
+Pelota: #dcbb59  #372209  #873f13  #c4711e  #eed592  #999240  #80763f  #5c5437  #f4d47c  #dc5424 
+
+Tanyi:  #472711  #fbc874  #b85118  #d37720  #f9e6c0  #c38a51  #7c7461  #f9d28e  #e0a758  #aca489 
