@@ -1,50 +1,172 @@
-/* Estilos específicos para la página de colorear */
-.color-palette {
+/* ===== Diseño para la página de colorear ===== */
+
+/* Lienzo para colorear */
+canvas {
+  border: 2px solid #444;
+  cursor: crosshair;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botones generales */
+button {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 6px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #dcdcdc;
+}
+
+/* Miniaturas organizadas horizontalmente */
+#galeria {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 20px;
   flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-.color {
+.miniatura {
+  text-align: center;
+}
+
+.miniatura img {
+  width: 120px;
+  border: 2px solid #a86c3d;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.miniatura img:hover {
+  transform: scale(1.05);
+}
+
+.miniatura p {
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Paletas de colores por cuento */
+.paleta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 20px;
+}
+
+.paleta button {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+/* Contenedor de paletas + lienzo */
+#colorear-panel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de TODAS las paletas */
+.paletas-todas {
+  max-width: 220px;
+  overflow-y: auto;
+  max-height: 620px;
+  padding-right: 8px;
+}
+
+/* Paletas individuales */
+.paleta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.paleta button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.selected {
-  border: 3px solid #333;
-}
-
-canvas {
-  border: 4px dashed var(--colorear-color);
-  border-radius: 12px;
-  cursor: crosshair;
+/* Imagen de referencia a color */
+#referencia {
+  border: 1px solid #ccc;
   margin-top: 10px;
-  max-width: 100%;
+  max-width: 250px;
+  border-radius: 6px;
 }
 
-.selected {
-  border: 3px solid #333;
-}
-select, button {
-  padding: 8px 16px;
-  font-size: 1rem;
-  margin: 10px;
+/* Instrucciones del juego */
+.instructions {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  background-color: #fff6f0;
+  border: 1px solid #a86c3d;
   border-radius: 8px;
-  border: none;
-  background-color: #a86c3d;
-  color: white;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #e76f51;
+  text-align: center;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
 
+.instructions h3 {
+  margin-top: 0;
+  color: #555;
+}
+
+.instructions p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Botones finales */
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.buttons button {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin: 6px;
+  border-radius: 5px;
+}
+
+/* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
+  #colorear-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paleta {
+    justify-content: center;
+  }
+
   canvas {
     max-width: 100%;
     height: auto;

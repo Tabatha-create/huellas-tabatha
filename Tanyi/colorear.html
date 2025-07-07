@@ -5,56 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colorear a Tanyi | El Mundo de Tanyi</title>
   <link rel="stylesheet" href="css/base1.css">
-
+  <link rel="stylesheet" href="css/colorear.css">
 </head>
 <body>
-<header class="header">
-  <div class="logo">
-    <img src="img/logo1.png" alt="Logo Tanyi">
-    <div class="logo-text">El Mundo de Tanyi</div>
-  </div>
-  <a href="../index.html" class="back-link">
-    <img src="../img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="logoHuellas">
-    <span class="back-arrow">←</span> Volver a "Huellas de Tabatha"
-  </a>
-</header>
 
-  <div class="content"> 
-  <!-- Barra de carga animada -->
-  <div class="loading-bar"></div>
-  
-  <main class="container">
+  <!-- 🔵 ENCABEZADO -->
+  <header class="header">
+    <div class="logo">
+      <img src="img/logo1.png" alt="Logo Tanyi">
+      <div class="logo-text">El Mundo de Tanyi</div>
+    </div>
+    <a href="../index.html" class="back-link">
+      <img src="../img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="logoHuellas">
+      <span class="back-arrow">←</span> Volver a "Huellas de Tabatha"
+    </a>
+  </header>
+
+  <!-- 🖌️ CONTENIDO PRINCIPAL -->
+  <main class="content">
+
     <h1>¡Colorea a Tanyi!</h1>
-    
-    <div class="main-content">
-      <div class="canvas-section">
-        <select id="imageSelector">
-          <option value="img/tanyi_colorear.png">Tanyi en cesta</option>
-          <option value="img/Tanyi_pelota.png">Tanyi con pelota</option>
-          <option value="img/tanyi_parque.png">Tanyi en el parque</option>
-          <option value="img/tanyi_jugando.png">Tanyi jugando</option>
-        </select>
-        <canvas id="canvas" width="700" height="500"></canvas>
-      </div>
 
-      <div class="instructions"> 
-        <h3>¿Cómo jugar?</h3>
-        <p>1. Selecciona una imagen de Tanyi para colorear</p>  
-        <p>2. Elige un color de la paleta</p>
-        <p>3. Haz clic en el área con el número correspondiente</p>
-        <p>4. ¡Diviértete dando vida a Tanyi con tus colores favoritos!</p>
+    <!-- 🌟 Galería de miniaturas -->
+    <div id="galeria">
+      <div class="miniatura">
+        <img src="img/colorear/cesta-mini.png" onclick="cargarImagen('img/colorear/cestaColorear.png')" />
+        <p>Cesta 🧺</p>
+      </div>
+      <div class="miniatura">
+        <img src="img/colorear/dormida-mini.png" onclick="cargarImagen('img/colorear/dormidaColorear.png')" />
+        <p>Duerme 😴</p>
+      </div>
+      <div class="miniatura">
+        <img src="img/colorear/pelota-mini.png" onclick="cargarImagen('img/colorear/pelotaColorear.png')" />
+        <p>Pelota 🥎</p>
+      </div>
+      <div class="miniatura">
+        <img src="img/colorear/tanyi-mini.png" onclick="cargarImagen('img/colorear/tanyiColorear.png')" />
+        <p>Tanyi 🐶</p>
       </div>
     </div>
-    
-    <div class="color-palette" id="palette"></div> <!-- Los colores se generarán dinámicamente con JavaScript -->
-    
+
+    <!-- 📘 Instrucciones -->
+    <div class="instructions">
+      <h3>¿Cómo jugar?</h3>
+      <p>1. Selecciona una imagen de Tanyi para colorear</p>
+      <p>2. Elige un color de la paleta</p>
+      <p>3. Haz clic en el área correspondiente</p>
+      <p>4. ¡Diviértete dando vida a Tanyi con tus colores favoritos!</p>
+    </div>
+
+    <!-- 🎨 Paleta + Lienzo + Referencia -->
+    <div id="colorear-panel">
+
+      <!-- 🎨 Paletas -->
+      <div class="paletas-todas">
+        <h3>Colores disponibles</h3>
+
+        <p><strong>Cesta 🧺</strong></p>
+        <div class="paleta" id="paleta-cesta">
+        <button onclick="seleccionarColor('#2a1d0a')" style="background:#2a1d0a"></button>
+        <button onclick="seleccionarColor('#89752f')" style="background:#89752f"></button>
+        <button onclick="seleccionarColor('#ba681b')" style="background:#ba681b"></button>
+        <button onclick="seleccionarColor('#fbc86b')" style="background:#fbc86b"></button>
+        <button onclick="seleccionarColor('#f8daa9')" style="background:#f8daa9"></button>
+        <button onclick="seleccionarColor('#723a13')" style="background:#723a13"></button>
+        <button onclick="seleccionarColor('#d4801f')" style="background:#d4801f"></button>
+        <button onclick="seleccionarColor('#beae4b')" style="background:#beae4b"></button>
+        <button onclick="seleccionarColor('#b28f43')" style="background:#b28f43"></button>
+        <button onclick="seleccionarColor('#e09d44')" style="background:#e09d44"></button>
+        </div>
+
+        <p><strong>Duerme 😴</strong></p>
+        <div class="paleta" id="paleta-dormida">
+        <button onclick="seleccionarColor('#502b0d')" style="background:#502b0d"></button>
+        <button onclick="seleccionarColor('#f3cc89')" style="background:#f3cc89"></button>
+        <button onclick="seleccionarColor('#d3720f')" style="background:#d3720f"></button>
+        <button onclick="seleccionarColor('#b2550e')" style="background:#b2550e"></button>
+        <button onclick="seleccionarColor('#ebc374')" style="background:#ebc374"></button>
+        <button onclick="seleccionarColor('#a7875e')" style="background:#a7875e"></button>
+        <button onclick="seleccionarColor('#f9e0b1')" style="background:#f9e0b1"></button>
+        <button onclick="seleccionarColor('#74654c')" style="background:#74654c"></button>
+        <button onclick="seleccionarColor('#847451')" style="background:#847451"></button>
+        <button onclick="seleccionarColor('#b49c68')" style="background:#b49c68"></button>
+        </div>
+
+        <p><strong>Pelota 🥎</strong></p>
+        <div class="paleta" id="paleta-pelota">
+        <button onclick="seleccionarColor('#dcbb59')" style="background:#dcbb59"></button>
+        <button onclick="seleccionarColor('#372209')" style="background:#372209"></button>
+        <button onclick="seleccionarColor('#873f13')" style="background:#873f13"></button>
+        <button onclick="seleccionarColor('#c4711e')" style="background:#c4711e"></button>
+        <button onclick="seleccionarColor('#eed592')" style="background:#eed592"></button>
+        <button onclick="seleccionarColor('#999240')" style="background:#999240"></button>
+        <button onclick="seleccionarColor('#80763f')" style="background:#80763f"></button>
+        <button onclick="seleccionarColor('#5c5437')" style="background:#5c5437"></button>
+        <button onclick="seleccionarColor('#f4d47c')" style="background:#f4d47c"></button>
+        <button onclick="seleccionarColor('#dc5424')" style="background:#dc5424"></button>
+        </div>
+
+        <p><strong>Tanyi 🐶</strong></p>
+        <div class="paleta" id="paleta-tanyi">
+        <button onclick="seleccionarColor('#472711')" style="background:#472711"></button>
+        <button onclick="seleccionarColor('#fbc874')" style="background:#fbc874"></button>
+        <button onclick="seleccionarColor('#b85118')" style="background:#b85118"></button>
+        <button onclick="seleccionarColor('#d37720')" style="background:#d37720"></button>
+        <button onclick="seleccionarColor('#f9e6c0')" style="background:#f9e6c0"></button>
+        <button onclick="seleccionarColor('#c38a51')" style="background:#c38a51"></button>
+        <button onclick="seleccionarColor('#7c7461')" style="background:#7c7461"></button>
+        <button onclick="seleccionarColor('#f9d28e')" style="background:#f9d28e"></button>
+        <button onclick="seleccionarColor('#e0a758')" style="background:#e0a758"></button>
+        <button onclick="seleccionarColor('#aca489')" style="background:#aca489"></button>
+        </div>
+      </div>
+
+      <!-- 🖌️ Lienzo y botones -->
+      <div>
+        <canvas id="lienzo" width="800" height="600"></canvas>
+        <br>
+        <button onclick="colorearAutomatico()">✨ Colorear como el original</button>
+        <button onclick="guardar()">💾 Guardar dibujo</button>
+        <button onclick="limpiar()">🧼 Limpiar dibujo</button>
+        <br>
+        <img id="referencia" src="img/colorear/cestaColorear-color.png" width="250" />
+      </div>
+
+    </div>
+
+    <!-- 📁 Botones finales -->
     <div class="buttons">
-      <button onclick="clearCanvas()">🧼 Limpiar dibujo</button>
       <button onclick="window.location.href='menu.html'">Volver al Menú</button>
     </div>
+
   </main>
-  
- <footer class="footer">
+
+  <!-- 📜 PIE DE PÁGINA -->
+<footer class="footer">
   <div class="footer-content">
     <div class="footer-logo">
       <img src="img/logo1.png" alt="Logo Tanyi">
@@ -75,6 +161,7 @@
 </div>
 </footer>
 
-      <script src="js/colorear.js"></script>
+  <!-- 🧠 SCRIPT PRINCIPAL -->
+  <script src="js/colorear.js"></script>
 </body>
 </html>
