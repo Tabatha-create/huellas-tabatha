@@ -11,7 +11,7 @@
 
   <header class="header">
   <div class="logo">
-    <img src="img/logoLumin.png" alt="Logo Lumin">
+    <img src="img/logoLumin1.png" alt="Logo Lumin">
     <div class="logo-text">Lumín</div>
   </div>
   <a href="../index.html" class="back-link">
@@ -51,7 +51,7 @@
     <div class="pagina bg-escena3">
       <h2>El guardaparques</h2>
         <img src="img/guardaparques1.jpg" alt="Escena 2" />
-      <p>Otros niños, que estaban de excursión, van a las casetas de los guardaparques para avisarles que han encontrado un dragón en el parque. </p>
+      <p>Otros niños, que estaban de excursión, fueron a las casetas de los guardaparques para avisarles que habían encontrado un dragón en el parque. </p>
         <img src="img/guardaparques2.jpg" alt="parque" />
     </div>
 
@@ -80,23 +80,58 @@
     </div>
 
     <div class="pagina bg-escena7">
-      <h2>El reencuentro</h2>
-      <p>- Vamos volando, seguramente será nuestro bebé. </p>
+      <h2>Volando al encuentro</h2>
+      <p>- Vamos, vamos volando, seguramente será nuestro bebé. </p>
         <img src="img/volando.jpg" alt="Escena 2" />
-      <p> </p>
-        <img src="" alt="parque" />
+      <p>- ¡Que alegría! <br>¿Cómo será? Cuando saldría del huevo? </p>
+        <img src="img/camino.jpg" alt="parque" />
     </div>
 
-  </main>
+  <div class="pagina bg-escena8">
+    <h2>El reencuentro</h2>
+    <p>Todos los que se encuentran en el parque celebran la llegada de los dragones para buscar a Lumín </p>
+      <img src="img/reencuentro.jpg" alt="Escena 2" />
+    <p>La emoción se ve y todos aplauden: <br> -¡Viva Lumín! Bravo, bravo </p>
+      <img src="img/reencuentro2.jpg" alt="parque" />
+  </div>
+<div class="pagina bg-escena-final">
+  <div class="cuento-texto">
+
+    <h1>¡Y Colorín Colorado!</h1>
+
+    <img src="img/celebracion2.jpg" alt="Fiesta en el Parque de las Flores" />
+    <p>¡Todos están felices! En el Parque de las Flores se celebra una gran fiesta:
+      hay globos flotando, estrellas cantoras y dragones volando en círculos de colores.</p>
+
+    <img src="img/celebracion1.jpg" alt="Lumín con niños y dragones" />
+    <p>Lumín sonríe con su panza brillante mientras los niños bailan a su alrededor.
+      El cielo se llena de luces mágicas, y el parque canta:</p>
+
+    <p class="cita-final"><em>“¡Bienvenido, Lumín! ¡El dragón del corazón brillante!”</em></p>
+
+    <p>"La ternura y la curiosidad pueden encender el fuego más mágico en el alma."</p>
+
+    <p>¿Te gustó esta historia?<br>
+       ¡Tú también puedes soñar y crear mundos con dragones de colores!</p>
+    <p>Recuerda: las aventuras nunca terminan… solo esperan que las imagines.</p>
+
+    <div class="botones-container">
+      <button class="boton-base fin-button" onclick="activarCelebracion()">🌟 ¡Celebrar con Lumín!</button>
+      <a href="menu.html" class="boton-base menu-button">🏠 Volver al Menú Principal</a>
+    </div>
+  </div>
+</div>
+</main>
 
   <div class="botones">
     <button onclick="cambiarPagina(-1)">⬅️ Atrás</button>
     <button onclick="cambiarPagina(1)">Siguiente ➡️</button>
+    <a href="#" class="boton-base menu-button">🏠 Volver al Menú Principal</a>
   </div>
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-logo">
-      <img src="img/logoLumin.png" alt="Logo Lumin">
+      <img src="img/logoLumin1.png" alt="Logo Lumin">
       <div>Lumín</div>
     </div>
   </div>
@@ -138,6 +173,7 @@
 
 
   <audio id="risaAudio" src="risas.mp3" preload="auto"></audio>
+  <audio id="musicaCelebracion" src="audio/vuelo-lumin.mp3" preload="auto"></audio>
   <script src="js/script.js"></script>
 </body>
 </html>

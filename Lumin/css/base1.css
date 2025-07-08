@@ -160,6 +160,7 @@ body {
     width: 0%;
     z-index: 1000;
     animation: loadingAnimation 2s ease forwards;
+    color: var(--primary-color);
   }
   
   /* Contenedor estándar - combinado de ambos archivos */
@@ -168,7 +169,7 @@ body {
     margin: 40px auto;
     padding: 40px;
     border-radius: var(--border-radius-lg);
-    max-width: 950px;
+    max-width: 1150px;
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
@@ -253,7 +254,6 @@ body {
     opacity: 0.8;
   }
   
-  /* Iconos sociales */
   /* Iconos sociales */
 .sidebar {
     width: 100%;
