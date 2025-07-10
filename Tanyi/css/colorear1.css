@@ -1,0 +1,72 @@
+ body {
+  font-family: sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+canvas {
+  border: 2px solid #444;
+  cursor: crosshair;
+}
+
+button {
+  background-color: #a86c3d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #e76f51;
+}
+#galeria {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.miniatura img {
+  width: 120px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.miniatura p {
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.paleta button {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.zona-color {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#referencia {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
