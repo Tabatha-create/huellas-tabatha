@@ -152,6 +152,15 @@ p {
 .botones {
   text-align: center;
   margin: 20px;
+  
+}
+.menu-button {
+  background: linear-gradient(to right, #8be0f2, #d88bf9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
 }
 button {
   background: linear-gradient(to right, #8be0f2, #d88bf9);
