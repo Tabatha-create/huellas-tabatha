@@ -30,9 +30,8 @@
                             <a href="Tanyi/menu.html">La historia de Tanyi</a>
                             <a href="Kira/menu.html">Kira, la ratita</a>
                             <a href="Goya/menu.html">Goya, una maravilla</a>
-                            <a href="Lumin/index.html">Lumín cae del cielo</a>
+                            <a href="Lumin/menu.html">Lumín cae del cielo</a>
                             <a href="#">El elefante LuLo (Construyendo)</a>
-                            <a href="#">Mac el dinosaurio (Construyendo)</a>
                         </div>
                     </li>
                     <li><a href="#actividades">Actividades</a></li>
@@ -130,17 +129,6 @@
                                 <div class="story-info">
                                     <h4>Construyendo <br> El elefante LuLo</h4>
                                     <p>El elefante más querido.</p>
-                                </div>
-                            </div>
-                        </a>
-                            
-                        <a href="#" class="story-link">
-                            <div class="story-item"> 
-                                <div class="story-icon">
-                                    <img src="" alt="Mac el dinosaurio"></div>
-                                <div class="story-info">
-                                    <h4>Construyendo <br> Mac el dinosaurio</h4>
-                                    <p>Un dinosaurio amigable que viene de lejos.</p>
                                 </div>
                             </div>
                         </a>
@@ -483,7 +471,7 @@
         <h3>Escríbenos</h3>
       </div>
       
-      <form id="contactForm" action="#" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/mzzodzoj" method="POST">
         <div class="form-group">
           <label for="nombre">Nombre <span class="required">*</span></label>
           <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -499,7 +487,10 @@
           <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
         </div>
         
-        <button type="submit" class="submit-btn">Enviar</button>
+        <!-- Campo oculto para identificar la página -->
+          <input type="hidden" name="_subject" value="Contacto desde Huellas-Tabatha">
+        
+          <button type="submit" class="submit-btn">Enviar</button>
       </form>
     </div>
   </div>
