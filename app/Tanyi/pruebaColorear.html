@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Colorea tus cuentos</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1, h2, h3 { text-align: center; }
+    canvas { border: 2px solid #444; cursor: crosshair; }
+    button { cursor: pointer; font-size: 16px; margin: 5px; }
+    .miniatura img {
+      width: 120px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .miniatura p {
+      font-weight: bold;
+      color: #333;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .paleta button {
+      width: 30px;
+      height: 30px;
+      margin: 3px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+    #referencia {
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <h1>🎨 Colorea tus cuentos mágicos</h1>
+
+  <!-- 🌟 Miniaturas para seleccionar -->
+<div id="galeria" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+    <div class="miniatura">
+      <img src="img/colorear/cesta-mini.png" onclick="cargarImagen('img/colorear/cestaColorear.png')" />
+      <p>Cesta 🧺</p>
+    </div>
+    <div class="miniatura">
+      <img src="img/colorear/dormida-mini.png" onclick="cargarImagen('img/colorear/dormidaColorear.png')" />
+      <p>Duerme 😴</p>
+    </div>
+    <div class="miniatura">
+      <img src="img/colorear/pelota-mini.png" onclick="cargarImagen('img/colorear/pelotaColorear.png')" />
+      <p>Pelota 🥎</p>
+    </div>
+    <div class="miniatura">
+      <img src="img/colorear/tanyi-mini.png" onclick="cargarImagen('img/colorear/tanyiColorear.png')" />
+      <p>Tanyi 🐶</p>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- 🎨 Paleta + lienzo + referencia -->
+  <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+
+    <!-- Paletas de color -->
+    <div>
+      <h3>Colores disponibles</h3>
+
+      <p><strong>Cesta 🧺</strong></p>
+      <div class="paleta">
+        <button onclick="seleccionarColor('#2a1d0a')" style="background:#2a1d0a"></button>
+        <button onclick="seleccionarColor('#89752f')" style="background:#89752f"></button>
+        <button onclick="seleccionarColor('#ba681b')" style="background:#ba681b"></button>
+        <button onclick="seleccionarColor('#fbc86b')" style="background:#fbc86b"></button>
+        <button onclick="seleccionarColor('#f8daa9')" style="background:#f8daa9"></button>
+        <button onclick="seleccionarColor('#723a13')" style="background:#723a13"></button>
+        <button onclick="seleccionarColor('#d4801f')" style="background:#d4801f"></button>
+        <button onclick="seleccionarColor('#beae4b')" style="background:#beae4b"></button>
+        <button onclick="seleccionarColor('#b28f43')" style="background:#b28f43"></button>
+        <button onclick="seleccionarColor('#e09d44')" style="background:#e09d44"></button>
+      </div>
+
+      <p><strong>Duerme 😴</strong></p>
+      <div class="paleta">
+        <button onclick="seleccionarColor('#502b0d')" style="background:#502b0d"></button>
+        <button onclick="seleccionarColor('#f3cc89')" style="background:#f3cc89"></button>
+        <button onclick="seleccionarColor('#d3720f')" style="background:#d3720f"></button>
+        <button onclick="seleccionarColor('#b2550e')" style="background:#b2550e"></button>
+        <button onclick="seleccionarColor('#ebc374')" style="background:#ebc374"></button>
+        <button onclick="seleccionarColor('#a7875e')" style="background:#a7875e"></button>
+        <button onclick="seleccionarColor('#f9e0b1')" style="background:#f9e0b1"></button>
+        <button onclick="seleccionarColor('#74654c')" style="background:#74654c"></button>
+        <button onclick="seleccionarColor('#847451')" style="background:#847451"></button>
+        <button onclick="seleccionarColor('#b49c68')" style="background:#b49c68"></button>
+      </div>
+
+      <p><strong>Pelota 🥎</strong></p>
+      <div class="paleta">
+        <button onclick="seleccionarColor('#dcbb59')" style="background:#dcbb59"></button>
+        <button onclick="seleccionarColor('#372209')" style="background:#372209"></button>
+        <button onclick="seleccionarColor('#873f13')" style="background:#873f13"></button>
+        <button onclick="seleccionarColor('#c4711e')" style="background:#c4711e"></button>
+        <button onclick="seleccionarColor('#eed592')" style="background:#eed592"></button>
+        <button onclick="seleccionarColor('#999240')" style="background:#999240"></button>
+        <button onclick="seleccionarColor('#80763f')" style="background:#80763f"></button>
+        <button onclick="seleccionarColor('#5c5437')" style="background:#5c5437"></button>
+        <button onclick="seleccionarColor('#f4d47c')" style="background:#f4d47c"></button>
+        <button onclick="seleccionarColor('#dc5424')" style="background:#dc5424"></button>
+      </div>
+
+      <p><strong>Tanyi 🐶</strong></p>
+      <div class="paleta">
+        <button onclick="seleccionarColor('#472711')" style="background:#472711"></button>
+        <button onclick="seleccionarColor('#fbc874')" style="background:#fbc874"></button>
+        <button onclick="seleccionarColor('#b85118')" style="background:#b85118"></button>
+        <button onclick="seleccionarColor('#d37720')" style="background:#d37720"></button>
+        <button onclick="seleccionarColor('#f9e6c0')" style="background:#f9e6c0"></button>
+        <button onclick="seleccionarColor('#c38a51')" style="background:#c38a51"></button>
+        <button onclick="seleccionarColor('#7c7461')" style="background:#7c7461"></button>
+        <button onclick="seleccionarColor('#f9d28e')" style="background:#f9d28e"></button>
+        <button onclick="seleccionarColor('#e0a758')" style="background:#e0a758"></button>
+        <button onclick="seleccionarColor('#aca489')" style="background:#aca489"></button>
+      </div>
+    </div>
+
+    <!-- Lienzo y botones -->
+    <div>
+      <canvas id="lienzo" width="800" height="600"></canvas>
+      <br>
+      <button onclick="colorearAutomatico()">✨ Colorear como el original</button>
+      <button onclick="guardar()">💾 Guardar dibujo</button>
+      <button onclick="limpiar()">🧼 Limpiar dibujo</button>
+      <br>
+      <img id="referencia" src="cuento1-color.png" width="250" />
+    </div>
+  </div>
+
+  <!-- Código JS -->
+  <script>
+    const canvas = document.getElementById('lienzo');
+    const ctx = canvas.getContext('2d');
+    let img = new Image();
+    let color = '#FF0000';
+
+    function seleccionarColor(c) { color = c; }
+
+    function cargarImagen(nombreArchivo) {
+      img.src = nombreArchivo;
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      document.getElementById('referencia').src = nombreArchivo.replace('.png', '-color.png');
+    }
+
+       canvas.addEventListener('click', function(e) {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const targetColor = getPixel(imageData, x, y);
+      const fillColor = hexToRgb(color);
+      floodFill(imageData, x, y, targetColor, fillColor);
+      ctx.putImageData(imageData, 0, 0);
+    });
+
+    function getPixel(imgData, x, y) {
+      const index = (y * imgData.width + x) * 4;
+      return imgData.data.slice(index, index + 4);
+    }
+
+    function colorsMatch(a, b) {
+      return a.every((v, i) => v === b[i]);
+    }
+
+    function floodFill(imgData, x, y, target, fill) {
+      const stack = [[x, y]];
+      while (stack.length > 0) {
+        const [cx, cy] = stack.pop();
+        const index = (cy * imgData.width + cx) * 4;
+        const current = imgData.data.slice(index, index + 4);
+        if (!colorsMatch(current, target)) continue;
+        imgData.data.set([...fill, 255], index);
+
+        if (cx > 0) stack.push([cx - 1, cy]);
+        if (cx < imgData.width - 1) stack.push([cx + 1, cy]);
+        if (cy > 0) stack.push([cx, cy - 1]);
+        if (cy < imgData.height - 1) stack.push([cx, cy + 1]);
+      }
+    }
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.slice(1), 16);
+      return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+
+    function colorearAutomatico() {
+      const imgColor = new Image();
+      const archivoColor = img.src.replace('.png', '-color.png');
+      imgColor.src = archivoColor;
+      imgColor.onload = () => ctx.drawImage(imgColor, 0, 0, canvas.width, canvas.height);
+    }
+
+    function guardar() {
+      const link = document.createElement('a');
+      link.download = 'cuento-coloreado.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    function limpiar() {
+  // Vuelve a cargar la imagen actual en blanco y negro
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+
+    // Cargar imagen inicial
+    cargarImagen('img/colorear/cestaColorear.png');
+  </script>

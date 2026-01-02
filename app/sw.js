@@ -1,9 +1,11 @@
- const CACHE_NAME = "huellas-v1";
-
+const CACHE_NAME = "huellas-cuentos-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/css/styles.css"
+  "index.html",
+  "css/styles.css",
+  "js/script.js",
+  "tanyi/menu.html",
+  "tanyi/cuento.html",
+  "tanyi/assets/portada.png"
 ];
 
 self.addEventListener("install", event => {

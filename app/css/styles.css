@@ -1,0 +1,128 @@
+/* ===============================
+   CSS PÁGINA PRINCIPAL DE LA PWA
+   =============================== */
+:root {
+    /* Colores para containers con personalidad */
+    --color-coral: #fdc2c2;
+    --color-lavanda: #cec7e3;
+    --color-menta: #6EE7B7;
+    --color-durazno: #FDBA74;
+    --color-lila: #C084FC;
+    --color-aguamarina: #67E8F9;
+    --color-lila-claro: #DDA0DD;
+
+    /* Fondos especiales */
+    --fondo-coral: #FFF5F5;
+    --fondo-lavanda: #F3F4F6;
+    --fondo-menta: #F0FDF4;
+    --fondo-durazno: #FFF7ED;
+    --fondo-lila: #FAF5FF;
+    --fondo-aguamarina: #F0F9FF;
+
+    /* Tipografías infantiles */
+    --fuente-principal: 'Fredoka', 'Comic Sans MS', sans-serif;
+    --fuente-titulos: 'Nunito', 'Quicksand', sans-serif;
+}
+
+/* BODY */
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo-menta); /* un fondo suave general */
+    color: #333;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    background: var(--gradiente-magico, linear-gradient(135deg, var(--color-lila-claro), var(--color-aguamarina)));
+    color: #fff;
+}
+
+header h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    margin: 0;
+}
+
+header p {
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    margin: 5px 0 0 0;
+}
+
+/* BIBLIOTECA DE CUENTOS */
+.biblioteca {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* TARJETA DE CUENTO */
+.cuento {
+    width: 200px;
+    text-align: center;
+    background-color: var(--fondo-aguamarina);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cuento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* PORTADAS */
+.cuento img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* TITULO DEL CUENTO */
+.cuento h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: var(--color-aguamarina); /* color vibrante del título */
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--color-durazno);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #FB923C; /* un poco más intenso al pasar el cursor / toque */
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE PARA MÓVILES PEQUEÑOS */
+@media (max-width: 500px) {
+    .biblioteca {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cuento {
+        width: 80%;
+    }
+
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

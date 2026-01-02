@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "Huellas de Tabatha - Cuentos",
+  "short_name": "Huellas",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FEF3E2",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "tanyi/assets/portada.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
+
+

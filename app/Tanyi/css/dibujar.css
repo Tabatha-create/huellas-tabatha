@@ -1,0 +1,558 @@
+ :root {
+  --primary-color: #e76f51;
+  --secondary-color: #f4a261;
+  --tertiary-color: #e9c46a;
+  --container-bg: #ffffff;
+  --text-color: #2d3748;
+  --border-radius-lg: 15px;
+  --box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.main-content {
+  margin-top: 100px;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: var(--tertiary-color);
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Comic Sans MS', cursive;
+  animation: titleBounce 1s ease-out;
+}
+
+@keyframes titleBounce {
+  0% { transform: translateY(-30px); opacity: 0; }
+  50% { transform: translateY(10px); opacity: 0.8; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.drawing-section {
+  background: var(--container-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  border: 3px solid #e59b72;
+  position: relative;
+  overflow: hidden;
+}
+
+.drawing-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.instructions h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.instructions p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.drawing-area {
+  background: #f8f9ff;
+  border: 3px dashed var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.drawing-canvas {
+  border: 3px solid var(--secondary-color);
+  border-radius: var(--border-radius-lg);
+  cursor: crosshair;
+  box-shadow: var(--box-shadow);
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.drawing-canvas:hover {
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.canvas-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.color-palette,
+.tools-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--primary-color);
+}
+
+.color-palette h3,
+.tools-section h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.2rem;
+}
+
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.color-btn {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.color-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.color-btn.active {
+  border-color: var(--primary-color);
+  border-width: 4px;
+  transform: scale(1.15);
+}
+
+.color-btn.active::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.tool-btn {
+  background: #f8f9ff;
+  border: 2px solid var(--secondary-color);
+  padding: 0.8rem;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Comic Sans MS', cursive;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.tool-btn:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.tool-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.size-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.size-control label {
+  font-weight: bold;
+  color: var(--text-color);
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.size-control input[type="range"] {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #ddd;
+  outline: none;
+}
+
+.size-control input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+
+#sizeValue {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.action-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Comic Sans MS', cursive;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(231, 111, 81, 0.3);
+}
+
+.action-btn.clear {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.action-btn.save {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.action-btn.share {
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+}
+
+.inspiration-section {
+  margin: 3rem 0;
+}
+
+.inspiration-section h3 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.inspiration-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+}
+
+.inspiration-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: var(--primary-color);
+}
+
+.animal-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.animal-name {
+  font-weight: bold;
+  color: var(--text-color);
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.questions-section {
+  margin: 3rem 0;
+}
+
+.questions-section h3 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.question-card {
+  background: #f8f9ff;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  border-left: 4px solid var(--tertiary-color);
+  transition: all 0.3s ease;
+}
+
+.question-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.question-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.question-text {
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.pet-name-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius-lg);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.pet-name-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.1);
+}
+
+/* Modal para consejos de animales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--primary-color);
+}
+
+/* Notificación */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification-content {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.notification-icon {
+  font-size: 1.2rem;
+}
+
+.notification-text {
+  font-family: 'Comic Sans MS', cursive;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .canvas-controls {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .drawing-canvas {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+  
+  .colors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .color-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .inspiration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .drawing-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .drawing-section {
+    padding: 15px;
+  }
+  
+  .drawing-area {
+    padding: 1rem;
+  }
+  
+  .drawing-canvas {
+    max-width: 280px;
+  }
+  
+  .colors-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .color-btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .inspiration-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .inspiration-card {
+    padding: 1rem;
+  }
+  
+  .animal-icon {
+    font-size: 2.5rem;
+  }
+  
+  .modal-content {
+    margin: 20% auto;
+    padding: 1.5rem;
+    width: 95%;
+  }
+  
+  .navigation a {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 250px;
+  }
+}
