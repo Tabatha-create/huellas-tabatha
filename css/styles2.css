@@ -907,8 +907,8 @@ blockquote {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     background: var(--gradiente-magico);
     color: var(--color-texto-claro);
     border-radius: 50%;
