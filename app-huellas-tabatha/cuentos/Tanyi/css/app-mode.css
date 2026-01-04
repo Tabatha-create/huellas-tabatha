@@ -1,0 +1,42 @@
+/* ====== MODO APP PARA TANYI ====== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* evita scroll largo */
+}
+
+/* Contenedor principal */
+.app-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Textos más compactos */
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.3rem; }
+p  { font-size: 1rem; }
+
+/* Botones */
+button, .btn {
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+/* Evitar márgenes enormes */
+section, main, .container {
+  margin: 0;
+  padding: 12px;
+}
+
+/* Juegos */
+.game-container {
+  max-height: 85vh;
+  overflow: hidden;
+}
+ 
