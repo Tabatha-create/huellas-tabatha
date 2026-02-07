@@ -1,0 +1,382 @@
+/* Variables globales */
+
+body {
+    font-family: 'Fredoka', 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #fff5f7 0%, #f0e6ff 50%, #e6f3ff 100%);
+    background-attachment: fixed;
+    background-image: url(../img/bordeext6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header mejorado */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+
+/* Contenedor principal mejorado */
+.main-content {
+    margin-top: 100px;
+    padding: 40px 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-container {
+    background: var(--container-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    animation: float-in 1s ease-out;
+}
+
+.story-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+}
+
+/* Sección de imagen mejorada */
+.image-section {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(135deg, #e6f3ff 0%, #f0e6ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mystery-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-story-image {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.main-story-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.music-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.floating-note {
+    position: absolute;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: float-music 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.note1 { 
+    top: 15%; 
+    left: 10%; 
+    animation-delay: 0s; 
+    color: #ff1493;
+}
+.note2 { 
+    top: 25%; 
+    right: 15%; 
+    animation-delay: 1s; 
+    color: #ffd700;
+}
+.note3 { 
+    top: 45%; 
+    left: 20%; 
+    animation-delay: 2s; 
+    color: #98d8c8;
+}
+.note4 { 
+    top: 35%; 
+    right: 25%; 
+    animation-delay: 3s; 
+    color: #dda0dd;
+}
+
+.mystery-hint {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9), rgba(152, 216, 200, 0.9));
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    animation: gentle-pulse 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Sección de texto optimizada */
+.text-section {
+    padding: 40px;
+    background: white;
+}
+
+.chapter-title {
+    color: var(--tertiary-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+.story-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.story-text.highlight {
+    background: linear-gradient(120deg, rgba(255, 182, 193, 0.3) 0%, rgba(152, 216, 200, 0.3) 100%);
+    padding: 15px;
+    border-radius: 15px;
+    border-left: 4px solid var(--primary-color);
+    margin: 20px 0;
+}
+
+.mystery-reveal {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(152, 216, 200, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mystery-reveal:hover {
+    background: rgba(152, 216, 200, 0.2);
+    transform: scale(1.02);
+}
+
+/* Controles de audio mejorados */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    gap: 15px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.play-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Navegación mejorada */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f0e6ff, #e6f3ff);
+}
+
+.nav-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Animaciones */
+@keyframes float-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes float-music {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { 
+        opacity: 0.8; 
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .text-section {
+        padding: 30px 20px;
+    }
+
+    .chapter-title {
+        font-size: 2rem;
+    }
+
+    .story-text {
+        font-size: 1.2rem;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+.inline-periquito {
+  display: inline-block; /* Permite que la imagen esté en línea con el texto */
+  vertical-align: middle; /* Alinea la imagen con el centro de la línea de texto */
+  margin-right: 8px; /* Espacio a la derecha de la imagen */
+  /* Puedes ajustar este margen para que no esté pegada al texto */
+}
+
+.periquito-inline-image {
+  width: 100px; /* Ajusta el tamaño de la imagen de Periquito para que sea pequeña */
+  height: auto;
+  border-radius: 50%; /* Opcional: para que sea redonda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Opcional: para darle un toque de profundidad */
+}
+
+.song-player {
+  margin: 15px 0; /* Espacio arriba y abajo del reproductor */
+  padding: 10px;
+  background-color: #fce4ec; /* Un rosa claro para que destaque */
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ffb6c1; /* Borde suave */
+}
+
+.song-player p {
+  font-weight: bold;
+  color: #e91e63; /* Color de texto que combine con el rosa */
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.song-player audio {
+  width: 80%; /* Ancho del reproductor de audio */
+  max-width: 300px; /* Ancho máximo para pantallas grandes */
+  display: block; /* Para que ocupe su propia línea */
+  margin: 0 auto; /* Para centrarlo */
+}

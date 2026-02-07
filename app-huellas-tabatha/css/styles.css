@@ -2,26 +2,17 @@
    CSS PÁGINA PRINCIPAL DE LA PWA
    =============================== */
 :root {
-    /* Colores para containers con personalidad */
-    --color-coral: #fdc2c2;
-    --color-lavanda: #cec7e3;
-    --color-menta: #6EE7B7;
-    --color-durazno: #FDBA74;
-    --color-lila: #C084FC;
-    --color-aguamarina: #67E8F9;
-    --color-lila-claro: #DDA0DD;
-
-    /* Fondos especiales */
-    --fondo-coral: #FFF5F5;
-    --fondo-lavanda: #F3F4F6;
-    --fondo-menta: #F0FDF4;
-    --fondo-durazno: #FFF7ED;
-    --fondo-lila: #FAF5FF;
-    --fondo-aguamarina: #F0F9FF;
+    /* Fondos y colores generales */
+    --fondo-general: #F0FDF4; /* fondo menta suave */
+    --gradiente-magico: linear-gradient(135deg, #DDA0DD, #67E8F9); /* header */
 
     /* Tipografías infantiles */
-    --fuente-principal: 'Fredoka', 'Comic Sans MS', sans-serif;
+    --fuente-principal: 'Fredoka One', cursive;
     --fuente-titulos: 'Nunito', 'Quicksand', sans-serif;
+
+    /* Botones */
+    --btn-color: #FDBA74;
+    --btn-hover: #FB923C;
 }
 
 /* BODY */
@@ -29,31 +20,95 @@ body {
     font-family: var(--fuente-principal);
     margin: 0;
     padding: 0;
-    background-color: var(--fondo-menta); /* un fondo suave general */
+    background-color: var(--fondo-general);
     color: #333;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 20px;
-    background: var(--gradiente-magico, linear-gradient(135deg, var(--color-lila-claro), var(--color-aguamarina)));
+    padding: 25px;
+    background: var(--gradiente-magico);
     color: #fff;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 header h1 {
     font-family: var(--fuente-titulos);
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
 }
 
 header p {
     font-family: var(--fuente-principal);
-    font-size: 1rem;
-    margin: 5px 0 0 0;
+    font-size: 1.2rem;
+    margin: 8px 0 0 0;
 }
 
-/* BIBLIOTECA DE CUENTOS */
+.titulo-cuento {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    color: #1e3a8a;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 25px 0 15px 0;
+}
+
+/* BIBLIOTECA DE CUENTOS: se mantiene igual para respetar imágenes */
+
+/* TARJETA DE CUENTO */
+.cuento {
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    padding: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(135deg, #FFF5F5, #fdc2c2)
+}
+
+.cuento:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+.cuento img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* TITULO DEL CUENTO: solo texto */
+.cuento h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    color: #333; /* neutro, para no chocar con la portada */
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--gradiente-magico);
+    color: #1E3A8A;
+    font-family: 'Fredoka One', cursive;
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    background-color: #ff7c;
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
 .biblioteca {
     display: flex;
     flex-wrap: wrap;
@@ -62,55 +117,7 @@ header p {
     padding: 20px;
 }
 
-/* TARJETA DE CUENTO */
-.cuento {
-    width: 200px;
-    text-align: center;
-    background-color: var(--fondo-aguamarina);
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.cuento:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-/* PORTADAS */
-.cuento img {
-    width: 100%;
-    border-radius: 16px;
-}
-
-/* TITULO DEL CUENTO */
-.cuento h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.1rem;
-    margin: 10px 0;
-    color: var(--color-aguamarina); /* color vibrante del título */
-}
-
-/* BOTONES */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: var(--color-durazno);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.btn:hover {
-    background-color: #FB923C; /* un poco más intenso al pasar el cursor / toque */
-    transform: scale(1.05);
-}
-
-/* RESPONSIVE PARA MÓVILES PEQUEÑOS */
+/* RESPONSIVE PARA MÓVILES */
 @media (max-width: 500px) {
     .biblioteca {
         flex-direction: column;
@@ -126,3 +133,4 @@ header p {
         box-sizing: border-box;
     }
 }
+

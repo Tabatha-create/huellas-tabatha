@@ -1,0 +1,59 @@
+.song-card {
+  background-color: var(--container-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-sm);
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: var(--box-shadow);
+}
+
+.lyrics-box {
+  background-color: #f8d7de;
+  padding: 1rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 1rem;
+  white-space: pre-line;
+  font-size: 1.1rem;
+  font-family: 'Comic Sans MS', cursive;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.song-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.song-actions a {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+nav {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    nav a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: 'Comic Sans MS', cursive;
+      box-shadow: var(--box-shadow);
+    }
+
+    nav a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(231, 111, 81, 0.3);
+    }
