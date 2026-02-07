@@ -1,60 +1,126 @@
-/* ====== MODO APP PARA TANYI ====== */
+/* =========================================
+   MODO APP – ESTILOS GLOBALES PARA CUENTOS
+   ========================================= */
 
-/* Escala base para APP */
-html {
+/* -----------------------------------------
+   Escala base de la app
+   Se aplica solo cuando el body tiene
+   la clase .app-mode
+----------------------------------------- */
+
+.app-mode {
   font-size: 16px; /* tablet */
 }
 
 @media (max-width: 768px) {
-  html {
+  .app-mode {
     font-size: 15px; /* móviles grandes */
   }
 }
 
 @media (max-width: 480px) {
-  html {
+  .app-mode {
     font-size: 14px; /* móviles pequeños */
   }
 }
 
-html, body {
+/* -----------------------------------------
+   Reset seguro (no agresivo)
+----------------------------------------- */
+
+.app-mode,
+.app-mode body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden; /* evita scroll largo */
+  min-height: 100%;
 }
 
-/* Contenedor principal */
-.app-screen {
-  height: 100vh;
+/* -----------------------------------------
+   Scroll controlado (clave)
+   Evita scroll infinito pero no corta contenido
+----------------------------------------- */
+
+.app-mode body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* -----------------------------------------
+   Pantallas tipo MENÚ
+   (usar solo cuando quieras centrar contenido)
+----------------------------------------- */
+
+.app-mode .app-screen {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* ideal para menús */
   align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
-/* Textos más compactos */
-h1 { font-size: 1.8rem; }
-h2 { font-size: 1.4rem; }
-p  { font-size: 1rem; line-height: 1.4; }
+/* -----------------------------------------
+   Tipografía equilibrada para app
+----------------------------------------- */
 
-/* Botones */
-button, .btn {
+.app-mode h1 {
+  font-size: 1.8rem;
+}
+
+.app-mode h2 {
+  font-size: 1.4rem;
+}
+
+.app-mode p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------
+   Botones táctiles (sin ser gigantes)
+----------------------------------------- */
+
+.app-mode button,
+.app-mode .btn {
   font-size: 1rem;
   padding: 10px 16px;
   min-width: 140px;
   border-radius: 12px;
 }
 
-/* Evitar márgenes enormes */
-section, main, .container {
-  margin: 0;
-  padding: 12px;
+/* -----------------------------------------
+   Contenedores generales
+   Compacta los layouts pensados para web
+----------------------------------------- */
+
+.app-mode section,
+.app-mode main,
+.app-mode .container {
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-/* Juegos */
-.game-container {
-  max-height: 85vh;
-  overflow: hidden;
+/* -----------------------------------------
+   Juegos
+   Permite que respiren sin cortar contenido
+----------------------------------------- */
+
+.app-mode .game-container {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: visible;
 }
- 
+
+/* -----------------------------------------
+   Ajustes de seguridad para imágenes
+----------------------------------------- */
+
+.app-mode img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
