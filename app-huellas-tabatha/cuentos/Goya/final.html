@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -473,10 +473,6 @@
         
         document.body.appendChild(corazon);
         
-        if (celebracionActiva && Math.random() < 0.3) {
-            setTimeout(() => reproducirSonidoMagico(), Math.random() * 1000);
-        }
-        
         setTimeout(() => {
             if (corazon.parentNode) {
                 corazon.remove();
@@ -590,24 +586,19 @@
     }
 
     async function activarCelebracion() {
-        // Si el audio no está activado, mostrar un recordatorio
-        if (!sonidosDisponibles) {
-            const audioNotice = document.getElementById('audioNotice');
-            audioNotice.style.display = 'block';
-            audioNotice.innerHTML = '🔊 ¡Activa primero el audio para una experiencia completa!<br><button class="audio-button" onclick="activarAudio()">🎵 Activar Sonidos</button>';
-        }
-        
         if (celebracionActiva) return;
         celebracionActiva = true;
+        
+        // Inicializar y reproducir el MP3
+        if (!audioMP3) {
+            inicializarAudioMP3();
+        }
+        reproducirCancionCelebracion();
         
         // Crear explosión en el botón
         const boton = document.querySelector('.fin-button');
         const rect = boton.getBoundingClientRect();
         crearExplosion(rect.left + rect.width/2, rect.top + rect.height/2);
-        
-        // Reproducir sonidos de celebración
-        reproducirExplosion();
-        setTimeout(() => reproducirSonidoCelebracion(), 200);
         
         // Crear elementos inmediatamente en mayor cantidad
         for (let i = 0; i < 8; i++) {
@@ -621,13 +612,6 @@
         intervalos.push(setInterval(crearSimboloAmistad, 800));
         intervalos.push(setInterval(crearConfeti, 200));
         intervalos.push(setInterval(crearBurbuja, 400));
-        
-        // Reproducir sonidos adicionales durante la celebración
-        intervalos.push(setInterval(() => {
-            if (Math.random() < 0.3) {
-                reproducirSonidoCelebracion();
-            }
-        }, 3000));
         
         // Cambiar el botón con animación
         boton.innerHTML = '¡Amistad para Siempre! 💕✨🌟';

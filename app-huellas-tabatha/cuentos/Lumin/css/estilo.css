@@ -1,0 +1,201 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  color: #333;
+  background: url('fondo-dragones.png') repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.pagina {
+  padding: 20px 20px;
+  min-height: 100vh;
+  display: none;
+  transition: background-color 1s ease-in-out;
+  position: relative;
+  background-color: rgba(255,255,255,0.7); /* base neutra con transparencia */
+  border-radius: 20px;
+}
+
+.pagina.activa {
+  display: block;
+}
+
+/* 🌈 Capa de emoción (colores por escena con opacidad) */
+.bg-escena1 { background-color: rgba(192, 242, 231, 0.75); }
+.bg-escena2 { background-color: rgba(255, 226, 154, 0.75); }
+.bg-escena3 { background-color: rgba(255, 212, 242, 0.75); }
+.bg-escena4 { background-color: rgba(243, 234, 194, 0.75); }
+.bg-escena5 { background-color: rgba(182, 201, 236, 0.75); }
+.bg-escena6 { background-color: rgba(211, 249, 216, 0.75); }
+.bg-escena7 { background-color: rgba(248, 215, 232, 0.75); }
+.bg-escena8 { background-color: rgba(225, 249, 210, 0.75); }
+
+.bg-escena-final {
+  background-color: rgba(255, 248, 220, 0.85); /* tono cálido de celebración */
+}
+
+.cita-final {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.cancion-final {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: var(--box-shadow);
+  max-width: 600px;
+}
+
+.cancion-final h2 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.fin-button {
+  background: linear-gradient(to right, var(--accent-color), var(--tertiary-color));
+}
+
+.fin-button:hover {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+img {
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Estrellitas flotantes */
+.estrella {
+  position: fixed;
+  top: 100%;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: flotar 4s ease-in infinite;
+  z-index: 999;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+.estrella, .serpentina, .globo {
+  position: fixed;
+  top: 100%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.85;
+  z-index: 9999;
+  animation: subirCelebracion 4s ease-out forwards;
+}
+
+/* Serpentinas estilo cinta */
+.serpentina {
+  width: 8px;
+  height: 30px;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  animation: girarYSubir 5s ease-in-out forwards;
+}
+
+/* Globos con forma y sombra */
+.globo {
+  width: 24px;
+  height: 36px;
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  animation: flotarGlobo 6s ease-in forwards;
+}
+
+@keyframes subirCelebracion {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes girarYSubir {
+  0% { transform: rotate(0deg) translateY(0); }
+  100% { transform: rotate(360deg) translateY(-100vh); }
+}
+
+@keyframes flotarGlobo {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-50vh) scale(1.1); }
+  100% { transform: translateY(-110vh) scale(0.95); opacity: 0; }
+}
+
+
+/* Botones de navegación */
+.botones {
+  text-align: center;
+  margin: 20px;
+  
+}
+.menu-button {
+  background: linear-gradient(to right, #8be0f2, #d88bf9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+button {
+  background: linear-gradient(to right, #8be0f2, #d88bf9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+}
+button:hover {
+  background: linear-gradient(to right, #aee6f9, #f5a2fb);
+}
+
+.pagina img {
+  width: 85%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 20px;
+  margin-top: 10px;
+  animation: floatIn 1s ease-in-out;
+}
+
+.boton-volver {
+  background-color: #ffe680;
+  color: #5c4a00;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.boton-volver:hover {
+  background-color: #ffd450;
+}
+
