@@ -1,0 +1,672 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final del Cuento - ¡Amistad para Siempre!</title>
+</head>
+<body>
+    <style> 
+        :root {
+            --primary-color: #f4a261;
+            --secondary-color: #e76f51;
+            --tertiary-color: #a86c3d;
+            --accent-color: #96ceb4;
+            --highlight-color: #feca57;
+            --bg-color: #fff6f0;
+            --container-bg: rgba(255, 236, 225, 0.85);
+            --text-color: #666;
+            --header-footer-bg: rgba(244, 162, 97, 0.9);
+            --footer-bg: rgba(168, 108, 61, 0.9);
+            --border-radius-lg: 20px;
+            --border-radius-sm: 15px;
+            --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --header-footer-padding: 20px;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #FF9500, #FFD700, #FFB347);
+            background-attachment: fixed;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .cuento-texto {
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            max-width: 650px;
+            width: 90%;
+            margin-bottom: 50px;
+            border: 4px solid #32CD32;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(15px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cuento-texto:hover {
+            transform: translateY(-5px);
+        }
+
+        .cuento-texto h1 {
+            color: var(--text-color);
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(244, 162, 97, 0.3);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cuento-texto p {
+            color: var(--text-color);
+            font-size: 1.4em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Contenedor de imagen centrada */
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(244, 162, 97, 0.1), rgba(231, 111, 81, 0.1));
+            border-radius: 50%;
+            border: 3px dashed var(--secondary-color);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .imagen-container img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 45%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(244, 162, 97, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .imagen-container img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .fin-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .fin-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(244, 162, 97, 0.6);
+            background: linear-gradient(45deg, var(--secondary-color), var(--tertiary-color));
+        }
+
+        .menu-button {
+            background: #FFEB3B;;
+            box-shadow: 0 8px 25px rgba(150, 206, 180, 0.4);
+            font-size: 1.2em;
+            padding: 15px 35px;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(150, 206, 180, 0.6);
+            background: #32CD32;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .botones-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .boton-base {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            
+            .menu-button-fixed {
+                font-size: 1em;
+                padding: 10px 16px;
+            }
+        }
+
+        /* Animaciones de corazones más grandes */
+        .corazon {
+            position: absolute;
+            font-size: 4em;
+            animation: flotar 4s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .corazon.rosa { 
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 15px rgba(244, 162, 97, 0.6));
+        }
+        .corazon.brillante { 
+            color: var(--secondary-color);
+            filter: drop-shadow(0 0 20px var(--secondary-color)) drop-shadow(0 0 30px var(--primary-color));
+            animation: brillar 1.5s infinite alternate, flotar 4s infinite ease-in-out;
+        }
+        .corazon.multicolor {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(244, 162, 97, 0.5));
+        }
+
+        /* Símbolos de amistad más grandes */
+        .simbolo-amistad {
+            position: absolute;
+            font-size: 3.5em;
+            animation: girar 6s infinite linear, flotar 5s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .simbolo-amistad.manos { 
+            color: var(--secondary-color);
+            filter: drop-shadow(0 0 12px rgba(231, 111, 81, 0.6));
+        }
+        .simbolo-amistad.abrazo { 
+            color: var(--tertiary-color);
+            filter: drop-shadow(0 0 12px rgba(168, 108, 61, 0.6));
+        }
+        .simbolo-amistad.estrella { 
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 15px var(--primary-color)) drop-shadow(0 0 25px var(--secondary-color));
+        }
+
+        /* Confeti más grande y colorido */
+        .confeti {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            animation: caerConfeti 3s infinite linear;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .confeti.rectangulo {
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .confeti.circulo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .confeti.triangulo {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid var(--tertiary-color);
+        }
+
+        nav a {
+            background-color: var(--tertiary-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @keyframes flotar {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-30px) rotate(5deg) scale(1.1); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(-3deg) scale(1.05); 
+            }
+            75% { 
+                transform: translateY(-25px) rotate(8deg) scale(1.08); 
+            }
+        }
+
+        @keyframes brillar {
+            0% { 
+                filter: drop-shadow(0 0 20px var(--secondary-color)) drop-shadow(0 0 30px var(--primary-color));
+                transform: scale(1);
+            }
+            100% { 
+                filter: drop-shadow(0 0 30px var(--secondary-color)) drop-shadow(0 0 40px var(--primary-color)) drop-shadow(0 0 50px var(--tertiary-color));
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes caerConfeti {
+            0% { 
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(calc(100vh + 50px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes aparecer {
+            0% { 
+                opacity: 0; 
+                transform: scale(0) translateY(50px) rotate(-180deg);
+            }
+            50% {
+                transform: scale(1.2) translateY(-10px) rotate(0deg);
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0px) rotate(0deg);
+            }
+        }
+
+        .elemento-animado {
+            animation: aparecer 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Burbujas flotantes */
+        .burbuja {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(244, 162, 97, 0.3));
+            animation: burbujas 6s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes burbujas {
+            0% { 
+                transform: translateY(calc(100vh + 20px)) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-50px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Efectos de explosión para el botón */
+        .explosion {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: explotar 1s ease-out forwards;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        @keyframes explotar {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Instrucciones para agregar el MP3 */
+        .audio-instructions {
+            background: rgba(150, 206, 180, 0.2);
+            border: 2px dashed var(--accent-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .audio-instructions h3 {
+            color: var(--tertiary-color);
+            margin-top: 0;
+        }
+
+        .audio-instructions code {
+            background: rgba(168, 108, 61, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--tertiary-color);
+        }
+
+    </style>
+
+    <div class="cuento-texto">
+        <h1>¡Y Colorín Colorado!</h1>
+
+        <h1>Goya y Clea esperan que te haya gustado</h1>
+        
+        <div class="imagen-container">
+            <img src="img/goya.png" alt="Tanyi corazón" onerror="this.outerHTML='<div style=\'font-size: 4em; color: var(--primary-color); width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 5px solid var(--primary-color); background: rgba(255,255,255,0.8);\'>💖</div>'">
+        </div>
+        
+        <p>¿Te gustó esta historia? <br>
+            ¡Tú también puedes inventar la tuya!</p>
+        <p>Recuerda: ser diferente te hace especial y único.</p>
+        
+        
+        <button class="fin-button" onclick="activarCelebracion()">¡Celebrar la Amistad!</button>
+
+        <nav><a href="menu.html" class="boton-base menu-button">🏠 Volver al Menú Principal</a> </nav>    
+
+    </div>
+
+<script>
+        // ============================================
+    // SISTEMA DE AUDIO CON MP3
+    // ============================================
+    
+    let audioMP3 = null;
+    let celebracionActiva = false;
+    let intervalos = [];
+
+    // Función para inicializar el audio MP3
+    function inicializarAudioMP3() {
+        // Crea el elemento de audio para tu MP3
+        audioMP3 = new Audio('music/PollitoGoya.mp3');
+        audioMP3.volume = 0.7; // Volumen al 70%
+        audioMP3.loop = false; // Si quieres que se repita, cambia a true
+        
+        // Manejo de errores
+        audioMP3.addEventListener('error', function(e) {
+            console.log('⚠️ No se pudo cargar el archivo de audio. Asegúrate de que "celebracion.mp3" esté en la misma carpeta que este archivo HTML.');
+        });
+        
+        audioMP3.addEventListener('canplaythrough', function() {
+            console.log('✅ Audio cargado correctamente');
+        });
+    }
+
+    // Función para reproducir la canción MP3
+    function reproducirCancionCelebracion() {
+        if (audioMP3) {
+            audioMP3.currentTime = 0; // Empieza desde el inicio
+            audioMP3.play().catch(function(error) {
+                console.log('No se pudo reproducir el audio automáticamente. Esto puede deberse a políticas del navegador.');
+            });
+        }
+    }
+
+    // Función para detener la canción (opcional)
+    function detenerCancion() {
+        if (audioMP3) {
+            audioMP3.pause();
+            audioMP3.currentTime = 0;
+        }
+    }
+
+
+    function crearCorazon() {
+        const corazon = document.createElement('div');
+        corazon.className = 'corazon elemento-animado';
+        
+        const corazones = ['💖', '💝', '💕', '💗', '💓', '💘', '🥰', '😍'];
+        const corazonAleatorio = corazones[Math.floor(Math.random() * corazones.length)];
+        corazon.innerHTML = corazonAleatorio;
+        
+        const tipos = ['rosa', 'brillante', 'multicolor'];
+        const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
+        corazon.classList.add(tipoAleatorio);
+        
+        corazon.style.left = Math.random() * 90 + 5 + '%';
+        corazon.style.top = Math.random() * 90 + 5 + '%';
+        corazon.style.animationDelay = Math.random() * 2 + 's';
+        
+        document.body.appendChild(corazon);
+        
+        if (celebracionActiva && Math.random() < 0.3) {
+            setTimeout(() => reproducirSonidoMagico(), Math.random() * 1000);
+        }
+        
+        setTimeout(() => {
+            if (corazon.parentNode) {
+                corazon.remove();
+            }
+        }, 6000);
+    }
+
+    function crearSimboloAmistad() {
+        const simbolo = document.createElement('div');
+        simbolo.className = 'simbolo-amistad elemento-animado';
+        
+        const simbolos = [
+            { emoji: '🤝', clase: 'manos' },
+            { emoji: '🫂', clase: 'abrazo' },
+            { emoji: '⭐', clase: 'estrella' },
+            { emoji: '🌟', clase: 'estrella' },
+            { emoji: '💫', clase: 'estrella' },
+            { emoji: '🎉', clase: 'manos' },
+            { emoji: '🎊', clase: 'abrazo' },
+            { emoji: '🌈', clase: 'estrella' }
+        ];
+        
+        const simboloAleatorio = simbolos[Math.floor(Math.random() * simbolos.length)];
+        simbolo.innerHTML = simboloAleatorio.emoji;
+        simbolo.classList.add(simboloAleatorio.clase);
+        
+        simbolo.style.left = Math.random() * 85 + 7.5 + '%';
+        simbolo.style.top = Math.random() * 85 + 7.5 + '%';
+        simbolo.style.animationDelay = Math.random() * 3 + 's';
+        
+        document.body.appendChild(simbolo);
+        
+        setTimeout(() => {
+            if (simbolo.parentNode) {
+                simbolo.remove();
+            }
+        }, 8000);
+    }
+
+    function crearConfeti() {
+        const confeti = document.createElement('div');
+        const tipos = ['rectangulo', 'circulo', 'triangulo'];
+        const tipoAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
+        
+        confeti.className = `confeti ${tipoAleatorio}`;
+        confeti.style.left = Math.random() * 100 + '%';
+        confeti.style.animationDelay = Math.random() * 2 + 's';
+        confeti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        
+        const colores = ['#f4a261', '#e76f51', '#a86c3d', '#96ceb4', '#feca57'];
+        const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+        
+        if (tipoAleatorio === 'rectangulo') {
+            confeti.style.background = colorAleatorio;
+        } else if (tipoAleatorio === 'circulo') {
+            confeti.style.background = colorAleatorio;
+        } else if (tipoAleatorio === 'triangulo') {
+            confeti.style.borderBottomColor = colorAleatorio;
+        }
+        
+        document.body.appendChild(confeti);
+        
+        setTimeout(() => {
+            if (confeti.parentNode) {
+                confeti.remove();
+            }
+        }, 4000);
+    }
+
+    function crearBurbuja() {
+        const burbuja = document.createElement('div');
+        burbuja.className = 'burbuja';
+        
+        const tamaño = Math.random() * 30 + 20;
+        burbuja.style.width = tamaño + 'px';
+        burbuja.style.height = tamaño + 'px';
+        burbuja.style.left = Math.random() * 100 + '%';
+        burbuja.style.animationDelay = Math.random() * 2 + 's';
+        burbuja.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        
+        document.body.appendChild(burbuja);
+        
+        setTimeout(() => {
+            if (burbuja.parentNode) {
+                burbuja.remove();
+            }
+        }, 8000);
+    }
+
+    function crearExplosion(x, y) {
+        for (let i = 0; i < 12; i++) {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            
+            const colores = ['#f4a261', '#e76f51', '#a86c3d', '#feca57'];
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            explosion.style.background = colorAleatorio;
+            
+            explosion.style.left = x + (Math.random() - 0.5) * 100 + 'px';
+            explosion.style.top = y + (Math.random() - 0.5) * 100 + 'px';
+            explosion.style.animationDelay = (Math.random() * 0.5) + 's';
+            
+            document.body.appendChild(explosion);
+            
+            setTimeout(() => {
+                if (explosion.parentNode) {
+                    explosion.remove();
+                }
+            }, 1500);
+        }
+    }
+
+    async function activarCelebracion() {
+        // Si el audio no está activado, mostrar un recordatorio
+        if (!sonidosDisponibles) {
+            const audioNotice = document.getElementById('audioNotice');
+            audioNotice.style.display = 'block';
+            audioNotice.innerHTML = '🔊 ¡Activa primero el audio para una experiencia completa!<br><button class="audio-button" onclick="activarAudio()">🎵 Activar Sonidos</button>';
+        }
+        
+        if (celebracionActiva) return;
+        celebracionActiva = true;
+        
+        // Crear explosión en el botón
+        const boton = document.querySelector('.fin-button');
+        const rect = boton.getBoundingClientRect();
+        crearExplosion(rect.left + rect.width/2, rect.top + rect.height/2);
+        
+        // Reproducir sonidos de celebración
+        reproducirExplosion();
+        setTimeout(() => reproducirSonidoCelebracion(), 200);
+        
+        // Crear elementos inmediatamente en mayor cantidad
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => crearCorazon(), i * 150);
+            setTimeout(() => crearSimboloAmistad(), i * 200);
+            setTimeout(() => crearConfeti(), i * 100);
+        }
+        
+        // Continuar creando elementos con mayor frecuencia
+        intervalos.push(setInterval(crearCorazon, 600));
+        intervalos.push(setInterval(crearSimboloAmistad, 800));
+        intervalos.push(setInterval(crearConfeti, 200));
+        intervalos.push(setInterval(crearBurbuja, 400));
+        
+        // Reproducir sonidos adicionales durante la celebración
+        intervalos.push(setInterval(() => {
+            if (Math.random() < 0.3) {
+                reproducirSonidoCelebracion();
+            }
+        }, 3000));
+        
+        // Cambiar el botón con animación
+        boton.innerHTML = '¡Amistad para Siempre! 💕✨🌟';
+        boton.style.background = 'linear-gradient(45deg, var(--secondary-color), var(--tertiary-color), var(--primary-color))';
+        boton.style.animation = 'brillar 1s infinite alternate';
+        
+        // Hacer que el contenedor principal también celebre
+        const contenedor = document.querySelector('.cuento-texto');
+        contenedor.style.animation = 'flotar 2s infinite ease-in-out';
+    }
+
+    // Crear algunos elementos iniciales para ambiente
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            crearCorazon();
+            crearSimboloAmistad();
+            crearBurbuja();
+        }, 500);
+
+        // Mantener un ambiente festivo suave antes de la celebración
+        setInterval(() => {
+            if (!celebracionActiva) {
+                if (Math.random() < 0.7) crearCorazon();
+            }
+        }, 4000);
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                if (Math.random() < 0.5) crearSimboloAmistad();
+            }
+        }, 5000);
+
+        setInterval(() => {
+            if (!celebracionActiva) {
+                crearBurbuja();
+            }
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
