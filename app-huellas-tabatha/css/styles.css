@@ -3,7 +3,7 @@
    =============================== */
 :root {
     /* Fondos y colores generales */
-    --fondo-general: #F0FDF4; /* fondo menta suave */
+    --fondo-general: #FAF5FF; /* fondo menta suave */
     --gradiente-magico: linear-gradient(135deg, #DDA0DD, #67E8F9); /* header */
 
     /* Tipografías infantiles */
@@ -66,7 +66,7 @@ header p {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     padding: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
-    background: linear-gradient(135deg, #FFF5F5, #fdc2c2)
+    background: var(--gradiente-magico)
 }
 
 .cuento:hover {
