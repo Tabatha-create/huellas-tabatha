@@ -27,24 +27,20 @@ body {
 /* HEADER */
 header {
     text-align: center;
-    padding: 25px;
+    padding: 15px 15px 20px 15px;
     background: var(--gradiente-magico);
     color: #fff;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 header h1 {
-    font-family: var(--fuente-titulos);
-    font-size: 2.5rem;
-    margin: 0;
+    font-size: 1.8rem;
 }
 
 header p {
-    font-family: var(--fuente-principal);
-    font-size: 1.2rem;
-    margin: 8px 0 0 0;
+    font-size: 0.95rem;
 }
 
 .titulo-cuento {
@@ -60,23 +56,18 @@ header p {
 
 /* TARJETA DE CUENTO */
 .cuento {
-    width: 200px;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    padding: 12px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    background: var(--gradiente-magico)
-}
-
-.cuento:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    width: 150px;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background: white;
 }
 
 .cuento img {
     width: 100%;
-    border-radius: 20px;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 14px;
 }
 
 /* TITULO DEL CUENTO: solo texto */
@@ -103,34 +94,24 @@ header p {
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-.btn:hover {
-    background-color: #ff7c;
-    transform: scale(1.08);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
 .biblioteca {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
     padding: 20px;
+    justify-items: center;
 }
 
 /* RESPONSIVE PARA MÓVILES */
 @media (max-width: 500px) {
     .biblioteca {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cuento {
-        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .btn {
         width: 100%;
-        box-sizing: border-box;
+        font-size: 0.9rem;
+        padding: 8px;
     }
 }
 
