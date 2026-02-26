@@ -463,8 +463,50 @@
     </div>
 
 <script>
+
+    // ============================================
+    // SISTEMA DE AUDIO CON MP3
+    // ============================================
+    
+    let audioMP3 = null;
     let celebracionActiva = false;
     let intervalos = [];
+
+    // Función para inicializar el audio MP3
+    function inicializarAudioMP3() {
+        // Crea el elemento de audio para tu MP3
+        audioMP3 = new Audio('music/KirayPeriquito.mp3');
+        audioMP3.volume = 0.7; // Volumen al 70%
+        audioMP3.loop = false; // Si quieres que se repita, cambia a true
+        
+        // Manejo de errores
+        audioMP3.addEventListener('error', function(e) {
+            console.log('⚠️ No se pudo cargar el archivo de audio. Asegúrate de que "celebracion.mp3" esté en la misma carpeta que este archivo HTML.');
+        });
+        
+        audioMP3.addEventListener('canplaythrough', function() {
+            console.log('✅ Audio cargado correctamente');
+        });
+    }
+
+    // Función para reproducir la canción MP3
+    function reproducirCancionCelebracion() {
+        if (audioMP3) {
+            audioMP3.currentTime = 0; // Empieza desde el inicio
+            audioMP3.play().catch(function(error) {
+                console.log('No se pudo reproducir el audio automáticamente. Esto puede deberse a políticas del navegador.');
+            });
+        }
+    }
+
+    // Función para detener la canción (opcional)
+    function detenerCancion() {
+        if (audioMP3) {
+            audioMP3.pause();
+            audioMP3.currentTime = 0;
+        }
+    }
+
 
     function crearCorazon() {
         const corazon = document.createElement('div');
