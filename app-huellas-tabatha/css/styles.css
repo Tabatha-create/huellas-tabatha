@@ -1,21 +1,25 @@
 /* ===============================
    CSS PÁGINA PRINCIPAL DE LA PWA
    =============================== */
-:root {
-    /* Fondos y colores generales */
-    --fondo-general: #FAF5FF; /* fondo menta suave */
-    --gradiente-magico: linear-gradient(135deg, #DDA0DD, #67E8F9); /* header */
 
-    /* Tipografías infantiles */
+:root {
+    /* Fondo pastel suave */
+    --fondo-general: #F3F0FF;
+
+    /* Gradiente mágico (header y bordes) */
+    --gradiente-magico: linear-gradient(135deg, #DDA0DD, #67E8F9);
+
+    /* Tipografías */
     --fuente-principal: 'Fredoka One', cursive;
-    --fuente-titulos: 'Nunito', 'Quicksand', sans-serif;
+    --fuente-titulos: 'Nunito', sans-serif;
 
     /* Botones */
     --btn-color: #FDBA74;
     --btn-hover: #FB923C;
 }
 
-/* BODY */
+/* ===== BODY ===== */
+
 body {
     font-family: var(--fuente-principal);
     margin: 0;
@@ -24,94 +28,139 @@ body {
     color: #333;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
+
 header {
     text-align: center;
-    padding: 15px 15px 20px 15px;
+    padding: 18px 15px 22px 15px;
     background: var(--gradiente-magico);
     color: #fff;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    margin: 0;
 }
 
 header p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    margin-top: 6px;
 }
+
+/* ===== SUBTITULO ===== */
 
 .titulo-cuento {
-    font-family: 'Fredoka One', cursive;
-    font-size: 2rem;
-    color: #1e3a8a;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    text-align: center;
-    max-width: 25px 0 15px 0;
-}
-
-/* BIBLIOTECA DE CUENTOS: se mantiene igual para respetar imágenes */
-
-/* TARJETA DE CUENTO */
-.cuento {
-    width: 150px;
-    padding: 10px;
-    border-radius: 18px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    background: white;
-}
-
-.cuento img {
-    width: 100%;
-    max-height: 160px;
-    object-fit: contain;
-    border-radius: 14px;
-}
-
-/* TITULO DEL CUENTO: solo texto */
-.cuento h2 {
     font-family: var(--fuente-titulos);
-    font-size: 1.2rem;
-    margin: 10px 0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    color: #333; /* neutro, para no chocar con la portada */
+    font-size: 1.4rem;
+    color: #1E3A8A;
+    text-align: center;
+    margin: 25px 0 10px 0;
 }
 
-/* BOTONES */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: var(--gradiente-magico);
-    color: #1E3A8A;
-    font-family: 'Fredoka One', cursive;
-    text-decoration: none;
-    border-radius: 16px;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-}
+/* ===== BIBLIOTECA ===== */
 
 .biblioteca {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    padding: 20px;
-    justify-items: center;
+    gap: 28px;
+    padding: 30px 20px 40px 20px;
+    justify-content: center;
 }
 
-/* RESPONSIVE PARA MÓVILES */
-@media (max-width: 500px) {
+/* móvil */
+@media (max-width: 600px) {
     .biblioteca {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .btn {
-        width: 100%;
-        font-size: 0.9rem;
-        padding: 8px;
+/* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .biblioteca {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+        margin: auto;
     }
 }
 
+/* escritorio */
+@media (min-width: 1025px) {
+    .biblioteca {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1100px;
+        margin: auto;
+    }
+}
+
+/* ===== TARJETA DE CUENTO ===== */
+
+.cuento {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+
+    /* Borde degradado mágico */
+    border: 3px solid transparent;
+    background-image:
+        linear-gradient(#ffffff, #ffffff),
+        var(--gradiente-magico);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.cuento:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagen controlada */
+.cuento img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+/* ===== TITULO CUENTO ===== */
+
+.cuento h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    margin: 14px 0 12px 0;
+    color: #1E3A8A;
+}
+
+/* ===== BOTÓN ===== */
+
+.btn {
+    width: 100%;
+    text-align: center;
+    padding: 11px;
+    border-radius: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1E3A8A;
+
+    /* Interior durazno + borde mágico */
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(var(--btn-color), var(--btn-color)),
+        var(--gradiente-magico);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
