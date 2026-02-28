@@ -4,95 +4,96 @@
 
 /* -----------------------------------------
    Escala base de la app
-   Se aplica solo cuando el body tiene
-   la clase .app-mode
 ----------------------------------------- */
 
 .app-mode {
-  font-size: 16px; /* tablet */
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
   .app-mode {
-    font-size: 15px; /* móviles grandes */
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .app-mode {
-    font-size: 14px; /* móviles pequeños */
+    font-size: 14px;
   }
 }
 
 /* -----------------------------------------
-   Reset seguro (no agresivo)
+   Reset limpio
 ----------------------------------------- */
 
-.app-mode,
-.app-mode body {
+.app-mode {
   margin: 0;
   padding: 0;
   min-height: 100%;
 }
 
 /* -----------------------------------------
-   Scroll controlado (clave)
-   Evita scroll infinito pero no corta contenido
+   Scroll natural tipo app
 ----------------------------------------- */
 
-.app-mode body {
-  overflow-y: auto;
+.app-mode {
   overflow-x: hidden;
+}
+
+.app-mode body {
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 /* -----------------------------------------
-   Pantallas tipo MENÚ
-   (usar solo cuando quieras centrar contenido)
+   Pantallas tipo APP (sin centrado forzado)
 ----------------------------------------- */
 
 .app-mode .app-screen {
   min-height: 100vh;
-  display: flex;
+  display: block;
   flex-direction: column;
-  justify-content: center; /* ideal para menús */
   align-items: center;
   padding: 16px;
   box-sizing: border-box;
 }
 
 /* -----------------------------------------
-   Tipografía equilibrada para app
+   Tipografía equilibrada
 ----------------------------------------- */
 
 .app-mode h1 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .app-mode h2 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 .app-mode p {
   font-size: 1rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 /* -----------------------------------------
-   Botones táctiles (sin ser gigantes)
+   Botones táctiles equilibrados
 ----------------------------------------- */
 
 .app-mode button,
 .app-mode .btn {
   font-size: 1rem;
-  padding: 10px 16px;
-  min-width: 140px;
-  border-radius: 12px;
+  padding: 10px 18px;
+  border-radius: 14px;
 }
 
 /* -----------------------------------------
-   Contenedores generales
-   Compacta los layouts pensados para web
+   Contenedores web adaptados a app
 ----------------------------------------- */
 
 .app-mode section,
@@ -106,7 +107,6 @@
 
 /* -----------------------------------------
    Juegos
-   Permite que respiren sin cortar contenido
 ----------------------------------------- */
 
 .app-mode .game-container {
@@ -116,11 +116,64 @@
 }
 
 /* -----------------------------------------
-   Ajustes de seguridad para imágenes
+   Seguridad imágenes
 ----------------------------------------- */
 
 .app-mode img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* =====================================
+   TANYI – AJUSTE MENÚ APP (CORREGIDO)
+===================================== */
+
+/* Ocultar descripción larga */
+.app-mode .menu-description {
+  display: none;
+}
+
+/* Contenedor más compacto */
+.app-mode .menu-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 5px 5px 15px 5px;
+  text-align: center;
+}
+
+.app-mode .menu-container h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px 0 15px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Grid más compacto */
+.app-mode .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.app-mode .menu-item {
+  padding: 8px 6px;
+  border-radius: 16px;
+}
+
+/* Iconos ligeramente más pequeños */
+.app-mode .menu-item img {
+  width: 55px;
+  margin-bottom: 4px;
+}
+
+/* Texto más compacto */
+.app-mode .menu-item span {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.app-mode .content {
+  padding: 0;
+  margin: 0;
 }
