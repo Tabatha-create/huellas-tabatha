@@ -1,4 +1,4 @@
- /* Variables globales */
+/* Variables globales */
 :root {
     --primary-color: #f4a261;
     --secondary-color: #e76f51;
@@ -72,8 +72,9 @@
   
   /* Estructura de la página */
   .content {
-    padding-top: 100px;
-    padding-bottom: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 20px 20px;
   }
   
   /* Estilos de tipografía generales */
@@ -99,16 +100,18 @@
     background-color: var(--header-footer-bg);
     padding: var(--header-footer-padding);
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 50%;
-    width: 75%;
     transform: translateX(-50%);
+    width: 90%;
+    max-width: 900px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: var(--border-radius-lg);
+    box-sizing: border-box;
   }
   
   .logo {
@@ -134,12 +137,6 @@
   align-items: center;
   text-decoration: none;
   color: white;
-}
-
-.logoHuellas {
-  height: 15px; /* ajusta a la altura deseada */
-  margin-right: 8px; /* espacio entre el logo y la flecha */
-  border-radius: 10px;
 }
 
 .back-arrow {
@@ -173,7 +170,7 @@
     display: flex;
     flex-direction: row;        /* <-- AGREGAR ESTA LÍNEA */
     align-items: center;        /* <-- Y ESTAS TAMBIÉN */
-    justify-content: center;
+    justify-content: flex-start;
     gap: 40px;
     flex-wrap: wrap;
   }
@@ -252,40 +249,6 @@
     margin-top: 15px;
     font-size: 0.9rem;
     opacity: 0.8;
-  }
-  
-  /* Iconos sociales */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .social-icons li {
-    list-style: none;
-  }
-
-  .social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--primary-color); /* Color de fondo */
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-
-  .social-icons a:hover {
-    background-color: var(--secondary-color); /* Color al pasar el cursor */
-  }
-
-  .social-icons svg {
-    width: 20px;
-    height: 20px;
-    fill: white; /* Color del icono */
   }
   
   /* Estilos del contenedor de texto e imagen integrados de base.css */
@@ -475,3 +438,7 @@
 .play-button.playing {
   background: linear-gradient(135deg, var(--secondary-color, #98d8c8) 0%, var(--accent-color, #d0f0c0) 100%);
 }
+
+  body {
+    padding-top: 0;
+  }

@@ -3,7 +3,7 @@
 /* Contenedor principal del menú */
 .menu-container {
   background-color: var(--container-bg);
-  margin: 50px auto;
+  margin: 100px auto 50px;
   padding: 40px;
   border-radius: var(--border-radius-lg);
   max-width: 800px;
@@ -34,42 +34,6 @@
 }
 
 /* Grid de menú */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
-  justify-items: center;
-}
-
-.menu-item {
-  background-color: var(--primary-color);
-  border-radius: var(--border-radius-lg);
-  padding: 20px;
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-item:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.menu-item img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
-
-.menu-item:hover img {
-  transform: scale(1.1);
-}
 
 .en-construccion {
   pointer-events: none; /* desactiva el clic si quieres */
@@ -115,4 +79,73 @@
     padding: 15px;
   }
 }
-  
+
+/* BOTON VOLVER */
+.back-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+
+width:44px;
+height:44px;
+
+border-radius:12px;
+background:white;
+
+box-shadow:0 3px 6px rgba(0,0,0,0.2);
+}
+
+.back-button img{
+width:24px;
+height:24px;
+object-fit:contain;
+}
+
+/* GRID DEL MENU */
+.menu-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 160px);
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu-item{
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item img{
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover img {
+  transform: scale(1.1);
+}
+
+.menu-container h1{
+font-size:1.6rem;
+margin-bottom:25px;
+}
