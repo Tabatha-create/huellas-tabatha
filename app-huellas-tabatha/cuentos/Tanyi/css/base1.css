@@ -74,7 +74,8 @@
   .content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 140px 20px 20px;
+    padding: 20px 20px 20px;
+    padding-top: 100px;
   }
   
   /* Estilos de tipografía generales */
@@ -438,7 +439,3 @@
 .play-button.playing {
   background: linear-gradient(135deg, var(--secondary-color, #98d8c8) 0%, var(--accent-color, #d0f0c0) 100%);
 }
-
-  body {
-    padding-top: 0;
-  }

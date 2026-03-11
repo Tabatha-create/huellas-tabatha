@@ -3,7 +3,8 @@
 /* Contenedor principal del menú */
 .menu-container {
   background-color: var(--container-bg);
-  margin: 100px auto 50px;
+  margin: 20px auto 50px;
+  margin-top: max(90px, 12vh);
   padding: 40px;
   border-radius: var(--border-radius-lg);
   max-width: 800px;
