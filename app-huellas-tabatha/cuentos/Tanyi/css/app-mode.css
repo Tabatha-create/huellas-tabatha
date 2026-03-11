@@ -94,14 +94,15 @@ body .app-mode {
 
 /* -----------------------------------------
    Contenedores web adaptados a app
+   Solo app-screen y main, NO .container del cuento
 ----------------------------------------- */
 
-.app-mode section,
-.app-mode main,
-.app-mode .container {
+.app-mode .app-screen {
+  box-sizing: border-box;
+}
+
+.app-mode main {
   margin: 0 auto;
-  padding: 16px;
-  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -116,13 +117,12 @@ body .app-mode {
 }
 
 /* -----------------------------------------
-   Seguridad imágenes
+   Seguridad imágenes (no afecta image-box)
 ----------------------------------------- */
 
 .app-mode img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 /* =====================================
@@ -132,6 +132,12 @@ body .app-mode {
 /* Ocultar descripción larga */
 .app-mode .menu-description {
   display: none;
+}
+
+/* Centrar imagen de portada */
+.app-mode .cover-image {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Contenedor más compacto */

@@ -1,20 +1,95 @@
 /* =========================================
    CUENTO – ESTILOS PÁGINAS DEL CUENTO
+   Solo ajustes de compacidad para móvil.
+   Las proporciones imagen/texto las maneja base1.css
    ========================================= */
 
-/* ─── Escritorio: imagen con tamaño controlado ─── */
-.image-box {
-  align-self: flex-start;
-  flex: 0 0 380px;
-  max-width: 380px;
+/* Audio compacto en todas las pantallas */
+.audio-control {
+  max-width: 220px;
+  padding: 10px 16px;
 }
 
-.image-box img {
-  width: 100%;
-  max-height: 380px;
-  object-fit: contain;
-  border-radius: 14px;
+.play-button {
+  width: 42px;
+  height: 42px;
+  font-size: 16px;
 }
+
+.play-text {
+  font-size: 0.9rem;
+}
+
+/* ─── Móvil (< 768px): solo compactar espacios ─── */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 16px;
+    margin: 10px auto;
+    gap: 14px;
+  }
+
+  .text-box {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .audio-control {
+    max-width: 180px;
+    padding: 8px 12px;
+    margin: 6px auto;
+  }
+
+  .play-button {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .play-text {
+    font-size: 0.8rem;
+  }
+
+  nav {
+    margin-top: 8px;
+  }
+
+  nav a {
+    padding: 9px 12px;
+    font-size: 0.82rem;
+    margin: 3px;
+  }
+
+  .footer {
+    margin-top: 12px;
+  }
+}
+
+/* ─── Pantallas muy pequeñas (< 480px) ─── */
+@media (max-width: 480px) {
+
+  .text-box {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.05rem;
+  }
+
+  nav a {
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+}
+
+
 
 /* ─── Móvil (< 768px) ─── */
 @media (max-width: 768px) {
