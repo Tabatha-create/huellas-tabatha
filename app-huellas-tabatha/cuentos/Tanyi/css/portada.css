@@ -1,4 +1,3 @@
-
 .main-content {
   flex: 1;
   display: flex;
@@ -23,11 +22,77 @@
   max-height: 400px;
   object-fit: contain;
   border: 5px solid #a86c3d;
-  border-radius: 24px;
+  border-radius: var(--border-radius-lg);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: float 3s ease-in-out infinite;
   background-color: var(--primary-color);
-  border-radius: var(--border-radius-lg);
+}
+
+/* ─── MÓVIL: compacto, sin mucho scroll ─── */
+@media (max-width: 768px) {
+
+  .cover-container {
+    padding: 20px 16px;
+    border-radius: 20px;
+    border-width: 4px;
+  }
+
+  .cover-image {
+    width: 60%;
+    max-height: 220px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .title h1 {
+    font-size: 1.4rem;
+    margin: 6px 0;
+  }
+
+  .subtitle h4 {
+    font-size: 1rem;
+    margin: 6px 0;
+  }
+
+  .subtitle br {
+    display: none;
+  }
+
+  p.edad,
+  p.valores {
+    font-size: 0.85rem;
+    margin: 4px 0;
+  }
+
+  .start-button,
+  .menu-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    margin: 6px 4px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .cover-image {
+    width: 55%;
+    max-height: 180px;
+  }
+
+  .title h1 {
+    font-size: 1.2rem;
+  }
+
+  .subtitle h4 {
+    font-size: 0.9rem;
+  }
 }
 .title {
   font-size: 2.5rem;
