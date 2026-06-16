@@ -9,7 +9,8 @@
 
 </head>
 <body>
-    <!-- Encabezado -->
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+    
     <header>
         <div class="container">
             <div class="logo-container">
@@ -23,10 +24,12 @@
             <!-- Navegación principal -->
             <nav class="main-nav">
                 <ul>
+                    <li><a href="https://evaaixa.com/" class="eva-link">✨ EVA–AIXA</a></li>
+
                     <li><a href="#inicio">Inicio</a></li>
                 <!-- Implementación del menú desplegable para cuentos -->
                     <li class="dropdown"> 
-                        <a href="#" class="nav-link">Cuentos</a>
+                        <a href="javascript:void(0)" class="nav-link">Cuentos</a>
                         <div class="dropdown-content">
                             <a href="Tanyi/menu.html">La historia de Tanyi</a>
                             <a href="Kira/menu.html">Kira, la ratita</a>
@@ -37,7 +40,7 @@
                     </li>
                     <li><a href="#actividades">Actividades</a></li>
                     <li><a href="#quienes-somos">Personitas y patitas</a></li>
-                    <li><a href="#tabatha">Tabatha</a></li>
+                    <li><a href="#tabatha">Memorias de Tabatha</a></li>
                     <li><a href="#contact-section">Contacto</a></li>
                 </ul>
             </nav>
@@ -45,9 +48,9 @@
     </header>
 
     <!-- Contenido principal -->
-    <main>
+    <main id="inicio">
         <!-- Sección de bienvenida -->
-        <section id="inicio" class="welcome-section">
+        <section id="bienvenida" class="welcome-section">
             <div class="container">
                 <h2 class="section-title">Bienvenidos a nuestro mundo de historias</h2>
                 <div class="section-content">
@@ -71,7 +74,7 @@
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">📚Cuentos Infantiles</h3>
-                    <p>Historias que enseñan valores importantes mientras entretienen a los más pequeños. <br>
+                    <p>Historias que enseñan valores importantes mientras entretienen. <br>
                     Escribe el tuyo y te lo publicamos aquí</p>
                     
             <!-- CONTENIDO EXPANDIBLE PARA CUENTOS -->
@@ -105,7 +108,8 @@
                                 <div class="story-icon">
                                     <img src="Goya/img/logoGoya.png" alt="Goya, una maravilla"></div>
                                 <div class="story-info">
-                                    <h4>Goya, una maravilla <p>LEIRE O.D.</p></h4>                                    
+                                    <h4>Goya, una maravilla</h4>
+                                    <span class="autoria">LEIRE O.D.</span>                                    
                                     <p>Un pollito muy listo y especial.</p>
                                 </div>
                             </div>
@@ -145,8 +149,7 @@
         </div>
             
             <!-- TARJETA 2: ACTIVIDADES -->
-            <section id="actividades"> 
-            <div class="card">
+            <div class="card" id="actividades">
                 <div class="card-img"> 
                     <img src="img/recursos.png" alt="juegos"> 
                 </div>
@@ -194,21 +197,11 @@
                     </div>
                 </div>
             </div>
-            </section>
             
         </div>
     </div>
 </section>
 
-<div class="sidebar">
-    <ul class="social-icons">
-        <li><a href="https://www.facebook.com/aixaeva" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://www.twitter.com/evaaixa" target="_blank"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.instagram.com/aixaeva" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/evaaixa" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-        <li><a href="https://www.youtube.com/@evaaixa" target="_blank"><i class="fab fa-youtube"></i></a></li>
-    </ul>
-</div>
 </section>
 <br>
 <!-- Sección Personitas y Patitas  -->
@@ -408,7 +401,7 @@
     </div>
 </div>
 </section>
-<br><br><br><br><br>
+
 <section id="contact-section">
   <!-- Botón desplegable -->
   <button class="contact-toggle">Contáctanos</button>
@@ -451,8 +444,17 @@
         <div class="container">
             <div class="footer-content">
                 <img src="img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="footer-logo">
+                
                 <p>© 2025 Huellas de Tabatha - Todos los derechos reservados</p>
                 
+                <p class="footer-universe">
+                    <a href="https://evaaixa.com" class="footer-link">
+                    🐾 Parte del
+                    <img src="favicon.png" alt="Logo EVA-AIXA" class="footer-favicon">
+                    Universo EVA-AIXA
+                    </a>
+                </p>
+
                 <div>
                     <span class="paw-decoration">🐾</span>
                     <span class="paw-decoration">🐾</span>

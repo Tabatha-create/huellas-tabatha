@@ -191,6 +191,17 @@ header {
     position: relative;
 }
 
+.eva-link {
+    background: var(--gradiente-magico);
+    color: var(--color-texto-claro) !important;
+    border-color: transparent !important;
+}
+
+.eva-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--sombra-lavanda);
+}
+
 .main-nav a {
     text-decoration: none;
     color: var(--color-principal);
@@ -884,60 +895,6 @@ blockquote {
         }
         
 /* ===================
-   SIDEBAR REDES SOCIALES
-=================== */
-.sidebar {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
-}
-
-.social-icons {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 0; /* Asegurar que no hay márgenes por defecto */
-    padding: 0; /* Asegurar que no hay padding por defecto */
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: var(--gradiente-magico);
-    color: var(--color-texto-claro);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 12px var(--sombra-lavanda);
-    font-size: 1.4rem;
-}
-
-.social-icons a:hover {
-    background: var(--color-lila-medio);
-    transform: scale(1.15);
-    box-shadow: 0 8px 20px var(--sombra-lavanda);
-}
-
-/* Si quieres que sea más responsive en móviles */
-@media (max-width: 768px) {
-    .sidebar {
-        top: 100px; /* Valor menor para móviles si el header es más pequeño */
-    }
-    
-    .social-icons a {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-}
-
-/* ===================
    FORMULARIO DE CONTACTO CENTRADO CON BOTÓN DESPLEGABLE
 =================== */
 #contact-section {
@@ -1543,6 +1500,25 @@ footer {
 
 .toggle-icon.rotated {
     transform: rotate(180deg);
+}
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-favicon {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+}
+
+.footer-link:hover {
+    opacity: 0.85;
 }
 
 /* Responsive para móviles */
