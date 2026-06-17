@@ -481,6 +481,13 @@ blockquote {
   color: #555;
 }
 
+.homenaje-tanya {
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--color-texto-secundario);
+    border-left: 3px solid var(--color-lila-medio);
+    padding-left: 12px;
+}
 @media (min-width: 768px) {
   .miembro {
     flex-direction: row;
