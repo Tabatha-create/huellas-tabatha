@@ -531,6 +531,54 @@ blockquote {
     border-radius: 15px;
 }
 
+/* ===================
+   AGRADECIMIENTO FINAL
+=================== */
+
+.agradecimiento-final {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 25px 30px;
+    text-align: center;
+    background: var(--gradiente-lavanda);
+    border: 3px solid var(--color-lila-claro);
+    border-radius: 25px;
+
+    box-shadow: 0 6px 15px var(--sombra-lavanda);
+    position: relative;
+}
+
+.agradecimiento-final h3 {
+    color: var(--color-principal);
+    margin-bottom: 15px;
+    font-family: var(--fuente-titulos);
+}
+
+.agradecimiento-final p {
+    color: var(--color-texto);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.agradecimiento-final::before,
+.agradecimiento-final::after {
+    content: "🐾";
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.4;
+}
+
+.agradecimiento-final::before {
+    top: 12px;
+    left: 18px;
+}
+
+.agradecimiento-final::after {
+    bottom: 12px;
+    right: 18px;
+}
+
 /* Galería de recuerdos con modal */
 .memories-title {
     text-align: center;
@@ -547,6 +595,24 @@ blockquote {
 .memories-title p {
     font-size: 1.1rem;
     color: var(--color-principal);
+}
+
+.memories-intro {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 18px 25px;
+    text-align: center;
+    background: var(--gradiente-lavanda);
+    border-radius: 18px;
+    box-shadow: 0 4px 10px var(--sombra-lavanda);
+}
+
+.memories-intro p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-texto);
+    font-style: italic;
 }
 
 /* CARRUSEL - Contenedor principal */
@@ -904,13 +970,10 @@ blockquote {
 /* ===================
    FORMULARIO DE CONTACTO CENTRADO CON BOTÓN DESPLEGABLE
 =================== */
-#contact-section {
+#contacto {
     position: relative;
-    bottom: 80px;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 1000;
-    width: 380px;
+    width: 500px;
+    margin: 40px auto 60px;
     text-align: center;
 }
 
@@ -1023,6 +1086,14 @@ blockquote {
     content: '🐶';
     margin-right: 10px;
     font-size: 1.3rem;
+}
+
+.form-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .form-group {
