@@ -41,7 +41,7 @@
                     <li><a href="#actividades">Actividades</a></li>
                     <li><a href="#quienes-somos">Personitas y patitas</a></li>
                     <li><a href="#tabatha">Memorias de Tabatha</a></li>
-                    <li><a href="#contact-section">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -198,24 +198,75 @@
                 </div>
             </div>
             
-            <!-- TARJETA 3: CREA CON NOSOTROS -->
-            <div class="card">
-                <div class="card-img"> 
-                    <img src="img/creaHT.png" alt="crea-nosotros"> 
+            <!-- TARJETA 3: COMPARTE TU HISTORIA -->
+<div class="card">
+    <div class="card-img">
+        <img src="img/creaHT.png" alt="crea-nosotros">
+    </div>
+
+    <div class="card-content">
+
+        <h3 class="card-title">📝 Comparte tu historia</h3>
+
+        <p>
+            ¿Has inventado un personaje?
+            ¿Tienes una aventura para contar?
+            ¿Quieres enviarnos una idea o un dibujo?
+
+            Nos encantará seguir creando contigo.
+        </p>
+
+        <!-- CONTENIDO EXPANDIBLE -->
+        <div class="expandable-content" id="participa-content">
+
+            <p class="participa-intro">
+                ✨ Cada cuento comienza con una idea.
+                Comparte la tuya con nosotros y ayúdanos a llenar este rincón de nuevas aventuras.
+            </p>
+
+            <form id="contact-form"
+                  action="https://formspree.io/f/mzzodzoj"
+                  method="POST">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre"
+                           class="form-control" required>
                 </div>
 
-                <div class="card-content">
-                    <h3 class="card-title">📝 Crea con nosotros</h3>
-                    <p>¿Has inventado un personaje o una aventura?
-                    Nos encantará conocer tus ideas y seguir creando juntos.</p>
-
-                    <div class="btn-container">
-                        <a href="#contacto" class="btn">Quiero participar</a>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email"
+                           class="form-control" required>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Tu historia o mensaje <span class="required">*</span></label>
+                    <textarea id="mensaje" name="mensaje"
+                              class="form-control" required></textarea>
+                </div>
+
+                <input type="hidden"
+                       name="_subject"
+                       value="Participación desde Huellas de Tabatha">
+
+                <button type="submit" class="submit-btn">
+                    Enviar 🐾
+                </button>
+            </form>
+
+        </div>
+
+        <div class="btn-container">
+            <button class="btn"
+                    onclick="toggleContent('participa-content', this)">
+                Compartir mi historia
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
         </div>
     </div>
+</div>
+</div>
 </section>
 
 <!-- Sección Personitas y Patitas  -->
@@ -426,45 +477,6 @@
 </div>
 </section>
 
-<section id="contacto">
-  <button class="contact-toggle">✨ Envíanos un mensaje</button>
-  
-  <!-- Contenedor desplegable del formulario -->
-  <div class="contact-form-container">
-    <div class="contact-form">
-      <div class="form-header">
-        <h3>Comparte tu historia</h3>
-        
-        <p class="form-subtitle">
-            Cada cuento comienza con una idea.
-            Comparte la tuya con nosotros y ayúdanos a llenar este rincón de nuevas aventuras.
-        </p>
-      </div>
-      
-      <form id="contactForm" action="https://formspree.io/f/mzzodzoj" method="POST">
-        <div class="form-group">
-          <label for="nombre">Nombre <span class="required">*</span></label>
-          <input type="text" id="nombre" name="nombre" class="form-control" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email <span class="required">*</span></label>
-          <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="mensaje">Mensaje <span class="required">*</span></label>
-          <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
-        </div>
-        
-        <!-- Campo oculto para identificar la página -->
-          <input type="hidden" name="_subject" value="Contacto desde Huellas-Tabatha">
-        
-          <button type="submit" class="submit-btn">Enviar</button>
-      </form>
-    </div>
-  </div>
-</section>
 </main>
 
 <!-- Pie de página -->

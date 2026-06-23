@@ -235,9 +235,10 @@ function toggleContent(contentId, button) {
             button.innerHTML = 'Ver cuentos <i class="fas fa-chevron-down toggle-icon"></i>';
         } else if (contentId === 'actividades-content') {
             button.innerHTML = 'Explorar actividades <i class="fas fa-chevron-down toggle-icon"></i>';
-        } else if (contentId === 'recursos-content') {
-            button.innerHTML = 'Ver recursos <i class="fas fa-chevron-down toggle-icon"></i>';
-        }
+        } else if (contentId === 'participa-content') {
+            button.innerHTML = 'Compartir mi historia <i class="fas fa-chevron-down toggle-icon"></i>';
+        } 
+        
     } else {
         // Expandir
         content.classList.add('expanded');
@@ -248,8 +249,8 @@ function toggleContent(contentId, button) {
             button.innerHTML = 'Ocultar cuentos <i class="fas fa-chevron-down toggle-icon rotated"></i>';
         } else if (contentId === 'actividades-content') {
             button.innerHTML = 'Cerrar actividades <i class="fas fa-chevron-down toggle-icon rotated"></i>';
-        } else if (contentId === 'recursos-content') {
-            button.innerHTML = 'Ver menos recursos <i class="fas fa-chevron-down toggle-icon rotated"></i>';
+        } else if (contentId === 'participa-content') {
+            button.innerHTML = 'Cerrar formulario <i class="fas fa-chevron-down toggle-icon rotated"></i>';
         }
     }
 }
