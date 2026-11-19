@@ -52,28 +52,65 @@ function resetAudioButton() {
     isPlaying = false;
 }
 
-// Función para revelar el secreto (específica de página 1)
-function revealSecret() {
-    const mysteryElement = document.querySelector('.mystery-reveal');
-    mysteryElement.innerHTML = `
-        🌟 <strong>¡En un lugar secreto bajo la ciudad vivían muchos animalitos!</strong> 🌟<br>
-        <em>¡Allí comenzaba una gran sorpresa!</em>
-    `;
-    mysteryElement.style.background = 'linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(152, 216, 200, 0.3))';
-    mysteryElement.style.transform = 'scale(1.05)';
-    
-    // Añadir efecto visual a la escena
-    const mysteryHint = document.querySelector('.mystery-hint');
-    if (mysteryHint) {
-        mysteryHint.innerHTML = '✨ ¡El secreto está bajo tierra! ✨';
-        mysteryHint.style.background = 'linear-gradient(135deg, rgba(152, 216, 200, 0.95), rgba(255, 182, 193, 0.95))';
+
+// Respuestas de las pistas de cada página
+const mysteryPages = {
+    1: {
+        message: `
+            🌟 <strong>¡En un lugar secreto bajo la ciudad vivían muchos animalitos!</strong> 🌟<br>
+            <em>¡Allí comenzaba una gran sorpresa!</em>
+        `,
+        sceneHint: '✨ ¡El secreto está bajo tierra! ✨'
+    },
+
+    2: {
+        message: `
+            ✨ <strong>¡Algo muy especial estaba por suceder!</strong> ✨<br>
+            <em>Kira se preparaba para una noche inolvidable, pero todavía quedaba un secreto por descubrir...</em>
+        `
+    },
+
+    3: {
+        message: `
+            ✨ <strong>¡Kira estaba a punto de vivir una noche mágica!</strong> ✨<br>
+            <em>Todos esperaban con ilusión... pero aún nadie imaginaba lo que estaba por suceder. 💖</em>
+        `
+    },
+
+    4: {
+        message: `
+            ✨ <strong>¡Toda gran amistad tiene una historia!</strong> ✨<br>
+            <em>Y la de Kira y Periquito comenzó de una manera muy especial... ¡Descubramos cómo se conocieron! 🐭🦜</em>
+        `
     }
-    
-    // Efecto en la imagen
-    const mainImage = document.querySelector('.main-story-image');
-    if (mainImage) {
-        mainImage.style.filter = 'brightness(1.1) saturate(1.2)';
-        mainImage.style.transform = 'scale(1.03)';
+};
+
+
+// Función para revelar la pista correspondiente
+function revealSecret() {
+
+    const pageNumber = document.body.dataset.page;
+    const pageData = mysteryPages[pageNumber];
+
+    const mysteryElement = document.querySelector('.mystery-reveal');
+
+    if (!pageData || !mysteryElement) return;
+
+    mysteryElement.innerHTML = pageData.message;
+
+    mysteryElement.style.background =
+        'linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(152, 216, 200, 0.3))';
+
+    mysteryElement.style.transform = 'scale(1.05)';
+
+    // Actualizar el mensaje de la imagen, si corresponde
+    const mysteryHint = document.querySelector('.mystery-hint');
+
+    if (pageData.sceneHint && mysteryHint) {
+        mysteryHint.innerHTML = pageData.sceneHint;
+
+        mysteryHint.style.background =
+            'linear-gradient(135deg, rgba(152, 216, 200, 0.95), rgba(255, 182, 193, 0.95))';
     }
 }
 
