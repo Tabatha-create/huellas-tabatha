@@ -1615,3 +1615,94 @@ footer {
         min-width: auto;
     }
 }
+
+
+/* =========================================
+   PERSONAJES - UN MUNDO PARA JUGAR
+   ========================================= */
+
+#actividades-content .characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin: 15px auto;
+    box-sizing: border-box;
+}
+
+#actividades-content .character-card {
+    min-width: 0;
+    padding: 10px;
+    background: #faf5ff;
+    border-radius: 12px;
+    box-shadow: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#actividades-content .character-card > img {
+    display: block;
+    width: 100%;
+    height: 115px;
+    object-fit: contain;
+    margin: 0 auto 8px;
+}
+
+#actividades-content .character-card h4 {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin: 6px 0 10px;
+    color: #4A3F4D;
+}
+
+/* Desplegable */
+
+#actividades-content .character-card summary {
+    font-size: 0.8rem;
+    padding: 7px 5px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #d7b6f9, #f3c4df);
+    color: #4A3F4D;
+    cursor: pointer;
+    list-style: none;
+}
+
+#actividades-content .character-card summary::-webkit-details-marker {
+    display: none;
+}
+
+#actividades-content .character-activities {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 2px;
+}
+
+#actividades-content .character-activities a {
+    font-size: 0.8rem;
+    padding: 7px 5px;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #6b4b80;
+    text-decoration: none;
+}
+
+/* Móviles */
+
+@media (max-width: 500px) {
+    #actividades-content .characters-grid {
+        gap: 8px;
+    }
+
+    #actividades-content .character-card {
+        padding: 7px;
+    }
+
+    #actividades-content .character-card > img {
+        height: 95px;
+    }
+
+    #actividades-content .character-card h4 {
+        font-size: 0.8rem;
+    }
+}

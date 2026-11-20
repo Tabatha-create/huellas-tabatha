@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellas de Tabatha - Cuentos y Actividades Infantiles</title>
+    <link rel="stylesheet" href="css/styles2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    
+<header>
+    <div class="container">
+        <div class="logo-container">
+            <img src="img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="logo">
+            <div class="title-container"> 
+                <h1 class="site-title-sub">Cuentos y Juegos</h1>  
+                <h1 class="site-title-main">🐾"Huellas de Tabatha"🐾</h1>  
+                <p class="tagline">Cuentos y actividades inspirados en el amor por los animales</p>
+            </div>
+        </div>
+            
+        <nav class="main-nav">
+            <ul>
+                <li><a href="https://evaaixa.com/" class="eva-link">✨ EVA–AIXA</a></li>
+
+                <li><a href="#inicio">Inicio</a></li>
+                <!-- Implementación del menú desplegable para cuentos -->
+                <li class="dropdown"> 
+                    <a href="javascript:void(0)" class="nav-link">Cuentos</a>
+                    <div class="dropdown-content">
+                        <a href="Tanyi/menu.html">La historia de Tanyi</a>
+                        <a href="Kira/menu.html">Kira, la ratita</a>
+                        <a href="Goya/menu.html">Goya, una maravilla</a>
+                        <a href="Lumin/menu.html">Lumín cae del cielo</a>
+                        <a href="#">El elefante LuLo (Construyendo)</a>
+                    </div>
+                </li>
+                <li><a href="#actividades">Actividades</a></li>
+                <li><a href="#quienes-somos">Personitas y patitas</a></li>
+                <li><a href="#tabatha">Memorias de Tabatha</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="inicio">
+    <section id="bienvenida" class="welcome-section">
+        <div class="container">
+            <h2 class="section-title">Bienvenidos a nuestro mundo de historias</h2>
+            <div class="section-content">
+                <p>En "Huellas de Tabatha" creamos cuentos infantiles protagonizados por animales y niños que enseñan valores importantes mientras despiertan la imaginación. Este proyecto nació inspirado en Tabatha, una perrita muy especial que dejó sus huellas en los corazones de quienes la conocieron.</p>
+                <p>A través de historias, juegos y actividades, queremos fomentar el amor y el respeto por los animales, además de valores como la amistad, la empatía y la perseverancia.</p>
+                <h3>¡Acompáñanos en este viaje lleno de aventuras, aprendizaje y diversión!.</h3>
+            </div>
+            <h4>🐾 “Este sitio nace del juego, la ternura y la escucha. Cada historia, cada ficha, cada detalle, está pensado con amor.” 🐾</h4>
+        </div>
+    </section>
+
+<section id="caracteristicas">
+    <div class="container">
+        <h2 class="section-title">¿Qué encontrarás aquí?</h2>
+        <div class="feature-cards">
+            <!-- TARJETA 1: CUENTOS -->
+            <div class="card">
+                <div class="card-img"> 
+                    <img src="img/cuentosHT.png" alt="cuentos">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">📚Cuentos Infantiles</h3>
+                    <p>Historias que enseñan valores mientras entretienen.
+                    Descubre las aventuras de nuestros personajes</p>
+                    
+            <!-- CONTENIDO EXPANDIBLE PARA CUENTOS -->
+                <div class="expandable-content" id="cuentos-content">
+                    <div class="story-links">
+                        <a href="Tanyi/menu.html" class="story-link">
+                            <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="Tanyi/img/logo1.png" alt="El Mundo de Tanyi">
+                                </div>
+                                <div class="story-info">
+                                    <h4>El mundo de Tanyi</h4>
+                                    <p>Tanyi, una mestiza especial.</p>
+                                </div>
+                            </div>
+                        </a>
+                            
+                        <a href="Kira/menu.html" class="story-link">
+                            <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="Kira/img/Kira.png" alt="Kira, la ratita"></div>
+                                <div class="story-info">
+                                    <h4>Kira, la ratita</h4>
+                                    <p>Una ratita soñadora y su amigo Periquito.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="Goya/menu.html" class="story-link">
+                            <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="Goya/img/logoGoya.png" alt="Goya, una maravilla"></div>
+                                <div class="story-info">
+                                    <h4>Goya, una maravilla</h4>
+                                    <span class="autoria">LEIRE O.D.</span>                                    
+                                    <p>Un pollito muy listo y especial.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="Lumin/index.html" class="story-link">
+                            <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="Lumin/img/logoLumin.png" alt="Lumin"></div>
+                                <div class="story-info">
+                                    <h4>Lumín cae del cielo</h4>
+                                    <p>Un dragón de colores</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="story-link">
+                            <div class="story-item"> 
+                                <div class="story-icon">
+                                    <img src="" alt="El elefante LuLo">
+                                </div>
+                                <div class="story-info">
+                                    <h4>Construyendo <br> El elefante LuLo</h4>
+                                    <p>El elefante más querido.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                    
+                <div class="btn-container">
+                    <button class="btn" onclick="toggleContent('cuentos-content', this)">Ver cuentos
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+            
+            <!-- TARJETA 2: ACTIVIDADES -->
+            <div class="card" id="actividades">
+                <div class="card-img"> 
+                    <img src="img/actividadesHT.png" alt="actividades"> 
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">🎮Un mundo para jugar</h3>
+                    <p>Elige tu personaje favorito y descubre juegos y actividades inspirados en sus aventuras.</p>
+                    
+                    <!-- CONTENIDO EXPANDIBLE PARA ACTIVIDADES -->
+                    <div class="expandable-content" id="actividades-content">
+                        <div class="activity-grid">
+                            <div class="activity-item">
+                                <div class="activity-icon">🧩</div>
+                                <h3>Puzzles</h3>
+                                <p>Rompecabezas de nuestros personajes</p>
+                                <a href="Tanyi/puzzle.html" class="story-link"> <h4>El mundo de Tanyi </h4></a>
+                                <a href="Kira/puzzle.html" class="story-link"> <h4>Kira, la ratita </h4></a>
+                                <a href="Goya/puzzle.html" class="story-link"> <h4>Goya, una maravilla </h4></a>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎨</div>
+                                <h4>Colorear</h4>
+                                <p>Dibujos para colorear y crear</p>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎵</div>
+                                <h4>Canciones</h4>
+                                <p>Melodías de nuestras historias</p>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🎭</div>
+                                <h4>Teatro</h4>
+                                <p>Representa los cuentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn" onclick="toggleContent('actividades-content', this)">
+                            Explorar actividades
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TARJETA 3: COMPARTE TU HISTORIA -->
+<div class="card">
+    <div class="card-img">
+        <img src="img/creaHT.png" alt="crea-nosotros">
+    </div>
+
+    <div class="card-content">
+
+        <h3 class="card-title">📝 Comparte tu historia</h3>
+
+        <p>
+            ¿Has inventado un personaje?
+            ¿Tienes una aventura para contar?
+            ¿Quieres enviarnos una idea o un dibujo?
+
+            Nos encantará seguir creando contigo.
+        </p>
+
+        <!-- CONTENIDO EXPANDIBLE -->
+        <div class="expandable-content" id="participa-content">
+
+            <p class="participa-intro">
+                ✨ Cada cuento comienza con una idea.
+                Comparte la tuya con nosotros y ayúdanos a llenar este rincón de nuevas aventuras.
+            </p>
+
+            <form id="contact-form"
+                  action="https://formspree.io/f/mzzodzoj"
+                  method="POST">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre"
+                           class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email"
+                           class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Tu historia o mensaje <span class="required">*</span></label>
+                    <textarea id="mensaje" name="mensaje"
+                              class="form-control" required></textarea>
+                </div>
+
+                <input type="hidden"
+                       name="_subject"
+                       value="Participación desde Huellas de Tabatha">
+
+                <button type="submit" class="submit-btn">
+                    Enviar 🐾
+                </button>
+            </form>
+
+        </div>
+
+        <div class="btn-container">
+            <button class="btn"
+                    onclick="toggleContent('participa-content', this)">
+                Compartir mi historia
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Sección Personitas y Patitas  -->
+<section id="quienes-somos" class="equipo-section">
+    <div class="container">
+    <h2 class="titulo-seccion">Personitas y patitas</h2>
+
+    <article class="miembro">
+        <figure>
+            <img src="img/Tabatha.jpg" alt="Foto de Tabatha" />
+            <figcaption>Tabatha, nuestra musa peluda</figcaption>
+        </figure>
+        <div class="miembro-texto"> 
+            <h3>🐾 Tabatha, la inspiración de cuatro patas</h3>
+            <p>Tabatha con su ternura y alegría inspiró la idea de crear un espacio donde niñas, niños y familias pudieran jugar, aprender y disfrutar juntos.</p>
+        </div>
+    </article>
+
+    <article class="miembro">
+        <figure>
+            <img src="img/Foto2.jpg" alt="Foto de Tanya" />
+            <figcaption>Tanya, la perrita que inspiró a Tanyi</figcaption>
+        </figure>
+        <div class="miembro-texto"> 
+            <h3>🐶 Tanya, la inspiración detrás de Tanyi</h3>
+            <p>Tanya es más que una mascota: su dulzura y sabiduría dieron origen a Tanyi, una perrita mágica que juega y acompaña a los niños en sus aventuras lectoras.</p>
+            <p class="homenaje-tanya">🐾 Aunque Tanya ya no está físicamente con nosotros, sigue acompañándonos en cada aventura de <em>El Mundo de Tanyi</em>.</p>
+        </div>
+    </article>
+
+    <article class="miembro">
+        <figure>
+            <img src="img/Leire1.jpg" alt="Foto de Leire" class="miembro-img" />
+            <figcaption>Leire, probadora oficial de cuentos y juegos</figcaption>
+        </figure>
+        <div class="miembro-texto">
+            <h3>🌟 Leire, nuestra pequeña exploradora</h3>
+            <p>Leire prueba cada cuento, juego y actividad. Nos dice qué le gusta, qué cambiaría y nos recuerda que el mundo infantil es tan sabio como divertido.</p>
+            <blockquote>“Me gusta cuando los cuentos tienen dibujos grandes y puedo tocar cosas”</blockquote>
+        </div>
+    </article>
+
+    <article class="miembro">
+        <figure>
+            <img src="img/pelorizado.jpg" alt="Foto de Eva Aixa" class="miembro-img" />
+            <figcaption>Eva Aixa, diseñadora, narradora y creadora de cuentos</figcaption>
+        </figure>
+        <div class="miembro-texto">
+            <h3>👩‍💻 Eva Aixa, la creadora detrás del proyecto</h3>
+            <p>Escribo cuentos desde que era niña y me encanta interactuar con niñas y niños para crear e inventar juntos, combinando diseño, educación e historias que inspiran.</p>
+        </div>
+    </article>
+            
+        <div class="agradecimiento-final">
+            <h3>💬 Otras voces que nos inspiran</h3>
+            <p>
+                Gracias a todas las personas que han compartido ideas,
+                probado actividades y acompañado este proyecto.
+                Huellas de Tabatha sigue creciendo gracias a vosotros.🐾
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="tabatha"> 
+<div class="container">
+    <h2 class="section-title">🐾 Memorias de Tabatha</h2>
+        <div class="about-content">
+            <img src="img/Tabatha.jpg" alt="Tabatha" class="about-img">
+            <div>
+                <p>🐾 Tabatha fue una perrita mezcla de poodle (caniche) y shih tzu que dejó una huella imborrable. Aunque ya no está físicamente con nosotros, su alegría y su cariño siguen presentes en cada historia de este proyecto.🐾 </p>
+                <p>Llegó en un momento muy especial y, con sus juegos, ocurrencias y ternura, hizo que el mundo se viera más bonito.🐾</p>
+            </div>
+        </div>
+    
+    <div class="memories-intro">
+        <p>
+        🐾 Cada huella guarda un recuerdo. Estas son algunas de las pequeñas historias que convirtieron a Tabatha en una compañera inolvidable.
+        </p>
+    </div>
+
+<!-- Galería de Recuerdos -->
+    <div class="memories-title">
+        <h3>Pequeños momentos, grandes recuerdos</h3>
+        <p>Conoce a Tabatha a través de algunas anécdotas y momentos especiales en esta Galería de recuerdos</p>
+    </div>
+            
+<div class="photo-gallery">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Tarjeta 1 -->
+                <div class="memory-card" onclick="openModal(0)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/bebe.jpg" alt="Tabatha de cachorra" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Sus primeras fotos</h4>
+                        <p>Esta es una de las primeras fotos cuando nació que aún estaba junto a todos sus hermanitos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="memory-card" onclick="openModal(1)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/1erdia.jpg" alt="Tabatha jugando" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Primera mirada</h4>
+                        <p>Tenía carita de asustada, era el primer día que se separaba de sus hermanitos y todo era diferente, venía de un largo viaje y estaba lejos de los suyos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="memory-card" onclick="openModal(2)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/encasa.jpg" alt="Llegando a casa" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Llegando a casa</h4>
+                        <p>El primer día en casa, todavía seguía un poco asustada porque no conocía nada y era la primera noche separada de sus hermanitos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="memory-card" onclick="openModal(3)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/FB_IMG_1607551178153.jpg" alt="Coche muneca" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Como una muñeca</h4>
+                        <p>En mi primer viaje, me tomaron como un juguete y me paseaban en el coche de las muñecas.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="memory-card" onclick="openModal(4)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/cepillo.jpg" alt="Tabatha durmiendo" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Todo lo muerde</h4>
+                        <p>Siempre encontraba algo que morder. No importaba lo que fuera, ella todo lo que había en el piso lo agarraba para practicar con sus dientes nuevos.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="memory-card" onclick="openModal(5)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/comida1.jpg" alt="Comida caliente" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Ladrando a la comida</h4>
+                        <p>Cuando la comida estaba caliente, le ladraba para no quemarse. Hasta la comida era una razón para jugar.</p>
+                    </div>
+                </div>
+
+                 <div class="memory-card" onclick="openModal(6)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/limon1.jpg" alt="Comiendo zanahoria" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Peleando con el limón</h4>
+                        <p>Como todo era juguete agarró un limón y como no le gustaba, se puso a ladrarle.</p>
+                    </div>
+                </div>
+
+                                <div class="memory-card" onclick="openModal(7)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/zapatilla.jpg" alt="Zapatilla" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Otro juguete</h4>
+                        <p>Tenía muchos juguetes, pero le encantaba morder todo lo que había en el suelo y agarró las zapatillas como su juguete.</p>
+                    </div>
+                </div>
+
+                <div class="memory-card" onclick="openModal(8)">
+                    <div class="memory-img-container">
+                        <img src="img/Tabatha/zanahoria.jpg" alt="Comiendo zanahoria" class="memory-img">
+                    </div>
+                    <div class="memory-text">
+                        <h4>Comiendo zanahoria</h4>
+                        <p>De pequeñita le gustaba mucho la zanahoria, y la apoyaba en la zapatilla para que no se le escapara.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botones de navegación -->
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+        </div>
+        
+        <!-- Indicadores -->
+        <div class="carousel-indicators" id="indicators"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="photoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" class="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h4 id="modalTitle"></h4>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+</main>
+
+<!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="img/logoHT.jpg" alt="Logo Huellas de Tabatha" class="footer-logo">
+                
+                <p>© 2025 Huellas de Tabatha - Todos los derechos reservados</p>
+                
+                <p class="footer-universe">
+                    <a href="https://evaaixa.com" class="footer-link">
+                    🐾 Parte del
+                    <img src="favicon.png" alt="Logo EVA-AIXA" class="footer-favicon">
+                    Universo EVA-AIXA
+                    </a>
+                </p>
+
+                <div>
+                    <span class="paw-decoration">🐾</span>
+                    <span class="paw-decoration">🐾</span>
+                    <span class="paw-decoration">🐾</span>
+                </div>
+            </div>
+        </div>
+    
+         <script src="js/script.js"></script>
+    </footer>
+        <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Volver arriba">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+            </svg>
+        </button>
+
+</body>
+</html>
